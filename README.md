@@ -1,4 +1,4 @@
-# Building a Norwegian Ecosystem for Creative AI
+# Building a Norwegian Ecosystem for AI and Creativity
 
 Slides for the **Machines** session at the MishMash Opening Conference, Kilden, Kristiansand, 14 September 2026 (11:45–12:45). A ten-minute map of the AI tools and compute available in Norway, from a musician's laptop to the National Library training on Olivia, followed by a panel.
 
