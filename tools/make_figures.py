@@ -222,18 +222,18 @@ LINKS = [(0, 0), (1, 0), (2, 0), (2, 1), (2, 3), (3, 5), (3, 3), (4, 6), (5, 3),
 
 
 def tool_model():
-    W, H = 1600, 700
+    W, H = 1700, 700
     tw, mw, bh = 200, 180, 70
-    tx0 = (W - (len(TOOLS) * tw + (len(TOOLS) - 1) * 40)) / 2
-    mx0 = (W - (len(MODELS) * mw + (len(MODELS) - 1) * 30)) / 2
-    tools = [text(20, 95, "Tools", 30, INK, "start", "bold")]
+    tx0 = 200 + (1440 - (len(TOOLS) * tw + (len(TOOLS) - 1) * 40)) / 2
+    mx0 = 200
+    tools = [text(20, 110 + bh / 2 + 10, "Tools", 30, INK, "start", "bold")]
     tc = []
     for i, t in enumerate(TOOLS):
         x = tx0 + i * (tw + 40); tc.append(x + tw / 2)
         tools.append(box(x, 110, tw, bh, AMBER_PALE, AMBER, 2, 10))
         tools.append(text(x + tw / 2, 110 + bh / 2 + 8, t, 22, INK))
     write("fig-tool-model-0.svg", svg(W, H, "".join(tools)))
-    models = [text(20, 505, "Models", 30, INK, "start", "bold")]
+    models = [text(20, 520 + bh / 2 + 10, "Models", 30, INK, "start", "bold")]
     mc = []
     for i, m in enumerate(MODELS):
         x = mx0 + i * (mw + 30); mc.append(x + mw / 2)
