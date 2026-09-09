@@ -284,8 +284,7 @@ def spectrum():
     pts = []
     for name, wp, cx, sy, col in CASES:
         x = L + cx * (R - L); y = B - sy * (B - T)
-        pts.append(f"<circle cx='{x}' cy='{y}' r='26' fill='{col}' opacity='.9'/>")
-        pts.append(text(x, y + 7, wp[2] if wp.startswith("WP") else "", 20, "white" if col in (INK, PURPLE_MID) else INK, weight="bold"))
+        pts.append(f"<circle cx='{x}' cy='{y}' r='20' fill='{col}' opacity='.9'/>")
         dy = -40 if name != "Teacher in a school" else 55
         pts.append(text(x, y + dy, name, 22, INK, weight="bold"))
     write("fig-spectrum-1.svg", svg(W, H, "".join(pts), defs))
