@@ -163,7 +163,7 @@ STAIRS = [
 
 def stair():
     W, H = 1700, 800
-    defs = marker("a", BLUE) + marker("r", RED)
+    defs = marker("a", BLUE) + marker("r", GREEN)
     base, more = [], []
     x0, step, bw = 60, 320, 290
     for i, (name, desc, who) in enumerate(STAIRS):
@@ -176,7 +176,7 @@ def stair():
     write("fig-stair-0.svg", svg(W, H, "".join(base), defs))
     more.append(arrow(120, 100, 1580, 100, BLUE, 5, "a"))
     more.append(text(850, 80, "more compute · more people can share it · more data next to it", 24, BLUE, weight="bold"))
-    more.append(arrow(120, 730, 1580, 730, RED, 5, "r"))
+    more.append(arrow(120, 730, 1580, 730, GREEN, 5, "r"))
     more.append(text(850, 775, "more waiting · more paperwork · less interactive · batch, not a rehearsal", 24, RED, weight="bold"))
     write("fig-stair-1.svg", svg(W, H, "".join(more), defs))
 
