@@ -345,5 +345,61 @@ def loop():
     write("fig-loop.svg", svg(W, H, "".join(b), defs))
 
 
+# ---------------------------------------------------------------- 7 use or develop
+def use_develop():
+    W, H = 1600, 700
+    defs = marker("a", BLUE) + marker("g", INK)
+
+    def panel(x, w, fill, stroke, title, glyph, rows, bar, catch):
+        cx = x + w / 2
+        out = [box(x, 130, w, 510, fill, stroke)]
+        out.append(lines(cx, 185, title, 30, INK, weight="bold"))
+        out += glyph
+        out.append(lines(x + 40, 400, rows, 21, INK, "start", lh=1.5))
+        out.append(text(x + 40, 545, "time", 17, MUTED, "start"))
+        out += bar
+        out.append(text(cx, 610, catch, 18, MUTED))
+        return out
+
+    # A: use off the shelf
+    ga = [box(130, 250, 130, 56, "white", GREEN), text(195, 285, "finished model", 16, INK),
+          arrow(270, 278, 340, 278, INK, 3, "g"),
+          box(350, 250, 120, 56, "white", GREEN), text(410, 285, "any device", 16, INK)]
+    bar_a = [f"<rect x='200' y='530' width='90' height='16' rx='8' fill='{GREEN}'/>", text(300, 545, "minutes", 16, MUTED, "start")]
+    A = panel(60, 460, GREEN_PALE, GREEN, ["Use off the shelf"], ga,
+              ["hardware: anything that runs inference", "who: everyone on the map"], bar_a,
+              "the catch: their data, their terms")
+    write("fig-use-develop-0.svg", svg(W, H, "".join(A), defs))
+
+    # header and fork
+    head = [text(1090, 60, "Develop it yourself", 30, INK, weight="bold"),
+            text(1090, 92, "two different jobs", 18, MUTED),
+            arrow(1010, 100, 830, 128, INK, 3, "g")]
+    # B: train existing architecture on new data
+    gb = [box(590, 250, 120, 56, "white", PURPLE), text(650, 285, "your data", 16, INK),
+          arrow(715, 278, 745, 278, INK, 3, "g"),
+          box(750, 250, 130, 56, PURPLE_PALE, PURPLE), text(815, 285, "fixed architecture", 15, INK),
+          arrow(885, 278, 915, 278, INK, 3, "g"),
+          box(920, 250, 110, 56, "white", PURPLE), text(975, 285, "your model", 16, INK)]
+    bar_b = [f"<rect x='660' y='530' width='200' height='16' rx='8' fill='{PURPLE}'/>", text(875, 545, "hours to days, known", 16, MUTED, "start")]
+    B = panel(560, 500, PURPLE_PALE, PURPLE, ["Train an existing architecture", "on new data"], gb,
+              ["RAVE on your recordings, a LoRA on your film", "hardware: one GPU, sometimes a cluster", "who: PhDs, labs, a studio with a GPU"], bar_b,
+              "the catch: rights to the data")
+    write("fig-use-develop-1.svg", svg(W, H, "".join(head + B), defs))
+
+    # C: develop new methods
+    gc = [arrow(1170, 100, 1310, 128, INK, 3, "g")]
+    for i, mark in enumerate(["×", "×", "×", "×", "✓"]):
+        x = 1120 + i * 82
+        gc.append(box(x, 250, 62, 56, "white", INK, 2))
+        gc.append(text(x + 31, 290, mark, 30, INK, weight="bold"))
+    bar_c = [f"<rect x='1190' y='530' width='260' height='16' rx='8' fill='none' stroke='{INK}' stroke-width='3' stroke-dasharray='10 8'/>",
+             text(1465, 546, "?", 26, INK, "start", weight="bold")]
+    C = panel(1090, 450, "white", INK, ["Develop new methods"], gc,
+              ["new architectures, objectives, control", "hardware: many runs, most fail", "who: ML groups on national compute"], bar_c,
+              "the catch: allocations want a number first")
+    write("fig-use-develop-2.svg", svg(W, H, "".join(C), defs))
+
+
 if __name__ == "__main__":
-    two_roads(); ladder(); memory(); stair(); frontends(); api(); tool_model(); spectrum(); workflows(); loop()
+    two_roads(); ladder(); memory(); stair(); frontends(); api(); tool_model(); spectrum(); workflows(); loop(); use_develop()
