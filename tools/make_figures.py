@@ -162,14 +162,14 @@ def stair():
     for i, (name, desc, who) in enumerate(STAIRS):
         x = x0 + i * step
         top = 520 - i * 80
-        base.append(box(x, top, bw, 660 - top, "white", LINE))
+        base.append(box(x, top, bw, 685 - top, "white", LINE))
         base.append(text(x + bw / 2, top + 45, name, 28, INK, weight="bold"))
         base.append(lines(x + bw / 2, top + 85, desc.split("\n"), 17, INK))
-        base.append(text(x + bw / 2, 640, who, 17, MUTED))
+        base.append(text(x + bw / 2, 668, who, 17, MUTED))
     write("fig-stair-0.svg", svg(W, H, "".join(base), defs))
     more.append(arrow(120, 100, 1580, 100, BLUE, 5, "a"))
     more.append(text(850, 80, "more compute · more people can share it · more data next to it", 24, BLUE, weight="bold"))
-    more.append(arrow(1580, 730, 120, 730, RED, 5, "r"))
+    more.append(arrow(120, 730, 1580, 730, RED, 5, "r"))
     more.append(text(850, 775, "more waiting · more paperwork · less interactive · batch, not a rehearsal", 24, RED, weight="bold"))
     write("fig-stair-1.svg", svg(W, H, "".join(more), defs))
 
