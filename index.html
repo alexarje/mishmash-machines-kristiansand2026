@@ -355,12 +355,25 @@
   </section>
   <section>
     <h3>Licences in three colours</h3>
-    <div class="cols3" style="font-size:.65em">
-      <div class="card good"><h3>Anything goes</h3><p>Apache 2.0, MIT</p><ul><li>Mistral, Qwen, NorMistral</li><li>Whisper, RAVE</li><li>sell the work, ship the product</li></ul></div>
-      <div class="card warn"><h3>Conditions</h3><p>Community licences</p><ul><li>Llama, Gemma, FLUX dev</li><li>Stability community licence</li><li>user caps, revenue caps, attribution: read it</li></ul></div>
-      <div class="card bad"><h3>Research only</h3><p>Non-commercial</p><ul><li>some music and video checkpoints</li><li>fine for a paper, not for a release</li><li>a commissioned work is commercial</li></ul></div>
+    <div class="cols3" style="font-size:.6em">
+      <div class="card good"><h3>Anything goes</h3><p>Apache 2.0 · MIT</p><ul><li>Mistral, Mixtral · Qwen3 · DeepSeek · Phi</li><li>NorMistral (UiO) · NB-Whisper</li><li>Whisper · RAVE · CLIP · SAM</li><li>FLUX.1 schnell · Wan 2.1 · YuE · ACE-Step</li><li>use it, sell the work, ship the product</li></ul></div>
+      <div class="card warn"><h3>Conditions</h3><p>Community licences and terms of use</p><ul><li>Llama: "Built with Llama", 700M-user cap, derivatives named Llama</li><li>Gemma: prohibited-use policy passed on</li><li>Stability community licence (SD3.5, Stable Audio Open): free under $1M revenue</li><li>CreativeML OpenRAIL-M (SD 1.5, SDXL): use restrictions travel with the weights</li><li>NorwAI NorLLM: Nordic organisations</li></ul></div>
+      <div class="card bad"><h3>Non-commercial</h3><p>Research only, CC-BY-NC</p><ul><li>FLUX.1 dev: non-commercial licence for the model</li><li>MusicGen: code MIT, weights CC-BY-NC 4.0</li><li>many research checkpoints on Hugging Face</li><li>fine for a paper; a commissioned work is commercial</li></ul></div>
     </div>
-    <aside class="notes">Depth. Three colours. Green: permissive, do what you like. Amber: community licences with conditions, usually fine for artists and researchers but read them. Red: research-only; fine for a paper, a problem for a commissioned work. Licences change between versions, so check the card of the exact checkpoint. Removed from the slide: The licence decides whether an artist can sell the work. Check the model card before the first rehearsal, not after the premiere.</aside>
+    <aside class="notes">Depth. Three colours with concrete names. Green: permissive, do what you like, keep the notice. Amber: community licences and terms of use; usually fine for artists and researchers, but with strings: attribution, revenue caps, naming rules, use restrictions that travel with the weights. Red: research-only or non-commercial; fine for a paper, a problem for a commissioned work. Two traps: the code and the weights can have different licences, as with MusicGen, and licences change between versions, so read the card of the exact checkpoint. Licences: RAVE MIT; MusicGen weights CC-BY-NC; Stable Audio Open and SD3.5 Stability community licence with a one-million-dollar revenue cap; FLUX.1 schnell Apache 2.0 but FLUX.1 dev non-commercial; Llama community licence; Gemma terms of use; Qwen3 Apache 2.0. Rule of thumb, not legal advice.</aside>
+  </section>
+  <section>
+    <h3>Licence compatibility: what you can do with what</h3>
+    <table class="tbl">
+      <tr><th>Base model licence</th><th>Research paper</th><th>Commissioned work, sold</th><th>Product or service</th><th>Release your fine-tune</th><th>Mix with a permissive model</th><th>Train a new model on its outputs</th></tr>
+      <tr><td>Apache 2.0 / MIT<small>Mistral, Qwen3, NorMistral, Whisper, RAVE, FLUX schnell</small></td><td class="y">●</td><td class="y">●</td><td class="y">●</td><td class="y">● any licence, keep the notice</td><td class="y">●</td><td class="y">●</td></tr>
+      <tr><td>Llama community<small>Llama 3, Llama 4</small></td><td class="y">●</td><td class="y">● "Built with Llama"</td><td class="m">◐ under 700M users</td><td class="m">◐ same licence, name starts with Llama</td><td class="m">◐ the mix inherits Llama terms</td><td class="m">◐ allowed, new model named Llama</td></tr>
+      <tr><td>Gemma terms of use<small>Gemma 2, 3</small></td><td class="y">●</td><td class="y">●</td><td class="m">◐ prohibited-use policy</td><td class="m">◐ terms passed on</td><td class="m">◐ the mix inherits the terms</td><td class="m">◐ check the terms</td></tr>
+      <tr><td>Stability community<small>SD3.5, Stable Audio Open</small></td><td class="y">●</td><td class="m">◐ free under $1M revenue</td><td class="m">◐ same cap, else enterprise licence</td><td class="m">◐ same licence</td><td class="m">◐ the mix inherits the cap</td><td class="m">◐ check the terms</td></tr>
+      <tr><td>OpenRAIL-M<small>SD 1.5, SDXL</small></td><td class="y">●</td><td class="y">●</td><td class="m">◐ use restrictions apply</td><td class="m">◐ restrictions passed on</td><td class="m">◐ restrictions travel with it</td><td class="m">◐</td></tr>
+      <tr><td>Non-commercial<small>FLUX.1 dev, MusicGen weights, CC-BY-NC</small></td><td class="y">●</td><td class="m">◐ read it: outputs sometimes yes, the model no</td><td class="n">○</td><td class="m">◐ non-commercial only</td><td class="n">○ the whole release becomes non-commercial</td><td class="n">○ usually forbidden</td></tr>
+    </table>
+    <aside class="notes">Depth. A rule of thumb, not legal advice. Read the columns as what you might want to do, the rows as what you started from. Permissive licences say yes to everything. Community licences say yes with strings, and the strings travel: fine-tune a Llama and the result is a Llama, mix it with a permissive model and the mix inherits the Llama terms. Non-commercial is the one that breaks things: the moment a non-commercial checkpoint is in the chain, the whole release is non-commercial, and training a new model on its outputs is usually forbidden. For an artist the important column is the second one: a commissioned work that is sold is commercial use. For a researcher releasing weights it is the fourth and fifth. Removed from the slide: rule of thumb, not legal advice.</aside>
   </section>
   <section>
     <h3>Where to find them, how to trust them</h3>
@@ -381,9 +394,9 @@
   <section>
     <div class="layers" style="max-width:88%">
       <img class="fig" src="images/fig-spectrum-0.svg" alt="Axes: compute needed from laptop to LUMI, and data sensitivity from own material to personal and health data">
-      <img class="fig fragment" src="images/fig-spectrum-1.svg" alt="Seven use cases placed on the axes: musician on stage, filmmaker, music therapist, teacher in a school, cultural institution, National Library, designer or rescue operator">
+      <img class="fig fragment" src="images/fig-spectrum-1.svg" alt="Use cases placed on the axes: musician on stage, filmmaker, music therapist, teacher in a school, cultural institution, National Library, designer or rescue operator, and a computer science researcher who trains models across the work packages">
     </div>
-    <aside class="notes">Two axes: how much compute, and how sensitive the data. Click. WP1, a musician on stage: milliseconds, a laptop in the room, own recordings; bottom left. WP2, a filmmaker: video generation, hours on a GPU, and the rights of the training data are the issue. WP3, a music therapist: small models but health data, so TSD or fully offline; top left. WP4, a teacher: no GPU at all, a Chromebook, pupils' data, and a need for free Norwegian tools; far left, high up. WP5, cultural institutions and rights organisations: production-grade, contracts, audit trails. WP6, the National Library: a multimodal model on the whole collection, petabytes, Olivia or LUMI for months; far right. WP7, designers and rescue operators: physics and law built in, often on an embedded device. No single machine serves this picture. That is why there is no common solution.</aside>
+    <aside class="notes">Two axes: how much compute, and how sensitive the data. Click. WP1, a musician on stage: milliseconds, a laptop in the room, own recordings; bottom left. WP2, a filmmaker: video generation, hours on a GPU, and the rights of the training data are the issue. WP3, a music therapist: small models but health data, so TSD or fully offline; top left. WP4, a teacher: no GPU at all, a Chromebook, pupils' data, and a need for free Norwegian tools; far left, high up. WP5, cultural institutions and rights organisations: production-grade, contracts, audit trails. WP6, the National Library: a multimodal model on the whole collection, petabytes, Olivia or LUMI for months; far right. WP7, designers and rescue operators: physics and law built in, often on an embedded device. And the computer science researcher who builds the models for all of them: a lot of compute, mostly open or synthetic data, bottom right. No single machine serves this picture. That is why there is no common solution.</aside>
   </section>
   <section>
     <img class="fig" src="images/fig-workflow-musician.svg" alt="Musician: record own material, train RAVE overnight on a studio GPU or Fox, play with nn~ in Max on the laptop">
@@ -402,7 +415,7 @@
     <aside class="notes">Depth. The National Library. Petabytes, months of allocation, and then an open release that everyone downstream can use. The loop closes.</aside>
   </section>
   <section>
-    <h3>Seven work packages, one table</h3>
+    <h3>Work Package Needs</h3>
     <table class="tbl wide">
       <tr><th>WP</th><th>Typical machine task</th><th>Data</th><th>Compute</th><th>Runs today on</th><th>The hole</th></tr>
       <tr><td>1 Performances</td><td>real-time co-creative agents, RAVE, gesture models</td><td>own recordings, sensors</td><td>ms; laptop, board, one GPU to train</td><td>laptop, studio GPU, Fox</td><td>open real-time models; training time without paperwork</td></tr>

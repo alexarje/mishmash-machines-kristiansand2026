@@ -226,14 +226,14 @@ def tool_model():
     tw, mw, bh = 200, 180, 70
     tx0 = (W - (len(TOOLS) * tw + (len(TOOLS) - 1) * 40)) / 2
     mx0 = (W - (len(MODELS) * mw + (len(MODELS) - 1) * 30)) / 2
-    tools = [text(20, 155, "Tools", 30, INK, "start", "bold")]
+    tools = [text(20, 95, "Tools", 30, INK, "start", "bold")]
     tc = []
     for i, t in enumerate(TOOLS):
         x = tx0 + i * (tw + 40); tc.append(x + tw / 2)
         tools.append(box(x, 110, tw, bh, AMBER_PALE, AMBER, 2, 10))
         tools.append(text(x + tw / 2, 110 + bh / 2 + 8, t, 22, INK))
     write("fig-tool-model-0.svg", svg(W, H, "".join(tools)))
-    models = [text(20, 565, "Models", 30, INK, "start", "bold")]
+    models = [text(20, 505, "Models", 30, INK, "start", "bold")]
     mc = []
     for i, m in enumerate(MODELS):
         x = mx0 + i * (mw + 30); mc.append(x + mw / 2)
@@ -253,6 +253,7 @@ CASES = [  # name, WP, compute 0..1, sensitivity 0..1, colour
     ("Cultural institution", "WP5", 0.55, 0.60, "#553c9a"),
     ("National Library", "WP6", 0.95, 0.55, INK),
     ("Designer / rescue", "WP7", 0.40, 0.80, "#2c7a7b"),
+    ("Computer science researcher", "ML", 0.78, 0.22, "#553c9a"),
 ]
 
 
@@ -277,7 +278,7 @@ def spectrum():
     for name, wp, cx, sy, col in CASES:
         x = L + cx * (R - L); y = B - sy * (B - T)
         pts.append(f"<circle cx='{x}' cy='{y}' r='26' fill='{col}' opacity='.9'/>")
-        pts.append(text(x, y + 7, wp[2], 20, "white", weight="bold"))
+        pts.append(text(x, y + 7, wp[2] if wp.startswith("WP") else "", 20, "white", weight="bold"))
         dy = -40 if name != "Teacher in a school" else 55
         pts.append(text(x, y + dy, name, 22, col, weight="bold"))
     write("fig-spectrum-1.svg", svg(W, H, "".join(pts), defs))
