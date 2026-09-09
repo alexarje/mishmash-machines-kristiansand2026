@@ -192,6 +192,14 @@
     <aside class="notes">Three questions structure the whole session. Right side: the map is not only for MishMash researchers. A single musician on stage, a filmmaker, a teacher in a school, a startup, a museum, and the National Library training a multimodal model on its whole collection all belong on the same map. They do not need the same thing, and that is the point. Removed from the slide: No common solution. A map: the options, the holes, what could improve.</aside>
   </section>
   <section>
+    <p class="kicker">Creative AI is not "traditional" AI</p>
+    <div class="cols" style="gap:1.5em">
+      <div class="card"><h3>AI for a task</h3><ul><li>one task, one right answer</li><li>batch: throughput matters, latency does not</li><li>large, clean, labelled data</li><li>measured by accuracy on a benchmark</li><li>runs in a data centre, out of sight</li></ul></div>
+      <div class="card warn"><h3>AI for creative work</h3><ul><li>open-ended: many good answers, or none</li><li>real-time and interactive: latency is the constraint</li><li>small, personal, messy data, often your own</li><li>measured by taste, context and who is asking</li><li>on stage, in the room, on the body: control matters</li></ul></div>
+    </div>
+    <aside class="notes">Before the map, one distinction that runs through all of it. Most of the national AI infrastructure is built for the left column: one well-defined task, big data, batch jobs, accuracy as the measure. Creative work sits in the right column: it is interactive, it needs low latency, the data are small and personal, and whether the result is good is a question of taste and context rather than a benchmark. One caveat: every generative model has some degree of creativity in it, whether or not it is used for a task anyone would call creative. The point is not that the models are different. The point is that the needs are: latency, control, small data and evaluation. The panel comes back to this.</aside>
+  </section>
+  <section>
     <p class="kicker">Map of the introduction</p>
     <div class="map">
       <div class="lbl">Strips</div>
@@ -201,7 +209,7 @@
       <div class="h"><div>Frontends<span class="sub">chat · code · creative · programmatic</span></div></div>
       <div class="h"><div>Models<span class="sub">what runs where · licences</span></div></div>
       <div class="h"><div>Who needs what<span class="sub">seven work packages</span></div></div>
-      <div class="h"><div>What works<span class="sub">tasks × platforms</span></div></div>
+      <div class="h"><div>Use or develop<span class="sub">off the shelf · new data · new methods</span></div></div>
       <div class="h"><div>Holes in the map<span class="sub">who gets access</span></div></div>
       <div class="h"><div>The panel<span class="sub">four angles</span></div></div>
     </div>
@@ -438,13 +446,22 @@
   </section>
 </section>
 
-<!-- ===================== 7 WHAT WORKS ===================== -->
+<!-- ===================== 7 USE OR DEVELOP ===================== -->
 <section>
   <section class="center-slide opener">
-    <h1>What works for what</h1>
-    <aside class="notes">Tasks against platforms. A rough guide, not a verdict.</aside>
+    <h1>Use or develop</h1>
+    <aside class="notes">Using a model off the shelf and developing one are different jobs, with different hardware, different time scales and different people. And development itself forks in two.</aside>
   </section>
   <section>
+    <div class="cols3" style="font-size:.95em">
+      <div class="card good"><h3>Use off the shelf</h3><ul><li>a finished model behind a frontend or an API</li><li>hardware: whatever runs inference, from a phone up</li><li>time: minutes to set up, and known</li><li>who: everyone on the map</li><li>the catch: someone else's data, terms and defaults</li></ul></div>
+      <div class="card warn"><h3>Train an existing architecture on new data</h3><ul><li>RAVE on your recordings, a LoRA on your footage, a classifier on your sensors</li><li>hardware: one GPU for hours to days; a cluster for weeks</li><li>time: roughly predictable, mostly spent on the data</li><li>who: PhDs, labs, a studio with a GPU</li><li>the catch: rights and quality of the data</li></ul></div>
+      <div class="card"><h3>Develop new methods</h3><ul><li>new architectures, new training objectives, new ways to control a model</li><li>hardware: many runs, most of them failures</li><li>time: often unknown until it is done</li><li>who: ML research groups with national compute</li><li>the catch: allocations assume you already know how much you need</li></ul></div>
+    </div>
+    <aside class="notes">Three columns, three different jobs. Using a model off the shelf is what almost everyone on the map does, and the hardware question is only what runs inference. Developing is different in kind, not just in degree, and it forks. Training an existing architecture on new data, a RAVE model on your own recordings or a LoRA on your own footage, is bounded: you can estimate the hours, and most of the effort goes into the data and its rights. Developing new methods, new architectures or new ways of controlling a model, is open-ended: many training runs, most of which fail, and you rarely know how much compute you need until you are done. That last point matters for the ecosystem, because allocation rounds assume you can write down the number in advance. Depth slides below: a rough tasks-against-platforms table and the same map by person. Both are hard to generalise; use them only if the discussion needs them.</aside>
+  </section>
+  <section>
+    <h3>Tasks against platforms: a rough guide</h3>
     <table class="tbl">
       <tr><th>Task</th><th>Commercial API</th><th>Laptop</th><th>Laptop + GPU</th><th>Workstation</th><th>Fox-type cluster</th><th>Olivia / LUMI</th></tr>
       <tr><td>Chat, writing, code</td><td class="y">●</td><td class="y">● 7–14B</td><td class="y">●</td><td class="y">● 70B</td><td class="m">◐ overkill</td><td class="m">◐ overkill</td></tr>
@@ -457,7 +474,7 @@
       <tr><td>Train from scratch (NB-scale multimodal)</td><td class="n">○</td><td class="n">○</td><td class="n">○</td><td class="n">○</td><td class="m">◐ small</td><td class="y">●</td></tr>
       <tr><td>Sensitive data (health, pupils)</td><td class="n">○</td><td class="y">● offline</td><td class="y">● offline</td><td class="y">● offline</td><td class="m">◐ TSD-type only</td><td class="n">○</td></tr>
     </table>
-    <aside class="notes">Read the diagonal. Everyday tasks are best on the laptop or a commercial API. Real-time work only works in the room. Training scales up the stair. Sensitive data goes the other way: offline or a secure zone, never a public API and never a national cluster. Nothing in the top-right corner is a good fit: national HPC is the wrong tool for chat, and a commercial API is the wrong tool for a stage. Removed from the slide: ● works well · ◐ possible, with a catch · ○ no.</aside>
+    <aside class="notes">Depth, and hard to generalise: every cell has exceptions. Read the diagonal. Everyday tasks are best on the laptop or a commercial API. Real-time work only works in the room. Training scales up the stair. Sensitive data goes the other way: offline or a secure zone, never a public API and never a national cluster. Nothing in the top-right corner is a good fit: national HPC is the wrong tool for chat, and a commercial API is the wrong tool for a stage. Removed from the slide: ● works well · ◐ possible, with a catch · ○ no.</aside>
   </section>
   <section>
     <h3>By person: a plausible stack today</h3>
