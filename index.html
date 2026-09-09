@@ -328,11 +328,11 @@
   </section>
   <section>
     <h3>Tool is not model</h3>
-    <div class="cols" style="font-size:.7em">
-      <div class="card"><h3>Same model, many tools</h3><p>Llama 3 in Ollama, in Open WebUI, in a Max patch, in a Python script, on Fox. The model is a file. The tool decides who can use it.</p></div>
-      <div class="card"><h3>Same tool, many models</h3><p>VS Code, ComfyUI or Max can point at a local model today and a hosted one tomorrow. Ask which model, not which app.</p></div>
+    <div class="layers" style="max-width:94%">
+      <img class="fig" src="images/fig-tool-model-0.svg" alt="Tools: ChatGPT, UiO GPT, VS Code, Max with nn~, ComfyUI, Ollama">
+      <img class="fig fragment" src="images/fig-tool-model-1.svg" alt="Models underneath: GPT, Claude, Gemini, Llama, Mistral, RAVE, FLUX and Stable Diffusion, with links from each tool. The same model sits behind several tools; the same tool can switch model.">
     </div>
-    <aside class="notes">Depth. The distinction people most often miss. NotebookLM, ChatGPT and Copilot are tools; the model underneath can be swapped and is often the same across tools. Removed from the slide: When someone says "we use AI", ask: which model, where does it run, where do the data go.</aside>
+    <aside class="notes">Depth. The distinction people most often miss. Top row: tools, the thing you sit in. Click: the models underneath. ChatGPT and UiO GPT are both GPT. VS Code can talk to GPT, Claude or a local Llama. Max with nn~ runs RAVE, and can call a language model too. ComfyUI drives FLUX or Stable Diffusion. Ollama serves Llama or Mistral. Same model in many tools, same tool with many models. When someone says "we use AI", ask which model, where it runs, and where the data go.</aside>
   </section>
 </section>
 

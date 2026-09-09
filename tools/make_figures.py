@@ -215,6 +215,35 @@ def api():
     write("fig-api.svg", svg(W, H, "".join(b), defs))
 
 
+# ---------------------------------------------------------------- 4b tool vs model
+TOOLS = ["ChatGPT", "UiO GPT", "VS Code", "Max + nn~", "ComfyUI", "Ollama"]
+MODELS = ["GPT", "Claude", "Gemini", "Llama", "Mistral", "RAVE", "FLUX / SD"]
+LINKS = [(0, 0), (1, 0), (2, 0), (2, 1), (2, 3), (3, 5), (3, 3), (4, 6), (5, 3), (5, 4)]
+
+
+def tool_model():
+    W, H = 1600, 700
+    tw, mw, bh = 200, 180, 70
+    tx0 = (W - (len(TOOLS) * tw + (len(TOOLS) - 1) * 40)) / 2
+    mx0 = (W - (len(MODELS) * mw + (len(MODELS) - 1) * 30)) / 2
+    tools = [text(20, 155, "Tools", 30, INK, "start", "bold")]
+    tc = []
+    for i, t in enumerate(TOOLS):
+        x = tx0 + i * (tw + 40); tc.append(x + tw / 2)
+        tools.append(box(x, 110, tw, bh, AMBER_PALE, AMBER, 2, 10))
+        tools.append(text(x + tw / 2, 110 + bh / 2 + 8, t, 22, INK))
+    write("fig-tool-model-0.svg", svg(W, H, "".join(tools)))
+    models = [text(20, 565, "Models", 30, INK, "start", "bold")]
+    mc = []
+    for i, m in enumerate(MODELS):
+        x = mx0 + i * (mw + 30); mc.append(x + mw / 2)
+        models.append(box(x, 520, mw, bh, BLUE_PALE, BLUE, 2, 10))
+        models.append(text(x + mw / 2, 520 + bh / 2 + 8, m, 22, INK))
+    for a, b in LINKS:
+        models.append(f"<path d='M{tc[a]},{110+bh+2} C{tc[a]},350 {mc[b]},350 {mc[b]},518' fill='none' stroke='{MUTED}' stroke-width='2.5' opacity='.6'/>")
+    write("fig-tool-model-1.svg", svg(W, H, "".join(models)))
+
+
 # ---------------------------------------------------------------- 6 spectrum of MishMash use cases
 CASES = [  # name, WP, compute 0..1, sensitivity 0..1, colour
     ("Musician on stage", "WP1", 0.12, 0.15, GREEN),
@@ -310,4 +339,4 @@ def loop():
 
 
 if __name__ == "__main__":
-    two_roads(); ladder(); memory(); stair(); frontends(); api(); spectrum(); workflows(); loop()
+    two_roads(); ladder(); memory(); stair(); frontends(); api(); tool_model(); spectrum(); workflows(); loop()
