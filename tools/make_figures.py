@@ -312,7 +312,7 @@ def workflows():
               ("Cut", ["into the edit; provenance", "and licence of every model", "documented for rights"])],
              "the open route is one step behind Runway, and the rights are yours to defend")
     workflow("teacher", "WP4 · A teacher in a school",
-             [("Browser only", ["Chromebooks, Feide,", "no GPU, pupils' data;", "institution-hosted chat"]),
+             [("Managed devices", ["tablets or laptops, Feide,", "no GPU, pupils' data;", "institution-hosted chat"]),
               ("Offline where it matters", ["Whisper on the teacher's", "laptop for transcripts;", "nothing uploaded"]),
               ("In the classroom", ["free, Norwegian, GDPR-safe", "creative tools; the scarcest", "resource in the whole map"])],
              "no compute problem, but an access and language problem")
