@@ -12,9 +12,14 @@ import os
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(os.path.dirname(HERE), "images")
 
-INK, MUTED, LINE = "#1a202c", "#718096", "#cbd5e0"
-BLUE, BLUE_LIGHT, BLUE_PALE = "#2b6cb0", "#bee3f8", "#ebf4ff"
-GREEN, GREEN_PALE, RED, RED_PALE, AMBER, AMBER_PALE = "#2f855a", "#f0fff4", "#c53030", "#fff5f5", "#b7791f", "#fffaf0"
+# MishMash palette: purple #A7A1F4, green #C1F7AE, dark #363644. Pastels are fills and
+# borders; text is always dark or muted so it stays readable on white and on the pastels.
+INK, MUTED, LINE = "#363644", "#7a7a8c", "#d6d6e0"
+PURPLE, PURPLE_MID, PURPLE_PALE = "#A7A1F4", "#7f78e0", "#eeedfc"
+GREEN, GREEN_PALE = "#C1F7AE", "#e6fbdd"
+BLUE, BLUE_LIGHT, BLUE_PALE = PURPLE, "#d3d0f9", PURPLE_PALE
+RED, RED_PALE, AMBER, AMBER_PALE = INK, "#f1f1f4", PURPLE, PURPLE_PALE
+PASTEL = {PURPLE, GREEN, PURPLE_MID, GREEN}
 FONT = "font-family='Inter, Helvetica Neue, Helvetica, Arial, sans-serif'"
 
 
@@ -36,6 +41,8 @@ def marker(mid, color):
 
 
 def text(x, y, s, size=20, fill=INK, anchor="middle", weight="normal", extra=""):
+    if fill in PASTEL:
+        fill = INK
     return (f"<text x='{x}' y='{y}' text-anchor='{anchor}' font-size='{size}' fill='{fill}' "
             f"font-weight='{weight}' {extra}>{s}</text>")
 
@@ -61,7 +68,7 @@ def two_roads():
     W, H = 1600, 700
     defs = marker("a", BLUE)
     rent = []
-    rent.append(box(60, 80, 640, 560, RED_PALE, RED))
+    rent.append(box(60, 80, 640, 560, PURPLE_PALE, PURPLE))
     rent.append(text(380, 150, "Rent a service", 40, RED, weight="bold"))
     rent.append(text(380, 195, "ChatGPT · Claude · Gemini · Suno · Runway · Midjourney", 18, MUTED))
     rent.append(lines(110, 260, ["+ the best models, today", "+ zero setup, pay per use", "+ works on any device"], 24, GREEN, "start"))
@@ -77,7 +84,7 @@ def two_roads():
     run.append(text(1220, 600, "control: yours", 22, MUTED))
     write("fig-two-roads-1.svg", svg(W, H, "".join(run), defs))
     mid = []
-    mid.append(f"<rect x='700' y='250' width='200' height='220' rx='14' fill='{BLUE_PALE}' stroke='{BLUE}' stroke-width='3'/>")
+    mid.append(f"<rect x='700' y='250' width='200' height='220' rx='14' fill='white' stroke='{INK}' stroke-width='3'/>")
     mid.append(lines(800, 300, ["The middle", "road"], 26, BLUE, weight="bold"))
     mid.append(lines(800, 370, ["open models,", "rented GPUs", "(HF, Mistral,", "EU providers)"], 18, INK))
     write("fig-two-roads-2.svg", svg(W, H, "".join(mid), defs))
@@ -89,9 +96,9 @@ RUNGS = [
     ("Single-board", "Raspberry Pi, Jetson", "4–16 GB", "small vision/audio,\nWhisper tiny", "1–5 000 kr"),
     ("Phone", "on-device models", "6–12 GB", "1–3B LLM,\ncamera, mic", "5–15 000 kr"),
     ("Tablet", "any brand", "8–16 GB", "like a phone,\nbigger screen", "5–20 000 kr"),
-    ("Laptop", "unified or discrete memory", "16–64 GB", "7–14B chat, Whisper,\nRAVE on stage", "15–40 000 kr"),
+    ("Laptop", "any recent model", "16–64 GB", "7–14B chat, Whisper,\nRAVE on stage", "15–40 000 kr"),
     ("Laptop\nwith GPU", "RTX 4070–5090 mobile", "8–24 GB VRAM", "diffusion, fine-tune\nsmall models", "25–60 000 kr"),
-    ("Desktop /\nworkstation", "big GPU or large unified memory", "32–512 GB", "70B local, train\nsmall models, serve", "40–150 000 kr"),
+    ("Desktop /\nworkstation", "big GPU or big memory", "32–512 GB", "70B local, train\nsmall models, serve", "40–150 000 kr"),
 ]
 
 
@@ -117,11 +124,11 @@ def ladder():
     def pill(i0, i1, y, label, col):
         xa = x0 + i0 * step + 10; xb = x0 + i1 * step + bw - 10
         return (f"<rect x='{xa}' y='{y}' width='{xb-xa}' height='36' rx='18' fill='{col}' opacity='.92'/>"
-                + text((xa + xb) / 2, y + 25, label, 18, "white", weight="bold"))
+                + text((xa + xb) / 2, y + 25, label, 18, "white" if col in (INK, PURPLE_MID) else INK, weight="bold"))
     models.append(pill(0, 1, 40, "TinyML · RAVE (real-time audio)", GREEN))
     models.append(pill(2, 4, 85, "1–8B LLM at 4-bit (≈1–5 GB) · Whisper · small diffusion", BLUE))
-    models.append(pill(4, 6, 130, "14–30B (≈10–20 GB) · SDXL, FLUX · fine-tuning", "#553c9a"))
-    models.append(pill(6, 6, 175, "70B+ (≈40 GB)", RED))
+    models.append(pill(4, 6, 130, "14–30B (≈10–20 GB) · SDXL, FLUX · fine-tuning", PURPLE_MID))
+    models.append(pill(6, 6, 175, "70B+ (≈40 GB)", INK))
     write("fig-ladder-2.svg", svg(W, H, "".join(models)))
 
 
@@ -131,7 +138,7 @@ def memory():
     b.append(text(800, 70, "parameters × bytes per parameter ≈ memory", 40, INK, weight="bold"))
     rows = [("7–8B", "4-bit", "≈ 5 GB", "any recent laptop or phone", GREEN),
             ("30B", "4-bit", "≈ 20 GB", "laptop with 32 GB unified, or a 24 GB GPU", BLUE),
-            ("70B", "4-bit", "≈ 40 GB", "large unified memory, or two big GPUs", "#553c9a"),
+            ("70B", "4-bit", "≈ 40 GB", "large unified memory, or two big GPUs", PURPLE_MID),
             ("70B", "16-bit", "≈ 140 GB", "a server, or Fox", RED)]
     y = 150
     for p, q, m, where, col in rows:
@@ -203,7 +210,7 @@ def api():
     b.append(text(270, 395, "base_url = ...", 22, MUTED, extra="font-family='Menlo, Consolas, monospace'"))
     targets = [("laptop", "Ollama · LM Studio · llama.cpp", GREEN), ("lab server", "vLLM · Open WebUI", GREEN),
                ("Fox / Olivia", "vLLM behind a tunnel", BLUE), ("EU provider", "Mistral · Scaleway · HF", BLUE),
-               ("commercial", "OpenAI · Anthropic · Google", RED)]
+               ("commercial", "OpenAI · Anthropic · Google", INK)]
     y = 60
     for name, sub, col in targets:
         b.append(box(1000, y, 540, 84, "white", col))
@@ -230,7 +237,7 @@ def tool_model():
     tc = []
     for i, t in enumerate(TOOLS):
         x = tx0 + i * (tw + 40); tc.append(x + tw / 2)
-        tools.append(box(x, 110, tw, bh, AMBER_PALE, AMBER, 2, 10))
+        tools.append(box(x, 110, tw, bh, GREEN_PALE, GREEN, 2, 10))
         tools.append(text(x + tw / 2, 110 + bh / 2 + 8, t, 22, INK))
     write("fig-tool-model-0.svg", svg(W, H, "".join(tools)))
     models = [text(20, 520 + bh / 2 + 10, "Models", 30, INK, "start", "bold")]
@@ -248,12 +255,12 @@ def tool_model():
 CASES = [  # name, WP, compute 0..1, sensitivity 0..1, colour
     ("Musician on stage", "WP1", 0.12, 0.15, GREEN),
     ("Filmmaker", "WP2", 0.45, 0.50, BLUE),
-    ("Music therapist", "WP3", 0.18, 0.92, RED),
-    ("Teacher in a school", "WP4", 0.04, 0.70, AMBER),
-    ("Cultural institution", "WP5", 0.55, 0.60, "#553c9a"),
+    ("Music therapist", "WP3", 0.18, 0.92, INK),
+    ("Teacher in a school", "WP4", 0.04, 0.70, PURPLE_MID),
+    ("Cultural institution", "WP5", 0.55, 0.60, PURPLE_MID),
     ("National Library", "WP6", 0.95, 0.55, INK),
-    ("Designer / rescue", "WP7", 0.40, 0.80, "#2c7a7b"),
-    ("Computer science researcher", "ML", 0.78, 0.22, "#553c9a"),
+    ("Designer / rescue", "WP7", 0.40, 0.80, GREEN),
+    ("Computer science researcher", "ML", 0.78, 0.22, GREEN),
 ]
 
 
@@ -278,9 +285,9 @@ def spectrum():
     for name, wp, cx, sy, col in CASES:
         x = L + cx * (R - L); y = B - sy * (B - T)
         pts.append(f"<circle cx='{x}' cy='{y}' r='26' fill='{col}' opacity='.9'/>")
-        pts.append(text(x, y + 7, wp[2] if wp.startswith("WP") else "", 20, "white", weight="bold"))
+        pts.append(text(x, y + 7, wp[2] if wp.startswith("WP") else "", 20, "white" if col in (INK, PURPLE_MID) else INK, weight="bold"))
         dy = -40 if name != "Teacher in a school" else 55
-        pts.append(text(x, y + dy, name, 22, col, weight="bold"))
+        pts.append(text(x, y + dy, name, 22, INK, weight="bold"))
     write("fig-spectrum-1.svg", svg(W, H, "".join(pts), defs))
 
 
