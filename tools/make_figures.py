@@ -148,7 +148,7 @@ def memory():
 STAIRS = [
     ("Shared server", "a GPU box in the lab,\nssh, first come first served", "colleagues"),
     ("VDI", "virtual desktop, licensed\nsoftware, rarely a real GPU", "employees"),
-    ("Institutional HPC", "UiO Fox: Slurm, batch,\nA100s, free for UiO", "UiO + collaborators"),
+    ("Institutional HPC", "UiO Fox · NTNU IDUN · UiA DGX\nUiB and UiT local clusters", "own staff, students via a project"),
     ("National", "Sigma2/NRIS: Olivia 448 GH200,\nSaga · KI-fabrikken", "researchers, by application"),
     ("European", "LUMI (Kajaani), LUMI-AI,\nEuroHPC AI Factories", "big projects, by call"),
 ]
@@ -181,7 +181,7 @@ def frontends():
     b = []
     b.append(f"<circle cx='800' cy='380' r='110' fill='{BLUE_PALE}' stroke='{BLUE}' stroke-width='4'/>")
     b.append(lines(800, 372, ["the model", "(local or remote)"], 24, BLUE, weight="bold"))
-    fams = [("Chat", ["ChatGPT · Claude · Gemini", "UiO GPT (institution-hosted)", "Open WebUI · LM Studio · Jan"], 60, 60),
+    fams = [("Chat", ["ChatGPT · Claude · Gemini", "institution-hosted: UiO GPT, GPT NTNU, Copilot", "Open WebUI · LM Studio · Jan"], 60, 60),
             ("Code and agents", ["VS Code + Copilot / Continue / Cline", "Claude Code · Cursor · Aider", "Jupyter · Educloud On Demand"], 1040, 60),
             ("Creative tools", ["Max/MSP + nn~ · FluCoMa · Pure Data", "Ableton + Neutone · TouchDesigner", "ComfyUI · Unity/Unreal · p5.js + ml5"], 60, 500),
             ("Programmatic", ["Python: PyTorch, transformers, diffusers", "llama.cpp · MLX · Ollama · vLLM", "any OpenAI-compatible endpoint"], 1040, 500)]

@@ -280,12 +280,12 @@
       <img class="fig" src="images/fig-stair-0.svg" alt="Five steps: shared server, VDI, institutional HPC such as UiO Fox, national Sigma2 with Olivia and KI-fabrikken, European LUMI">
       <img class="fig fragment" src="images/fig-stair-1.svg" alt="Arrows: to the right more compute and sharing, to the left more waiting, paperwork and less interactivity">
     </div>
-    <aside class="notes">Shared server: a GPU box in the lab, ssh, first come first served. VDI: a virtual desktop for licensed software and sensitive data, rarely a real GPU. Institutional HPC: UiO's Fox, Slurm, batch jobs, A100s, free for UiO people, collaborators added by a project leader. NTNU has IDUN, others have their own or nothing. National: Sigma2 and NRIS. Olivia, 448 Grace Hopper chips after the February expansion, plus Saga; application rounds twice a year. KI-fabrikken, opened last year, is the first national channel that explicitly includes business and public sector. European: LUMI in Finland, where Norway is a member, and the EuroHPC AI Factories. Click: what changes as you go up. More compute, more people can share it, data can live next to it. But more waiting, more paperwork, less interactivity. Batch scheduling is the wrong shape for a rehearsal.</aside>
+    <aside class="notes">Shared server: a GPU box in the lab, ssh, first come first served. VDI: a virtual desktop for licensed software and sensitive data, rarely a real GPU. Institutional HPC: UiO's Fox, NTNU's IDUN, UiA's DGX servers at CAIR, local clusters at UiB and UiT. Slurm, batch jobs, free for the institution's own people, students through a supervisor, collaborators added by a project leader. Most other institutions have their own small servers or nothing. National: Sigma2 and NRIS. Olivia, 448 Grace Hopper chips after the February expansion, plus Saga; application rounds twice a year. KI-fabrikken, opened last year, is the first national channel that explicitly includes business and public sector. European: LUMI in Finland, where Norway is a member, and the EuroHPC AI Factories. Click: what changes as you go up. More compute, more people can share it, data can live next to it. But more waiting, more paperwork, less interactivity. Batch scheduling is the wrong shape for a rehearsal.</aside>
   </section>
   <section>
     <h3>How you actually get on</h3>
     <div class="cols3" style="font-size:.62em">
-      <div class="card good"><h3>Fox (UiO)</h3><ul><li>Educloud Research project</li><li>PI adds collaborators, BankID self-service</li><li>free for basic use</li><li>Jupyter via Educloud On Demand</li></ul></div>
+      <div class="card good"><h3>Institutional clusters</h3><ul><li>UiO Fox: Educloud project, PI adds collaborators</li><li>NTNU IDUN: supervisor requests access</li><li>UiA: DGX servers at CAIR</li><li>UiB and UiT: local HPC via the IT division</li></ul></div>
       <div class="card"><h3>NRIS / Olivia</h3><ul><li>project application, CPU and GPU hours</li><li>two rounds a year</li><li>any Norwegian research institution</li><li>data storage next to compute</li></ul></div>
       <div class="card"><h3>KI-fabrikken</h3><ul><li>Sigma2, part of the LUMI AI Factory network</li><li>research, business, public sector</li><li>expertise and support, not only GPUs</li><li>artists and cultural institutions: unclear</li></ul></div>
       <div class="card"><h3>LUMI / EuroHPC</h3><ul><li>through NRIS or EuroHPC calls</li><li>AMD GPUs: check your software</li><li>large allocations, long lead times</li></ul></div>
@@ -299,15 +299,16 @@
     <table class="tbl wide">
       <tr><th>Institution</th><th>Own GPU cluster</th><th>Hosted chat / LLM service</th><th>Sensitive-data environment</th><th>Students get GPUs?</th><th>Freelancers / partners get in?</th></tr>
       <tr><td>UiO</td><td class="y">Fox</td><td class="y">UiO GPT</td><td class="y">TSD</td><td class="m">via project</td><td class="m">via a PI</td></tr>
-      <tr><td>UiB</td><td class="q">?</td><td class="q">?</td><td class="y">SAFE</td><td class="q">?</td><td class="q">?</td></tr>
-      <tr><td>NTNU</td><td class="y">IDUN</td><td class="q">?</td><td class="y">HUNT Cloud</td><td class="m">via project</td><td class="q">?</td></tr>
-      <tr><td>UiT</td><td class="q">?</td><td class="q">?</td><td class="q">?</td><td class="q">?</td><td class="q">?</td></tr>
-      <tr><td>UiA · INN · HiØ · HVL · OsloMet · Nord · Kristiania …</td><td class="q">?</td><td class="q">?</td><td class="q">?</td><td class="q">?</td><td class="q">?</td></tr>
+      <tr><td>UiB</td><td class="y">local HPC (UiB IT)</td><td class="m">Copilot</td><td class="y">SAFE</td><td class="q">?</td><td class="q">?</td></tr>
+      <tr><td>NTNU</td><td class="y">IDUN</td><td class="y">GPT NTNU</td><td class="y">HUNT Cloud</td><td class="m">via supervisor</td><td class="n">support agreement needed</td></tr>
+      <tr><td>UiT</td><td class="y">local HPC group; hosts NRIS systems</td><td class="q">?</td><td class="q">?</td><td class="q">?</td><td class="q">?</td></tr>
+      <tr><td>UiA</td><td class="y">DGX-2 and DGX H100 (CAIR)</td><td class="q">?</td><td class="q">?</td><td class="q">?</td><td class="q">?</td></tr>
+      <tr><td>INN · HiØ · HVL · OsloMet · Nord · Kristiania …</td><td class="q">?</td><td class="q">?</td><td class="q">?</td><td class="q">?</td><td class="q">?</td></tr>
       <tr><td>NMH · KHiO · AHO</td><td class="n">none known</td><td class="q">?</td><td class="n">none</td><td class="n">no</td><td class="q">?</td></tr>
       <tr><td>National Library</td><td class="y">DH-lab</td><td class="q">?</td><td class="q">?</td><td class="n">n/a</td><td class="q">?</td></tr>
       <tr><td>Simula · SINTEF · IFE</td><td class="y">eX3 and own</td><td class="q">?</td><td class="q">?</td><td class="n">n/a</td><td class="q">?</td></tr>
     </table>
-    <aside class="notes">Depth. The honest version: I know UiO, I know a little about NTNU and UiB, and for most of the twenty-plus MishMash institutions and the rest of Norwegian higher education the cell is a question mark. That is itself a finding. Removed from the slide: Green: known. Grey: nobody in the room knows yet. This table is the first thing the panel is asked to correct.</aside>
+    <aside class="notes">Depth. The honest version: I know UiO, a little about NTNU, UiB, UiT and UiA, and for most of the twenty-plus MishMash institutions and the rest of Norwegian higher education the cell is a question mark. That is itself a finding. Removed from the slide: Green: known. Grey: nobody in the room knows yet. This table is the first thing the panel is asked to correct.</aside>
   </section>
 </section>
 
@@ -319,7 +320,7 @@
   </section>
   <section>
     <img class="fig" src="images/fig-frontends.svg" alt="The model in the centre, four families around it: chat, code and agents, creative tools, programmatic">
-    <aside class="notes">Four families. Chat: the web apps, an institution-hosted service like UiO GPT, or Open WebUI and LM Studio on top of a local model; this is where teachers and most artists start. Code and agents: VS Code with Copilot or Continue, Claude Code, Cursor, Jupyter, Educloud On Demand on Fox. Creative tools: Max with nn~ and FluCoMa, Pure Data, Ableton with Neutone, TouchDesigner, ComfyUI for image and video, Unity and Unreal, p5.js with ml5. Programmatic: Python with PyTorch, transformers and diffusers, llama.cpp, MLX, Ollama or vLLM as a local server. The same model can sit behind all four.</aside>
+    <aside class="notes">Four families. Chat: the web apps, an institution-hosted service like UiO GPT, GPT NTNU or Copilot under UiB's Microsoft agreement, or Open WebUI and LM Studio on top of a local model; this is where teachers and most artists start. Code and agents: VS Code with Copilot or Continue, Claude Code, Cursor, Jupyter, Educloud On Demand on Fox. Creative tools: Max with nn~ and FluCoMa, Pure Data, Ableton with Neutone, TouchDesigner, ComfyUI for image and video, Unity and Unreal, p5.js with ml5. Programmatic: Python with PyTorch, transformers and diffusers, llama.cpp, MLX, Ollama or vLLM as a local server. The same model can sit behind all four.</aside>
   </section>
   <section>
     <img class="fig" src="images/fig-api.svg" alt="One script or patch pointing at five backends: laptop, lab server, Fox or Olivia, EU provider, commercial, all through the same OpenAI-compatible API">
