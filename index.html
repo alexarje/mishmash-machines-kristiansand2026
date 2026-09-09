@@ -458,7 +458,25 @@
       <img class="fig fragment" src="images/fig-use-develop-1.svg" alt="Develop it yourself, first job: train an existing architecture on your own data; hours to days on one GPU">
       <img class="fig fragment" src="images/fig-use-develop-2.svg" alt="Develop it yourself, second job: new methods; many failed runs; time unknown">
     </div>
-    <aside class="notes">Use off the shelf: a finished model on whatever device runs it, minutes to set up, everyone on the map. Click: developing it yourself is a different job, and it forks. Click again: the second fork. Using a model off the shelf is what almost everyone on the map does, and the hardware question is only what runs inference. Developing is different in kind, not just in degree, and it forks. Training an existing architecture on new data, a RAVE model on your own recordings or a LoRA on your own footage, is bounded: you can estimate the hours, and most of the effort goes into the data and its rights. Developing new methods, new architectures or new ways of controlling a model, is open-ended: many training runs, most of which fail, and you rarely know how much compute you need until you are done. That last point matters for the ecosystem, because allocation rounds assume you can write down the number in advance. Depth slides below: a rough tasks-against-platforms table and the same map by person. Both are hard to generalise; use them only if the discussion needs them.</aside>
+    <aside class="notes">Use off the shelf: a finished model on whatever device runs it, minutes to set up, everyone on the map. Click: developing it yourself is a different job, and it forks. Click again: the second fork. Using a model off the shelf is what almost everyone on the map does, and the hardware question is only what runs inference. Developing is different in kind, not just in degree, and it forks. Training an existing architecture on new data, a RAVE model on your own recordings or a LoRA on your own footage, is bounded: you can estimate the hours, and most of the effort goes into the data and its rights. Developing new methods, new architectures or new ways of controlling a model, is open-ended: many training runs, most of which fail, and you rarely know how much compute you need until you are done. That last point matters for the ecosystem, because allocation rounds assume you can write down the number in advance. Depth slides below: inference versus training setups, why workflows do not travel between systems, then a rough tasks-against-platforms table and the same map by person. The last two are hard to generalise; use them only if the discussion needs them.</aside>
+  </section>
+  <section>
+    <h3>Inference is not training</h3>
+    <div class="cols" style="gap:1.5em">
+      <div class="card good"><h3>Serving a model</h3><ul><li>always on, answers in milliseconds</li><li>a web endpoint that a class, a stage or a museum connects to</li><li>a modest GPU, or many of them, or a laptop</li><li>needs networking, logins and a security review</li></ul></div>
+      <div class="card warn"><h3>Training and fine-tuning</h3><ul><li>bursts: hours to weeks, then nothing</li><li>no endpoint, no users, a queue</li><li>the biggest GPUs and the fastest storage</li><li>needs scheduling, checkpoints, data next to compute</li></ul></div>
+    </div>
+    <aside class="notes">Depth. Two loads, two setups, not just two sizes. National HPC is built for the right column: batch jobs in a queue, no open ports, nothing that runs for months. Serving a model, the left column, is what a class, a stage, a museum or a startup actually needs, and it is the thing a cluster will not let you do. Most of the users on the map need the left column, and the only places that offer it are commercial clouds and your own machine.</aside>
+  </section>
+  <section>
+    <h3>Workflows do not travel</h3>
+    <div class="cols4">
+      <div class="card"><h3>Laptop to Fox</h3><p>Different modules, versions, paths. Days of setup.</p></div>
+      <div class="card"><h3>Fox to Olivia</h3><p>Same scheduler, different drivers, containers and rules.</p></div>
+      <div class="card"><h3>Olivia to LUMI</h3><p>NVIDIA to AMD, CUDA to ROCm. Often a rewrite.</p></div>
+      <div class="card good"><h3>What helps</h3><p>Containers and pinned environments. Teach it at student level. AI assistants make porting cheap.</p></div>
+    </div>
+    <aside class="notes">Depth. A workflow built on one system is locked to it, and often to one vendor. Something that runs on Fox may not run on Olivia, and Olivia to LUMI is a different GPU vendor altogether. This is a skills problem as much as a hardware problem: it has to be taught at student level, with containers and reproducible environments, and coding assistants now make the porting itself much cheaper than it was. A national ecosystem that ignores this buys hardware that half its users cannot move to.</aside>
   </section>
   <section>
     <h3>Tasks against platforms: a rough guide</h3>
@@ -524,8 +542,10 @@
       <li class="fragment">The whole Norwegian cultural heritage sits in one collection. Nobody has trained a multimodal model on it.</li>
       <li class="fragment">Nobody has defined "artist", "teacher" or "cultural institution" as a user of national compute.</li>
       <li class="fragment">The low-threshold national service (NAIC) is paused; its successor is not yet here.</li>
+      <li class="fragment">Workflows are locked to the system they were built on. Fox is not Olivia, and Olivia is not LUMI.</li>
+      <li class="fragment">When big systems are bought, the users are rarely asked first.</li>
     </ul>
-    <aside class="notes">Depth. Seven observations, each one an invitation to disagree. The fifth is the long ambition: the National Library holds text, newspapers, radio, television, film, music and photographs in one place, and its AI lab has already trained speech and language models on it. A multimodal Norwegian model on the whole collection, released openly, is the kind of thing only a national effort can do. Rights come before compute. This is an ask for after the conference, not for today.</aside>
+    <aside class="notes">Depth. Nine observations, each one an invitation to disagree. The last two came from the panel: portability, which is a skills and vendor problem more than a hardware problem, and procurement, where the people who will use a system are rarely in the room when it is specified. NAIC was in part an attempt to turn that around and put users first; it did not survive. Worth asking the room who was consulted before the last big purchase at their institution. The fifth is the long ambition: the National Library holds text, newspapers, radio, television, film, music and photographs in one place, and its AI lab has already trained speech and language models on it. A multimodal Norwegian model on the whole collection, released openly, is the kind of thing only a national effort can do. Rights come before compute. This is an ask for after the conference, not for today.</aside>
   </section>
 </section>
 
