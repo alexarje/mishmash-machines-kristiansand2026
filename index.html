@@ -1,0 +1,549 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Building a Norwegian Ecosystem for Creative AI – ARJ, 14 September 2026</title>
+<link rel="stylesheet" href="lib/reveal/reset.css">
+<link rel="stylesheet" href="lib/reveal/reveal.css">
+<link rel="stylesheet" href="lib/reveal/theme/white.css" id="theme">
+<style>
+  /* Skrift som på mishmash.no: Inter, med Raleway som reserve. Filene ligger lokalt i lib/fonts/. */
+  @font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: local('Inter'), local('Inter Regular'), url(lib/fonts/inter-400-latin-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+  @font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: local('Inter'), local('Inter Regular'), url(lib/fonts/inter-400-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+  @font-face { font-family: 'Inter'; font-style: normal; font-weight: 700; font-display: swap; src: local('Inter Bold'), url(lib/fonts/inter-700-latin-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+  @font-face { font-family: 'Inter'; font-style: normal; font-weight: 700; font-display: swap; src: local('Inter Bold'), url(lib/fonts/inter-700-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+  @font-face { font-family: 'Raleway'; font-style: normal; font-weight: 400; font-display: swap; src: local('Raleway'), url(lib/fonts/raleway-400-latin-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+  @font-face { font-family: 'Raleway'; font-style: normal; font-weight: 400; font-display: swap; src: local('Raleway'), url(lib/fonts/raleway-400-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+  @font-face { font-family: 'Raleway'; font-style: normal; font-weight: 700; font-display: swap; src: local('Raleway Bold'), url(lib/fonts/raleway-700-latin-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+  @font-face { font-family: 'Raleway'; font-style: normal; font-weight: 700; font-display: swap; src: local('Raleway Bold'), url(lib/fonts/raleway-700-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+  :root {
+    --r-main-font: "Inter", "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --r-heading-font: "Inter", "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --r-heading-text-transform: none;
+    --r-heading-font-weight: 700;
+    --r-heading1-size: 2.4em;
+    --r-heading2-size: 1.7em;
+    --r-heading3-size: 1.2em;
+    --r-main-font-size: 50px;
+    --r-link-color: #2b6cb0;
+    --accent: #2b6cb0; --good: #2f855a; --bad: #c53030; --muted: #718096;
+  }
+  .reveal h1, .reveal h2, .reveal h3 { letter-spacing: -0.02em; margin-bottom: 0.4em; }
+  .reveal .slides section { text-align: left; }
+  .reveal .slides section.center-slide { text-align: center; }
+  .reveal p, .reveal li { line-height: 1.35; }
+  .reveal ul { margin-left: 0.6em; }
+  .reveal li { margin: 0.25em 0; }
+  .reveal img, .reveal svg { max-height: 62vh; box-shadow: none; border: none; background: none; }
+  .reveal img.shot { border: 1px solid #cbd5e0; border-radius: 6px; box-shadow: 0 6px 18px rgba(0,0,0,.12); }
+  .reveal .fig { display: block; width: 100%; max-height: 66vh; }
+  .kicker { color: var(--muted); font-size: 0.6em; text-transform: uppercase; letter-spacing: .12em; margin-bottom: .2em; }
+  .big { font-size: 1.5em; font-weight: 700; line-height: 1.2; }
+  .good { color: var(--good); } .bad { color: var(--bad); } .accent { color: var(--accent); } .muted { color: var(--muted); }
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2em; align-items: start; }
+  .cols3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1em; align-items: start; }
+  .card { border: 2px solid #e2e8f0; border-radius: 12px; padding: .5em .7em; font-size: .7em; height: 100%; box-sizing: border-box; }
+  .card h3 { font-size: 1.15em; margin: 0 0 .3em 0; }
+  .card.bad { border-color: var(--bad); } .card.good { border-color: var(--good); } .card.warn { border-color: #b7791f; }
+  .card ul { margin: 0 0 0 .8em; font-size: .95em; }
+  .reveal .card-ill { display: block; width: 100%; height: auto; max-height: none; aspect-ratio: 2 / 1; margin: 0 0 .3em; }
+  .card .card-ill + h3 { font-size: 1.1em; }
+  .cols3.six { grid-template-columns: repeat(3, 1fr); gap: .6em .8em; }
+  .cols3.six .card { font-size: .62em; padding: .4em .6em .5em; }
+  .reveal .cols3.six .card-ill { aspect-ratio: 3 / 1; margin-bottom: .15em; }
+  .cols3.six .card p { margin: .1em 0 0; }
+  .caption { font-size: .55em; color: var(--muted); margin-top: .3em; }
+  .reveal a { text-decoration: underline; text-decoration-color: rgba(43,108,176,.4); text-underline-offset: 3px; }
+  .reveal a img { cursor: pointer; }
+  .quote { font-size: 1.05em; font-style: italic; border-left: 6px solid var(--accent); padding-left: .6em; margin: .4em 0; }
+  .hint { position: absolute; bottom: 1em; right: 1.2em; font-size: .45em; color: var(--muted); }
+  /* Åpningslysbildet for hver stripe: bare tittel */
+  .reveal .opener h1 { font-size: 2.6em; }
+  .reveal .opener .kicker { font-size: .7em; }
+  /* Lag som legges oppå hverandre, klikk for klikk */
+  .layers { position: relative; margin: 0 auto; }
+  .reveal .layers img { display: block; width: 100%; height: auto; max-height: none; margin: 0; }
+  .reveal .layers img + img { position: absolute; left: 0; top: 0; }
+  /* Kart over innlegget: to rader, innlegget og eksemplene */
+  .map { display: grid; grid-template-columns: 5.5em repeat(9, 1fr); gap: .3em; font-size: .42em; width: 100%; }
+  .map > div { border: 2px solid #e2e8f0; border-radius: 6px; padding: .35em .3em; text-align: center; min-height: 3.2em; display: flex; align-items: center; justify-content: center; }
+  .map .h { background: #ebf4ff; border-color: var(--accent); font-weight: 700; }
+  .map .e { font-weight: 700; }
+  .map .lbl { border: none; color: var(--muted); font-weight: 700; text-transform: uppercase; letter-spacing: .08em; font-size: .8em; justify-content: flex-start; text-align: left; padding-left: 0; }
+  .map .empty { border: none; }
+  .map .n { display: block; color: var(--muted); font-weight: 400; font-size: .8em; }
+  .map .sub { display: block; color: var(--muted); font-weight: 400; font-size: .8em; margin-top: .15em; }
+  .reveal .footer { position: fixed; bottom: 14px; left: 22px; font-size: 14px; color: #a0aec0; z-index: 10; }
+  .reveal .progress { color: var(--accent); }
+  .wish { font-size: 1.1em; margin: .5em 0; display: flex; gap: .5em; align-items: baseline; }
+  .wish b { color: var(--accent); font-size: 1.4em; min-width: 1.2em; }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1em 1.5em; margin-top: .6em; }
+  .stat { border: 2px solid #e2e8f0; border-radius: 12px; padding: .5em .7em .6em; text-align: left; }
+  .stat .val { font-size: 2.2em; font-weight: 700; line-height: 1.1; color: var(--accent); }
+  .stat .val.bad { color: var(--bad); }
+  .stat .lbl { font-size: .8em; font-weight: 600; margin-top: .1em; }
+  .stat .sub { font-size: .55em; color: var(--muted); margin-top: .2em; }
+  html.dark .reveal .stat { border-color: #2d3748; }
+
+
+  /* Tables for the matrices */
+  .reveal table.tbl { font-size: .46em; border-collapse: collapse; width: 100%; margin: 0; }
+  .reveal table.tbl th, .reveal table.tbl td { border: 1px solid #e2e8f0; padding: .35em .45em; text-align: center; vertical-align: middle; line-height: 1.2; }
+  .reveal table.tbl th { background: #ebf4ff; font-weight: 700; }
+  .reveal table.tbl td:first-child, .reveal table.tbl th:first-child { text-align: left; font-weight: 700; }
+  .reveal table.tbl td.y { background: #f0fff4; color: #2f855a; font-weight: 700; }
+  .reveal table.tbl td.m { background: #fffaf0; color: #b7791f; font-weight: 700; }
+  .reveal table.tbl td.n { background: #fff5f5; color: #c53030; font-weight: 700; }
+  .reveal table.tbl td.q { background: #f7fafc; color: #718096; font-weight: 700; }
+  .reveal table.tbl.wide { font-size: .38em; }
+  .reveal table.tbl.wide td, .reveal table.tbl.wide th { padding: .3em .4em; }
+  .reveal table.tbl td small { display: block; font-weight: 400; color: var(--muted); font-size: .85em; }
+  html.dark .reveal table.tbl th { background: #1e2a3a; } html.dark .reveal table.tbl th, html.dark .reveal table.tbl td { border-color: #2d3748; }
+  html.dark .reveal table.tbl td.y { background: #1c2f25; } html.dark .reveal table.tbl td.m { background: #332a17; } html.dark .reveal table.tbl td.n { background: #3a1f1f; } html.dark .reveal table.tbl td.q { background: #1a202c; }
+  .cols4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: .7em; align-items: stretch; }
+  .cols4 .card { font-size: .58em; }
+  .ask { font-size: 1.05em; margin: .35em 0; display: flex; gap: .5em; align-items: baseline; }
+  .ask b { color: var(--accent); font-size: 1.3em; min-width: 1.1em; }
+  .panelist { display: grid; grid-template-columns: 1fr 1fr; gap: .8em 1.2em; font-size: .7em; margin-top: .4em; }
+  .panelist div { border-left: 6px solid var(--accent); padding-left: .5em; }
+  .panelist b { display: block; font-size: 1.1em; }
+
+  /* ---- Dark mode ---- */
+  html.dark {
+    --r-background-color: #14171c;
+    --r-main-color: #e6e9ee;
+    --r-heading-color: #ffffff;
+    --r-link-color: #63b3ed;
+    --muted: #a0aec0;
+    --accent: #63b3ed; --good: #68d391; --bad: #fc8181;
+    color-scheme: dark;
+  }
+  html.dark body, html.dark .reveal-viewport { background: #14171c; }
+  html.dark .reveal .card { border-color: #2d3748; }
+  html.dark .reveal .card.bad { border-color: var(--bad); } html.dark .reveal .card.good { border-color: var(--good); } html.dark .reveal .card.warn { border-color: #f6ad55; }
+  html.dark .map > div { border-color: #2d3748; }
+  html.dark .map .h { background: #1e2a3a; border-color: var(--accent); }
+  html.dark .map .lbl, html.dark .map .empty { border: none; }
+  html.dark .reveal img.shot { border-color: #2d3748; box-shadow: 0 6px 18px rgba(0,0,0,.5); }
+  html.dark .reveal img.fig { filter: invert(0.93) hue-rotate(180deg); }
+  html.dark .reveal .footer { color: #4a5568; }
+  html.dark .reveal .progress { color: var(--accent); }
+  html.dark .reveal .controls { color: var(--accent); }
+  html.dark .reveal .slide-number { background: transparent; color: #718096; }
+  #theme-toggle {
+    position: fixed; top: 14px; right: 18px; z-index: 50;
+    width: 40px; height: 40px; border-radius: 50%; border: 1px solid #cbd5e0;
+    background: rgba(255,255,255,.85); color: #4a5568; font-size: 20px; line-height: 1;
+    cursor: pointer; opacity: .35; transition: opacity .2s;
+  }
+  #theme-toggle:hover, #theme-toggle:focus { opacity: 1; }
+  html.dark #theme-toggle { background: rgba(20,23,28,.85); border-color: #4a5568; color: #e2e8f0; }
+  @media print { #theme-toggle { display: none; } }
+</style>
+</head>
+<body>
+<script>
+  // Sett tema før siden tegnes, så det ikke blinker. Husker valget i nettleseren.
+  (function () {
+    var saved = null; try { saved = localStorage.getItem('mishmash-machines-theme'); } catch (e) {}
+    var q = location.search;
+    var dark = /[?&]dark\b/.test(q) ? true : /[?&]light\b/.test(q) ? false : saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (dark) document.documentElement.classList.add('dark');
+  })();
+</script>
+<button id="theme-toggle" type="button" title="Toggle light/dark mode (key d)" aria-label="Toggle light/dark mode">◐</button>
+<div class="reveal">
+<div class="slides">
+
+<!-- ===================== 0 TITLE ===================== -->
+<section>
+  <section class="center-slide">
+    <p class="kicker">MishMash Opening Conference · Machines session · Kilden, Kristiansand · 14 September 2026</p>
+    <h1>Building a Norwegian Ecosystem for Creative AI</h1>
+    <p style="margin-top:1.2em">Alexander Refsum Jensenius<br><span class="muted" style="font-size:.7em">Director of MishMash · Professor of music technology, University of Oslo</span></p>
+    <aside class="notes">Ten minutes of map, then the panel. This is not a recommendation and there is no common solution: the point is to lay out the options, find the holes, and see what could improve. Everyone here has used an AI system this week; most of us used one we do not own and cannot inspect.</aside>
+  </section>
+  <section>
+    <p class="kicker">Three questions · for everyone in Norway</p>
+    <div class="cols" style="grid-template-columns: 1.1fr 1fr; gap:1.5em">
+      <div>
+        <div class="ask"><b>1</b><span>Which tools <em>can</em> we use?</span></div>
+        <div class="ask"><b>2</b><span>Which tools <em>should</em> we (not) use?</span></div>
+        <div class="ask"><b>3</b><span>Which tools do we need to <em>develop</em>?</span></div>
+      </div>
+      <div style="font-size:.6em">
+        <p class="kicker">Who the map is for</p>
+        <ul>
+          <li>Universities and university colleges, all of them</li>
+          <li>Research institutes</li>
+          <li>Students, bachelor to PhD</li>
+          <li>Teachers and schools</li>
+          <li>Freelance artists</li>
+          <li>Public sector: museums, libraries, broadcasters, municipalities</li>
+          <li>Private sector: studios, film, games, startups</li>
+        </ul>
+      </div>
+    </div>
+    <aside class="notes">Three questions structure the whole session. Right side: the map is not only for MishMash researchers. A single musician on stage, a filmmaker, a teacher in a school, a startup, a museum, and the National Library training a multimodal model on its whole collection all belong on the same map. They do not need the same thing, and that is the point. Removed from the slide: No common solution. A map: the options, the holes, what could improve.</aside>
+  </section>
+  <section>
+    <p class="kicker">Map of the introduction</p>
+    <div class="map">
+      <div class="lbl">Strips</div>
+      <div class="h"><div>Rent or run<span class="sub">two roads · the middle road</span></div></div>
+      <div class="h"><div>Own hardware<span class="sub">the ladder · memory</span></div></div>
+      <div class="h"><div>Shared compute<span class="sub">server · VDI · Fox · Sigma2 · LUMI</span></div></div>
+      <div class="h"><div>Frontends<span class="sub">chat · code · creative · programmatic</span></div></div>
+      <div class="h"><div>Models<span class="sub">what runs where · licences</span></div></div>
+      <div class="h"><div>Who needs what<span class="sub">seven work packages</span></div></div>
+      <div class="h"><div>What works<span class="sub">tasks × platforms</span></div></div>
+      <div class="h"><div>Holes in the map<span class="sub">who gets access</span></div></div>
+      <div class="h"><div>The panel<span class="sub">four angles</span></div></div>
+    </div>
+    <aside class="notes">Nine strips. The main path is one or two slides per strip. Each strip has depth slides below it that I will not show unless the discussion needs them: press g, the strip number, enter, or esc for the overview.</aside>
+  </section>
+</section>
+
+<!-- ===================== 1 RENT OR RUN ===================== -->
+<section>
+  <section class="center-slide opener">
+    <h1>Rent or run</h1>
+    <aside class="notes">The first fork in the road. Rent a commercial service, or run open models on hardware you control. And a middle road most people forget.</aside>
+  </section>
+  <section>
+    <div class="layers" style="max-width:92%">
+      <img class="fig" src="images/fig-two-roads-0.svg" alt="Rent a service, with pros and cons">
+      <img class="fig fragment" src="images/fig-two-roads-1.svg" alt="Run it yourself, with pros and cons">
+      <img class="fig fragment" src="images/fig-two-roads-2.svg" alt="The middle road: open models on rented GPUs">
+    </div>
+    <aside class="notes">Rent. The best models today, zero setup, any device. But no weights, no reproducibility, data leave the room, terms change, and it is the same model for everyone. Click: run it yourself. Full control, private, trainable on your own material. One step behind the frontier, you carry the setup and the energy bill. Click: the middle road. Open models on somebody else's GPUs: Hugging Face, Mistral's own platform, EU-hosted providers, or an institution-hosted chat service such as UiO GPT. Open weights, rented hardware. Bottom line: six questions to ask of any tool.</aside>
+  </section>
+  <section>
+    <h3>Six questions to ask of any tool</h3>
+    <div class="cols3" style="font-size:.65em">
+      <div class="card"><h3>Which model?</h3><p>Name and version. "AI" is not an answer.</p></div>
+      <div class="card"><h3>Where does it run?</h3><p>Your machine, your institution, an EU data centre, the US.</p></div>
+      <div class="card"><h3>Where do my data go?</h3><p>Prompt, files, recordings. Stored? Trained on?</p></div>
+      <div class="card"><h3>Who owns the output?</h3><p>And can you sell a work made with it?</p></div>
+      <div class="card"><h3>Same result next year?</h3><p>Reproducibility for research; continuity for a repertoire piece.</p></div>
+      <div class="card"><h3>What does it cost?</h3><p>Per month, per hour of GPU, per kilowatt-hour.</p></div>
+    </div>
+    <aside class="notes">Depth slide. The six questions apply to every option in the rest of the map. For a researcher the fifth is reproducibility. For a musician it is whether the piece can be performed again in five years.</aside>
+  </section>
+</section>
+
+<!-- ===================== 2 OWN HARDWARE ===================== -->
+<section>
+  <section class="center-slide opener">
+    <h1>Your own hardware</h1>
+    <aside class="notes">The layer artists, teachers and students can most realistically own. Seven rungs from a microcontroller to a workstation.</aside>
+  </section>
+  <section>
+    <div class="layers" style="max-width:96%">
+      <img class="fig" src="images/fig-ladder-0.svg" alt="Seven rungs: microcontroller, single-board computer, phone, tablet, laptop, laptop with GPU, desktop or workstation, with typical uses and price bands">
+      <img class="fig fragment" src="images/fig-ladder-1.svg" alt="Memory per rung, from 256 KB to 512 GB">
+      <img class="fig fragment" src="images/fig-ladder-2.svg" alt="Model families placed on the rungs: TinyML and RAVE on the left, 1 to 8B language models in the middle, 70B on the right">
+    </div>
+    <aside class="notes">Left to right: Arduino and ESP32 for keyword spotting and gesture classes, milliseconds, no language model. Raspberry Pi and Jetson for small vision and audio models, an embodied agent in a box. Phone and tablet: on-device models of one to three billion parameters, camera and microphone, always with you, closed platforms. Laptop: seven to fourteen billion chat, Whisper, RAVE on stage. Laptop with a discrete GPU: diffusion, fine-tuning small models. Workstation: seventy billion locally, training small models, serving a studio. Click: memory. Click: which models fit where. The one number that matters is memory: it decides which model fits at all. Compute only decides how fast.</aside>
+  </section>
+  <section>
+    <img class="fig" src="images/fig-memory.svg" alt="Rule of thumb: parameters times bytes per parameter. 7B at 4-bit is about 5 GB, 30B about 20 GB, 70B about 40 GB, 70B at 16-bit about 140 GB">
+    <aside class="notes">Depth. Rule of thumb for language models: parameters times bytes per parameter. A quantised 7 or 8B model is about five gigabytes and runs on any recent laptop. Thirty billion needs about twenty. Seventy needs forty: a machine with a lot of unified memory or two big GPUs. Full precision seventy billion is a server job. Real-time audio models are tiny by comparison.</aside>
+  </section>
+  <section>
+    <h3>What each rung is good for</h3>
+    <div class="cols4">
+      <div class="card"><h3>Microcontroller</h3><ul><li>keyword spotting, gesture classes</li><li>sensor fusion, milliseconds</li><li>no LLM, ever</li><li>wearables, instruments</li></ul></div>
+      <div class="card"><h3>Pi / Jetson</h3><ul><li>small vision and audio models</li><li>Whisper tiny, YOLO</li><li>an embodied agent in a box</li><li>installations that run for a year</li></ul></div>
+      <div class="card"><h3>Phone / tablet</h3><ul><li>1–3B on-device LLMs</li><li>camera, mic, sensors</li><li>closed platforms, app stores</li><li>the device every pupil has</li></ul></div>
+      <div class="card"><h3>Laptop</h3><ul><li>7–14B chat, offline</li><li>Whisper transcription</li><li>RAVE and nn~ on stage</li><li>the studio in a bag</li></ul></div>
+    </div>
+    <div class="cols4" style="margin-top:.7em">
+      <div class="card"><h3>Laptop with GPU</h3><ul><li>Stable Diffusion, FLUX</li><li>fine-tune small models (LoRA)</li><li>real-time everything</li><li>hot, loud, one hour of battery</li></ul></div>
+      <div class="card"><h3>Workstation</h3><ul><li>70B local, video generation</li><li>train RAVE overnight</li><li>serve a whole studio or class</li><li>needs a room and a power bill</li></ul></div>
+      <div class="card warn"><h3>School Chromebook</h3><ul><li>browser only, no GPU</li><li>Feide login, pupils' data</li><li>everything must be hosted</li><li>the most constrained rung</li></ul></div>
+      <div class="card good"><h3>Rule of thumb</h3><ul><li>memory decides what fits</li><li>compute decides how fast</li><li>prototype on the smallest rung that works</li></ul></div>
+    </div>
+    <aside class="notes">Depth. Rung by rung. Note the school Chromebook: it is not on the ladder because it cannot run anything; everything has to be hosted somewhere else. That is the WP4 problem in one card.</aside>
+  </section>
+</section>
+
+<!-- ===================== 3 SHARED COMPUTE ===================== -->
+<section>
+  <section class="center-slide opener">
+    <h1>Shared compute</h1>
+    <aside class="notes">When your own hardware is not enough. Five steps up a stair, each with more compute and more paperwork. Removed from the slide: institutional · national · European.</aside>
+  </section>
+  <section>
+    <div class="layers" style="max-width:96%">
+      <img class="fig" src="images/fig-stair-0.svg" alt="Five steps: shared server, VDI, institutional HPC such as UiO Fox, national Sigma2 with Olivia and KI-fabrikken, European LUMI">
+      <img class="fig fragment" src="images/fig-stair-1.svg" alt="Arrows: to the right more compute and sharing, to the left more waiting, paperwork and less interactivity">
+    </div>
+    <aside class="notes">Shared server: a GPU box in the lab, ssh, first come first served. VDI: a virtual desktop for licensed software and sensitive data, rarely a real GPU. Institutional HPC: UiO's Fox, Slurm, batch jobs, A100s, free for UiO people, collaborators added by a project leader. NTNU has IDUN, others have their own or nothing. National: Sigma2 and NRIS. Olivia, 448 Grace Hopper chips after the February expansion, plus Saga; application rounds twice a year. KI-fabrikken, opened last year, is the first national channel that explicitly includes business and public sector. European: LUMI in Finland, where Norway is a member, and the EuroHPC AI Factories. Click: what changes as you go up. More compute, more people can share it, data can live next to it. But more waiting, more paperwork, less interactivity. Batch scheduling is the wrong shape for a rehearsal.</aside>
+  </section>
+  <section>
+    <h3>How you actually get on</h3>
+    <div class="cols3" style="font-size:.62em">
+      <div class="card good"><h3>Fox (UiO)</h3><ul><li>Educloud Research project</li><li>PI adds collaborators, BankID self-service</li><li>free for basic use</li><li>Jupyter via Educloud On Demand</li></ul></div>
+      <div class="card"><h3>NRIS / Olivia</h3><ul><li>project application, CPU and GPU hours</li><li>two rounds a year</li><li>any Norwegian research institution</li><li>data storage next to compute</li></ul></div>
+      <div class="card"><h3>KI-fabrikken</h3><ul><li>Sigma2, part of the LUMI AI Factory network</li><li>research, business, public sector</li><li>expertise and support, not only GPUs</li><li>artists and cultural institutions: unclear</li></ul></div>
+      <div class="card"><h3>LUMI / EuroHPC</h3><ul><li>through NRIS or EuroHPC calls</li><li>AMD GPUs: check your software</li><li>large allocations, long lead times</li></ul></div>
+      <div class="card warn"><h3>NAIC (paused)</h3><ul><li>the low-threshold national GPU service</li><li>funding ended 31 March 2026</li><li>"no-cost hibernation" since April</li><li>successor being procured by Sigma2</li></ul></div>
+      <div class="card"><h3>Sensitive data</h3><ul><li>TSD at UiO, SAFE at UiB, HUNT Cloud at NTNU</li><li>GPU capacity inside is limited</li><li>health and pupils' data live here or offline</li></ul></div>
+    </div>
+    <aside class="notes">Depth. The practical routes. Note NAIC: it was the one national service designed for low-threshold GPU access, and it has been paused since April while Sigma2 procures a permanent successor. That is a live hole. Sensitive data: WP3 and WP4 material cannot go to Olivia; it lives in TSD-type environments or fully offline.</aside>
+  </section>
+  <section>
+    <h3>Institutions side by side · to be filled in</h3>
+    <table class="tbl wide">
+      <tr><th>Institution</th><th>Own GPU cluster</th><th>Hosted chat / LLM service</th><th>Sensitive-data environment</th><th>Students get GPUs?</th><th>Freelancers / partners get in?</th></tr>
+      <tr><td>UiO</td><td class="y">Fox</td><td class="y">UiO GPT</td><td class="y">TSD</td><td class="m">via project</td><td class="m">via a PI</td></tr>
+      <tr><td>UiB</td><td class="q">?</td><td class="q">?</td><td class="y">SAFE</td><td class="q">?</td><td class="q">?</td></tr>
+      <tr><td>NTNU</td><td class="y">IDUN</td><td class="q">?</td><td class="y">HUNT Cloud</td><td class="m">via project</td><td class="q">?</td></tr>
+      <tr><td>UiT</td><td class="q">?</td><td class="q">?</td><td class="q">?</td><td class="q">?</td><td class="q">?</td></tr>
+      <tr><td>UiA · INN · HiØ · HVL · OsloMet · Nord · Kristiania …</td><td class="q">?</td><td class="q">?</td><td class="q">?</td><td class="q">?</td><td class="q">?</td></tr>
+      <tr><td>NMH · KHiO · AHO</td><td class="n">none known</td><td class="q">?</td><td class="n">none</td><td class="n">no</td><td class="q">?</td></tr>
+      <tr><td>National Library</td><td class="y">DH-lab</td><td class="q">?</td><td class="q">?</td><td class="n">n/a</td><td class="q">?</td></tr>
+      <tr><td>Simula · SINTEF · IFE</td><td class="y">eX3 and own</td><td class="q">?</td><td class="q">?</td><td class="n">n/a</td><td class="q">?</td></tr>
+    </table>
+    <aside class="notes">Depth. The honest version: I know UiO, I know a little about NTNU and UiB, and for most of the twenty-plus MishMash institutions and the rest of Norwegian higher education the cell is a question mark. That is itself a finding. Removed from the slide: Green: known. Grey: nobody in the room knows yet. This table is the first thing the panel is asked to correct.</aside>
+  </section>
+</section>
+
+<!-- ===================== 4 FRONTENDS ===================== -->
+<section>
+  <section class="center-slide opener">
+    <h1>Frontends</h1>
+    <aside class="notes">Hardware and models are only half. The tool you sit in decides who can use it at all. Removed from the slide: how you talk to the model.</aside>
+  </section>
+  <section>
+    <img class="fig" src="images/fig-frontends.svg" alt="The model in the centre, four families around it: chat, code and agents, creative tools, programmatic">
+    <aside class="notes">Four families. Chat: the web apps, an institution-hosted service like UiO GPT, or Open WebUI and LM Studio on top of a local model; this is where teachers and most artists start. Code and agents: VS Code with Copilot or Continue, Claude Code, Cursor, Jupyter, Educloud On Demand on Fox. Creative tools: Max with nn~ and FluCoMa, Pure Data, Ableton with Neutone, TouchDesigner, ComfyUI for image and video, Unity and Unreal, p5.js with ml5. Programmatic: Python with PyTorch, transformers and diffusers, llama.cpp, MLX, Ollama or vLLM as a local server. The same model can sit behind all four.</aside>
+  </section>
+  <section>
+    <img class="fig" src="images/fig-api.svg" alt="One script or patch pointing at five backends: laptop, lab server, Fox or Olivia, EU provider, commercial, all through the same OpenAI-compatible API">
+    <aside class="notes">The trick that makes switching cheap: almost everything speaks the same OpenAI-compatible API. Ollama and LM Studio on the laptop, vLLM on a lab server or behind a tunnel to Fox, Mistral and the EU providers, and the commercial APIs. Change one line, keep the workflow. Prototype against the laptop, point at a server for the show.</aside>
+  </section>
+  <section>
+    <h3>Tool is not model</h3>
+    <div class="cols" style="font-size:.7em">
+      <div class="card"><h3>Same model, many tools</h3><p>Llama 3 in Ollama, in Open WebUI, in a Max patch, in a Python script, on Fox. The model is a file. The tool decides who can use it.</p></div>
+      <div class="card"><h3>Same tool, many models</h3><p>VS Code, ComfyUI or Max can point at a local model today and a hosted one tomorrow. Ask which model, not which app.</p></div>
+    </div>
+    <aside class="notes">Depth. The distinction people most often miss. NotebookLM, ChatGPT and Copilot are tools; the model underneath can be swapped and is often the same across tools. Removed from the slide: When someone says "we use AI", ask: which model, where does it run, where do the data go.</aside>
+  </section>
+</section>
+
+<!-- ===================== 5 MODELS ===================== -->
+<section>
+  <section class="center-slide opener">
+    <h1>Models</h1>
+    <aside class="notes">Open models exist for every modality now. Norwegian ones exist for language and speech only. Removed from the slide: what runs where.</aside>
+  </section>
+  <section>
+    <div class="cols3 six">
+      <div class="card"><h3>Language</h3><p>Llama · Mistral · Gemma · Qwen · DeepSeek · Phi</p><p class="accent">Norwegian: NorMistral (UiO) · NorLLM (NorwAI/NTNU) · NB-GPT</p></div>
+      <div class="card"><h3>Speech</h3><p>Whisper · faster-whisper · Piper · XTTS · Kokoro</p><p class="accent">Norwegian: NB-Whisper (National Library)</p></div>
+      <div class="card"><h3>Music and audio</h3><p>RAVE (IRCAM) · MusicGen / AudioCraft · Stable Audio Open · ACE-Step · YuE</p><p class="bad">Norwegian: none</p></div>
+      <div class="card"><h3>Image</h3><p>Stable Diffusion · SDXL · FLUX</p><p class="bad">Norwegian: none</p></div>
+      <div class="card"><h3>Video</h3><p>Wan · HunyuanVideo · LTX</p><p class="bad">Norwegian: none</p></div>
+      <div class="card"><h3>Vision, motion, multimodal</h3><p>CLIP · SAM · LLaVA · Qwen-VL · MDM · MotionGPT</p><p class="bad">Norwegian: none</p></div>
+    </div>
+    <aside class="notes">Six modalities, open options in each. The Norwegian line is the hole: NorMistral from the language technology group at UiO, NorLLM from NorwAI at NTNU, NB-Whisper from the National Library, and that is it. Nothing open and Norwegian for music, image, video or motion. Nothing trained on joik, folk music, Norwegian film or the museum collections. That is a job for this centre, and for WP6 in particular. Removed from the slide: All of these have open weights you can download. Sizes range from tens of MB (RAVE) to hundreds of GB. Licences vary: see the next slide.</aside>
+  </section>
+  <section>
+    <h3>Licences in three colours</h3>
+    <div class="cols3" style="font-size:.65em">
+      <div class="card good"><h3>Anything goes</h3><p>Apache 2.0, MIT</p><ul><li>Mistral, Qwen, NorMistral</li><li>Whisper, RAVE</li><li>sell the work, ship the product</li></ul></div>
+      <div class="card warn"><h3>Conditions</h3><p>Community licences</p><ul><li>Llama, Gemma, FLUX dev</li><li>Stability community licence</li><li>user caps, revenue caps, attribution: read it</li></ul></div>
+      <div class="card bad"><h3>Research only</h3><p>Non-commercial</p><ul><li>some music and video checkpoints</li><li>fine for a paper, not for a release</li><li>a commissioned work is commercial</li></ul></div>
+    </div>
+    <aside class="notes">Depth. Three colours. Green: permissive, do what you like. Amber: community licences with conditions, usually fine for artists and researchers but read them. Red: research-only; fine for a paper, a problem for a commissioned work. Licences change between versions, so check the card of the exact checkpoint. Removed from the slide: The licence decides whether an artist can sell the work. Check the model card before the first rehearsal, not after the premiere.</aside>
+  </section>
+  <section>
+    <h3>Where to find them, how to trust them</h3>
+    <div class="cols" style="font-size:.68em">
+      <div class="card"><h3>Find</h3><ul><li>Hugging Face: weights, model cards, datasets</li><li>Ollama and LM Studio libraries: one-click local</li><li>IRCAM Forum: RAVE and nn~</li><li>the paper's GitHub, for the newest</li></ul></div>
+      <div class="card"><h3>Trust</h3><ul><li>model card: training data disclosed?</li><li>evaluation: on what, by whom?</li><li>reproducible: pinned version, checksum</li><li>energy: training and inference cost stated?</li></ul></div>
+    </div>
+    <aside class="notes">Depth. Practicalities of finding and trusting. Evaluation ties back to the MishMash Machines threads: what counts as good, and who says. Removed from the slide: "What counts as good, and who says" is a MishMash research question, not a solved problem.</aside>
+  </section>
+</section>
+
+<!-- ===================== 6 WHO NEEDS WHAT ===================== -->
+<section>
+  <section class="center-slide opener">
+    <h1>Who needs what</h1>
+    <aside class="notes">Now the people. MishMash has seven work packages, and they do not need the same machine. Removed from the slide: seven work packages, seven different answers.</aside>
+  </section>
+  <section>
+    <div class="layers" style="max-width:88%">
+      <img class="fig" src="images/fig-spectrum-0.svg" alt="Axes: compute needed from laptop to LUMI, and data sensitivity from own material to personal and health data">
+      <img class="fig fragment" src="images/fig-spectrum-1.svg" alt="Seven use cases placed on the axes: musician on stage, filmmaker, music therapist, teacher in a school, cultural institution, National Library, designer or rescue operator">
+    </div>
+    <aside class="notes">Two axes: how much compute, and how sensitive the data. Click. WP1, a musician on stage: milliseconds, a laptop in the room, own recordings; bottom left. WP2, a filmmaker: video generation, hours on a GPU, and the rights of the training data are the issue. WP3, a music therapist: small models but health data, so TSD or fully offline; top left. WP4, a teacher: no GPU at all, a Chromebook, pupils' data, and a need for free Norwegian tools; far left, high up. WP5, cultural institutions and rights organisations: production-grade, contracts, audit trails. WP6, the National Library: a multimodal model on the whole collection, petabytes, Olivia or LUMI for months; far right. WP7, designers and rescue operators: physics and law built in, often on an embedded device. No single machine serves this picture. That is why there is no common solution.</aside>
+  </section>
+  <section>
+    <img class="fig" src="images/fig-workflow-musician.svg" alt="Musician: record own material, train RAVE overnight on a studio GPU or Fox, play with nn~ in Max on the laptop">
+    <aside class="notes">Depth. The musician. Record, train overnight, play in Max. The model is thirty megabytes, trained on your own sound, runs without internet.</aside>
+  </section>
+  <section>
+    <img class="fig" src="images/fig-workflow-film.svg" alt="Filmmaker: sketch with an open image model, generate with open video models on a workstation or EU provider, cut with provenance documented">
+    <aside class="notes">Depth. The filmmaker. The open route is a step behind Runway and Sora, and the rights are yours to defend. Compare with the Julius production tonight at Kraftverk.</aside>
+  </section>
+  <section>
+    <img class="fig" src="images/fig-workflow-teacher.svg" alt="Teacher: browser only with institution-hosted chat, offline Whisper on the teacher's laptop, free Norwegian GDPR-safe tools in the classroom">
+    <aside class="notes">Depth. The teacher. Not a compute problem, an access and language problem. The scarcest resource on the whole map is a free, Norwegian, GDPR-safe creative AI tool for a classroom.</aside>
+  </section>
+  <section>
+    <img class="fig" src="images/fig-workflow-nb.svg" alt="National Library: prepare petabytes, train a multimodal Norwegian model on Olivia or LUMI, release open weights that the musician downloads">
+    <aside class="notes">Depth. The National Library. Petabytes, months of allocation, and then an open release that everyone downstream can use. The loop closes.</aside>
+  </section>
+  <section>
+    <h3>Seven work packages, one table</h3>
+    <table class="tbl wide">
+      <tr><th>WP</th><th>Typical machine task</th><th>Data</th><th>Compute</th><th>Runs today on</th><th>The hole</th></tr>
+      <tr><td>1 Performances</td><td>real-time co-creative agents, RAVE, gesture models</td><td>own recordings, sensors</td><td>ms; laptop, board, one GPU to train</td><td>laptop, studio GPU, Fox</td><td>open real-time models; training time without paperwork</td></tr>
+      <tr><td>2 Processes</td><td>image, video, text, audio generation</td><td>rights-encumbered</td><td>hours on a workstation</td><td>commercial tools, workstation</td><td>rights-clean open models; EU hosting</td></tr>
+      <tr><td>3 Health</td><td>small models on sessions and signals</td><td>health, personal</td><td>small, inside a secure zone</td><td>TSD, offline laptops</td><td>GPUs inside secure zones; consent-ready pipelines</td></tr>
+      <tr><td>4 Education</td><td>AI literacy, classroom tools</td><td>pupils' data</td><td>none locally; hosted</td><td>Chromebooks, Feide, hosted chat</td><td>free, Norwegian, GDPR-safe creative tools</td></tr>
+      <tr><td>5 Industries</td><td>production generation, attribution, audits</td><td>contracts, identity</td><td>hosted, reliable, auditable</td><td>commercial APIs</td><td>cultural institutions in KI-fabrikken; open-provider contracts</td></tr>
+      <tr><td>6 Heritage</td><td>transcribe, classify, link, train on the collection</td><td>petabytes; copyright, public duty</td><td>national or European HPC</td><td>NB DH-lab, Olivia, LUMI</td><td>multimodal Norwegian models; sustained allocations; storage next to compute</td></tr>
+      <tr><td>7 Problem-solving</td><td>constrained generation, embodied systems</td><td>industrial, safety-critical</td><td>edge to workstation; simulation</td><td>partner systems, Fox</td><td>constraint-aware models; access for industry partners</td></tr>
+    </table>
+    <aside class="notes">Depth. The same seven, as a table the WP leaders can correct. The last column is what we are after: the holes.</aside>
+  </section>
+  <section>
+    <img class="fig" src="images/fig-loop.svg" alt="Researcher trains on Olivia or LUMI, releases open weights, musician, teacher and filmmaker download to a laptop">
+    <aside class="notes">Depth. The one pattern that recurs: prototype small and local, scale up only for training, bring the result back down to the room. When the loop works, national compute upstream produces open models that run on a laptop downstream. Today it works for Norwegian language. It does not yet work for anything creative.</aside>
+  </section>
+</section>
+
+<!-- ===================== 7 WHAT WORKS ===================== -->
+<section>
+  <section class="center-slide opener">
+    <h1>What works for what</h1>
+    <aside class="notes">Tasks against platforms. A rough guide, not a verdict.</aside>
+  </section>
+  <section>
+    <table class="tbl">
+      <tr><th>Task</th><th>Commercial API</th><th>Laptop</th><th>Laptop + GPU</th><th>Workstation</th><th>Fox-type cluster</th><th>Olivia / LUMI</th></tr>
+      <tr><td>Chat, writing, code</td><td class="y">●</td><td class="y">● 7–14B</td><td class="y">●</td><td class="y">● 70B</td><td class="m">◐ overkill</td><td class="m">◐ overkill</td></tr>
+      <tr><td>Transcription (Whisper)</td><td class="y">●</td><td class="y">●</td><td class="y">●</td><td class="y">●</td><td class="m">◐ batch</td><td class="m">◐ overkill</td></tr>
+      <tr><td>Image generation</td><td class="y">●</td><td class="m">◐ slow</td><td class="y">●</td><td class="y">●</td><td class="m">◐ batch</td><td class="m">◐ overkill</td></tr>
+      <tr><td>Video generation</td><td class="y">●</td><td class="n">○</td><td class="m">◐ short clips</td><td class="y">●</td><td class="m">◐ batch</td><td class="m">◐</td></tr>
+      <tr><td>Real-time audio on stage</td><td class="n">○ latency</td><td class="y">●</td><td class="y">●</td><td class="y">●</td><td class="n">○</td><td class="n">○</td></tr>
+      <tr><td>Train a small model (RAVE, classifier)</td><td class="n">○</td><td class="m">◐ slow</td><td class="y">●</td><td class="y">●</td><td class="y">●</td><td class="m">◐ overkill</td></tr>
+      <tr><td>Fine-tune an LLM (7–14B)</td><td class="m">◐ data leave</td><td class="n">○</td><td class="m">◐ LoRA</td><td class="y">●</td><td class="y">●</td><td class="y">●</td></tr>
+      <tr><td>Train from scratch (NB-scale multimodal)</td><td class="n">○</td><td class="n">○</td><td class="n">○</td><td class="n">○</td><td class="m">◐ small</td><td class="y">●</td></tr>
+      <tr><td>Sensitive data (health, pupils)</td><td class="n">○</td><td class="y">● offline</td><td class="y">● offline</td><td class="y">● offline</td><td class="m">◐ TSD-type only</td><td class="n">○</td></tr>
+    </table>
+    <aside class="notes">Read the diagonal. Everyday tasks are best on the laptop or a commercial API. Real-time work only works in the room. Training scales up the stair. Sensitive data goes the other way: offline or a secure zone, never a public API and never a national cluster. Nothing in the top-right corner is a good fit: national HPC is the wrong tool for chat, and a commercial API is the wrong tool for a stage. Removed from the slide: ● works well · ◐ possible, with a catch · ○ no.</aside>
+  </section>
+  <section>
+    <h3>By person: a plausible stack today</h3>
+    <table class="tbl wide">
+      <tr><th>Who</th><th>Everyday</th><th>Creative work</th><th>Training</th><th>The catch</th></tr>
+      <tr><td>Musician on stage</td><td>laptop, local chat</td><td>Max + nn~, RAVE</td><td>studio GPU overnight, or a friend with Fox</td><td>no institution: no Fox, no NRIS</td></tr>
+      <tr><td>Filmmaker</td><td>commercial tools</td><td>ComfyUI, open video models on a workstation</td><td>LoRA on own footage</td><td>rights of the base model</td></tr>
+      <tr><td>Teacher in a school</td><td>Feide-gated hosted chat</td><td>browser tools only</td><td>none</td><td>no Norwegian, GDPR-safe creative tool exists</td></tr>
+      <tr><td>Music therapist</td><td>offline laptop</td><td>small local models</td><td>inside TSD, if GPUs</td><td>consent and secure-zone capacity</td></tr>
+      <tr><td>Bachelor student</td><td>Ollama + Open WebUI</td><td>Whisper, notebooks</td><td>Colab-type, or a course allocation</td><td>depends entirely on the institution</td></tr>
+      <tr><td>PhD / ML researcher</td><td>laptop</td><td>prototypes locally</td><td>Fox, then NRIS, then LUMI</td><td>allocation rounds and the paperwork</td></tr>
+      <tr><td>Cultural institution</td><td>commercial APIs</td><td>hosted open models with a contract</td><td>KI-fabrikken, if they qualify</td><td>nobody has defined them as a user category</td></tr>
+      <tr><td>Startup / studio</td><td>commercial APIs</td><td>own GPUs or cloud</td><td>KI-fabrikken as "business"</td><td>cost, and no research partner</td></tr>
+      <tr><td>National Library</td><td>own lab</td><td>own models</td><td>Olivia, LUMI</td><td>sustained multi-year allocation</td></tr>
+    </table>
+    <aside class="notes">Depth. The same map by person, with the catch in the last column. Every row has one.</aside>
+  </section>
+</section>
+
+<!-- ===================== 8 HOLES IN THE MAP ===================== -->
+<section>
+  <section class="center-slide opener">
+    <h1>Holes in the map</h1>
+    <aside class="notes">The slide the whole session is about. Who can use what. The grey cells are what we do not know; the red ones are the holes. Removed from the slide: who gets access to what, in Norway, today.</aside>
+  </section>
+  <section>
+    <table class="tbl">
+      <tr><th>Who</th><th>Own hardware</th><th>Institutional<br><small>servers, VDI, Fox-type</small></th><th>National HPC<br><small>NRIS, Olivia</small></th><th>KI-fabrikken</th><th>Hosted open models<br><small>EU providers</small></th><th>Commercial APIs</th></tr>
+      <tr><td>Researchers, big universities<small>UiO · UiB · NTNU · UiT</small></td><td class="y">yes</td><td class="y">yes, varies</td><td class="y">by application</td><td class="y">yes</td><td class="m">own budget</td><td class="m">own budget</td></tr>
+      <tr><td>Researchers, other universities and colleges<small>UiA · INN · HiØ · HVL · NMH · KHiO · AHO · Kristiania …</small></td><td class="y">yes</td><td class="m">often little or none</td><td class="y">by application</td><td class="y">yes</td><td class="m">own budget</td><td class="m">own budget</td></tr>
+      <tr><td>Research institutes</td><td class="y">yes</td><td class="y">own labs</td><td class="y">by application</td><td class="y">yes</td><td class="m">own budget</td><td class="m">own budget</td></tr>
+      <tr><td>Students, bachelor to PhD</td><td class="m">own machine</td><td class="m">via a supervisor</td><td class="m">via a project</td><td class="q">?</td><td class="n">rarely</td><td class="m">own budget</td></tr>
+      <tr><td>Teachers and schools</td><td class="n">Chromebooks</td><td class="n">no</td><td class="n">no</td><td class="n">no</td><td class="n">no</td><td class="m">Feide-gated, limited</td></tr>
+      <tr><td>Freelance artists</td><td class="m">if affordable</td><td class="n">no</td><td class="n">no</td><td class="q">?</td><td class="m">own budget</td><td class="m">own budget</td></tr>
+      <tr><td>Public sector<small>museums · libraries · NRK · municipalities</small></td><td class="y">yes</td><td class="n">own IT, no GPUs</td><td class="n">no</td><td class="m">"public sector"</td><td class="m">budget, procurement</td><td class="m">budget, procurement</td></tr>
+      <tr><td>Private sector<small>studios · film · games · startups</small></td><td class="y">yes</td><td class="m">own</td><td class="n">only with a research partner</td><td class="m">"business"</td><td class="m">budget</td><td class="y">yes</td></tr>
+    </table>
+    <aside class="notes">Read the rows. The top three rows are fine, with the caveat that "by application" means twice a year and someone who can write it. Students depend entirely on a supervisor. Teachers have nothing but a Chromebook and a Feide login. Freelance artists have nothing institutional at all, and it is unclear whether KI-fabrikken is for them. Public and private sector can get into KI-fabrikken on paper; whether a museum or a theatre counts is untested. Nobody has defined artists or cultural institutions as a user category for national compute. And NAIC, the one low-threshold service, is paused. These are the holes. Over to the panel. Removed from the slide: Green: works. Amber: conditional. Red: a hole. Grey: nobody knows. The panel and the room correct this.</aside>
+  </section>
+  <section>
+    <h3>Observations to argue with</h3>
+    <ul style="font-size:.8em">
+      <li class="fragment">The academic infrastructure is built for batch science, not for a rehearsal room.</li>
+      <li class="fragment">The people who most need cheap, controllable, rights-clean models have the least access.</li>
+      <li class="fragment">Access depends on which institution you sit in, not on what you need.</li>
+      <li class="fragment">Open Norwegian models exist for language and speech, and for nothing creative.</li>
+      <li class="fragment">Nobody has defined "artist", "teacher" or "cultural institution" as a user of national compute.</li>
+      <li class="fragment">The low-threshold national service (NAIC) is paused; its successor is not yet here.</li>
+    </ul>
+    <aside class="notes">Depth. Six observations, each one an invitation to disagree.</aside>
+  </section>
+</section>
+
+<!-- ===================== 9 THE PANEL ===================== -->
+<section>
+  <section class="center-slide opener">
+    <h1>Over to the panel</h1>
+    <aside class="notes">Five minutes each, then the conversation, then the room.</aside>
+  </section>
+  <section>
+    <div class="cols" style="grid-template-columns: 1fr 1.3fr; gap:1.5em">
+      <div>
+        <div class="ask"><b>1</b><span>Which tools <em>can</em> we use?</span></div>
+        <div class="ask"><b>2</b><span>Which tools <em>should</em> we (not) use?</span></div>
+        <div class="ask"><b>3</b><span>Which tools do we need to <em>develop</em>?</span></div>
+      </div>
+      <div class="panelist">
+        <div><b>Four angles</b></div>
+        <div>real-time, on stage, on the laptop</div>
+        <div>training on multimodal data, inside a big university</div>
+        <div>design practice and industry partners</div>
+        <div>the view from outside the big universities</div>
+      </div>
+    </div>
+    <aside class="notes">Four angles that together cover the map: the stage, the lab, the design studio and industry, and a regional university. Names go on the slide once the panel is confirmed. Five minutes each. Then we argue, then the room fills in the holes, and we leave with three asks for the closing panel at 17:00. Removed from the slide: Moderator: Alexander Refsum Jensenius. Five minutes each, then conversation, then the room, then three asks for MishMash. Then the room: what are you using today, and what do you need that you cannot get?</aside>
+  </section>
+</section>
+
+</div>
+</div>
+<div class="footer">Alexander Refsum Jensenius · MishMash · Kristiansand, 14 September 2026</div>
+<script src="lib/reveal/reveal.js"></script>
+<script src="lib/reveal-plugin/notes/notes.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    // 16:9. Reveal scales this to the screen and keeps the aspect ratio.
+    width: 1920, height: 1080, margin: 0.04,
+    minScale: 0.2, maxScale: 2.5,
+    slideNumber: false,
+    navigationMode: 'default',
+    transition: 'fade',
+    controlsTutorial: false,
+    plugins: [ RevealNotes ]
+  });
+
+  // Light/dark mode
+  function setTheme(dark) {
+    document.documentElement.classList.toggle('dark', dark);
+    try { localStorage.setItem('ki-admin-theme', dark ? 'dark' : 'light'); } catch (e) {}
+  }
+  function toggleTheme() { setTheme(!document.documentElement.classList.contains('dark')); }
+  document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+  Reveal.addKeyBinding({ keyCode: 68, key: 'D', description: 'Toggle light/dark mode' }, toggleTheme);
+</script>
+</body>
+</html>

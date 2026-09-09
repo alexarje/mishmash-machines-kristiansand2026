@@ -216,3 +216,10 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# reveal.js and fonts are vendored on purpose (the Python template above ignores lib/)
+!/lib/
+
+# Deck build artefacts
+.shots/
+_site/
