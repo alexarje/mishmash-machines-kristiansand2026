@@ -363,7 +363,7 @@
       <div class="card"><h3>Video</h3><p>Wan · HunyuanVideo · LTX</p><p class="bad">Norwegian: none</p></div>
       <div class="card"><h3>Vision, motion, multimodal</h3><p>CLIP · SAM · LLaVA · Qwen-VL · MDM · MotionGPT</p><p class="bad">Norwegian: none</p></div>
     </div>
-    <aside class="notes">Six modalities, open options in each. The Norwegian line is the hole: NorMistral from the language technology group at UiO, NorLLM from NorwAI at NTNU, NB-Whisper from the National Library, and that is it. Nothing open and Norwegian for music, image, video or motion. Nothing trained on joik, folk music, Norwegian film or the museum collections. That is a job for this centre, and for WP6 in particular. Removed from the slide: All of these have open weights you can download. Sizes range from tens of MB (RAVE) to hundreds of GB. Licences vary: see the next slide.</aside>
+    <aside class="notes">Six modalities, open options in each. The Norwegian line is the hole: NorMistral from the language technology group at UiO, NorLLM from NorwAI at NTNU, NB-Whisper from the National Library, and that is it. Nothing open and Norwegian for music, image, video or motion. Nothing trained on joik, folk music, Norwegian film or the museum collections. The data survey this week confirmed it: speech is the only creative data type with open Norwegian data, and for music, film, video, dance, theatre, games and design there is no open Norwegian dataset at all. That is a job for this centre, and for WP6 in particular. Removed from the slide: All of these have open weights you can download. Sizes range from tens of MB (RAVE) to hundreds of GB. Licences vary: see the next slide.</aside>
   </section>
   <section>
     <h3>Licences in three colours</h3>
@@ -424,7 +424,7 @@
   </section>
   <section>
     <img class="fig" src="images/fig-workflow-nb.svg" alt="National Library: prepare petabytes, train a multimodal Norwegian model on Olivia or LUMI, release open weights that the musician downloads">
-    <aside class="notes">Depth. The National Library. Petabytes, months of allocation, and then an open release that everyone downstream can use. The loop closes.</aside>
+    <aside class="notes">Depth. The National Library. At the end of 2025 the digital collection held about 788 000 books, 5.8 million newspaper issues and 6.6 million images, and the deposit brings in about 131 000 hours of radio and 114 000 hours of television a year; the text alone is more than 160 billion words. Months of allocation, and then an open release that everyone downstream can use. The library has done this for text with the Borealis models, adapted from Gemma, and it has the only paid licence in the world for training on newspapers. The loop closes when the same is done for sound, image and film.</aside>
   </section>
   <section>
     <h3>Work Package Needs</h3>
@@ -533,6 +533,14 @@
     <aside class="notes">Read the rows. The top three rows are fine, with the caveat that "by application" means twice a year and someone who can write it. Students depend entirely on a supervisor. Teachers have a managed tablet or laptop and a Feide login, and nothing beyond that. Freelance artists have nothing institutional at all, and it is unclear whether KI-fabrikken is for them. Public and private sector can get into KI-fabrikken on paper; whether a museum or a theatre counts is untested. Nobody has defined artists or cultural institutions as a user category for national compute. And NAIC, the one low-threshold service, is paused. These are the holes. Over to the panel. Removed from the slide: Green: works. Amber: conditional. Red: a hole. Grey: nobody knows. The panel and the room correct this.</aside>
   </section>
   <section>
+    <h3>Data: open by count, closed by volume</h3>
+    <div class="cols" style="gap:1.5em">
+      <div class="card good"><h3>Open, with an API</h3><ul><li>Wikidata, KulturNav, the authority files</li><li>half of DigitaltMuseum, Nasjonalmuseet</li><li>Kartverket, SSB, Stortinget, Brønnøysund</li><li>Språkbanken: thousands of hours of speech</li></ul></div>
+      <div class="card warn"><h3>Closed, by the hour and the page</h3><ul><li>the library's books, newspapers, radio, TV, web</li><li>NRK, TV 2, NTB, Retriever</li><li>Bokhylla, Filmarkivet</li><li>nothing open for music, film, video, dance, theatre, games, design</li></ul></div>
+    </div>
+    <aside class="notes">A survey of about 120 Norwegian sources this week. Counted in downloadable objects, Norway looks open: Wikidata, KulturNav, half of DigitaltMuseum, Nasjonalmuseet, the public registers, and Språkbanken, which makes speech the only well-served creative data type. Measured in hours and pages, Norway is closed: the National Library's largest holdings are licensed for reading on site or from a Norwegian address, not for mining, and the broadcasters and news archives are all rights reserved. The reason is not the licences but the law: Norway still has no text-and-data-mining exception. Sweden and Finland have had one since 2023. The bill is in the Storting's family and culture committee now, with written input due 28 September and a report due 3 November. The one exception is the newspaper agreement, which lets the library alone train on newspapers for 45 million kroner a year. And for the creative data types this centre cares most about, there is no open Norwegian dataset at all. Compute without data is a machine with nothing to learn from.</aside>
+  </section>
+  <section>
     <h3>Observations to argue with</h3>
     <ul style="font-size:.8em">
       <li class="fragment">The academic infrastructure is built for batch science, not for a rehearsal room.</li>
@@ -544,8 +552,10 @@
       <li class="fragment">The low-threshold national service (NAIC) is paused; its successor is not yet here.</li>
       <li class="fragment">Workflows are locked to the system they were built on. Fox is not Olivia, and Olivia is not LUMI.</li>
       <li class="fragment">When big systems are bought, the users are rarely asked first.</li>
+      <li class="fragment">Norway's data is open by count and closed by volume. The library is licensed for reading, not mining.</li>
+      <li class="fragment">No text-and-data-mining exception in law. The bill is in committee; input is due 28 September.</li>
     </ul>
-    <aside class="notes">Depth. Nine observations, each one an invitation to disagree. The last two came from the panel: portability, which is a skills and vendor problem more than a hardware problem, and procurement, where the people who will use a system are rarely in the room when it is specified. NAIC was in part an attempt to turn that around and put users first; it did not survive. Worth asking the room who was consulted before the last big purchase at their institution. The fifth is the long ambition: the National Library holds text, newspapers, radio, television, film, music and photographs in one place, and its AI lab has already trained speech and language models on it. A multimodal Norwegian model on the whole collection, released openly, is the kind of thing only a national effort can do. Rights come before compute. This is an ask for after the conference, not for today.</aside>
+    <aside class="notes">Depth. Eleven observations, each one an invitation to disagree. The last two are from the data survey: the previous slide in one line each, and the one thing the room can do this month, which is write to the committee. The last two came from the panel: portability, which is a skills and vendor problem more than a hardware problem, and procurement, where the people who will use a system are rarely in the room when it is specified. NAIC was in part an attempt to turn that around and put users first; it did not survive. Worth asking the room who was consulted before the last big purchase at their institution. The fifth is the long ambition: the National Library holds text, newspapers, radio, television, film, music and photographs in one place, and its AI lab has already trained speech and language models on it. A multimodal Norwegian model on the whole collection, released openly, is the kind of thing only a national effort can do. Rights come before compute. This is an ask for after the conference, not for today.</aside>
   </section>
 </section>
 
@@ -570,6 +580,25 @@
       </div>
     </div>
     <aside class="notes">Four angles that together cover the map: the stage, the lab, the design studio and industry, and a regional university. Stefano Fasciani is Professor of Music Technology at the Department of Musicology, UiO: sound and music computing, applied machine learning, real-time embedded systems, with a background in electronic engineering and the club scene. Anna-Maria Christodoulou is a doctoral research fellow at RITMO, UiO, working on multimodal music information retrieval and intelligent systems for music analysis. Enrique Encinas is Associate Professor of Interaction Design at AHO, teaching AI, creative coding and interactive spaces, with a design-research practice on humans, other-than-humans and technology. Sashi Komandur is Associate Professor at the Department of Game Development, The Game School in Hamar, University of Inland Norway, heads the bachelor programme in artificial intelligence, and works on art and AI, extended reality and experiential learning. Five minutes each. Then we argue, then the room fills in the holes, and we leave with three asks for the closing panel at 17:00. Removed from the slide: Moderator: Alexander Refsum Jensenius. Five minutes each, then conversation, then the room, then three asks for MishMash. Then the room: what are you using today, and what do you need that you cannot get? The same two questions are in the participant survey; put the link and QR code on the screen during the room segment.</aside>
+  </section>
+  <section>
+    <div class="cols" style="grid-template-columns: 1.2fr 1fr; gap:2em; align-items:center">
+      <div>
+        <h3>What do you use, and what can you not get?</h3>
+        <p style="font-size:.8em; margin-top:.6em">nettskjema.no/a/649352</p>
+      </div>
+      <img src="images/qr-survey.svg" alt="QR code for the participant survey" style="width:60%; max-height:60vh; display:block; margin:0 auto">
+    </div>
+    <aside class="notes">The room segment. Two questions on the screen and in the survey: what are you using today, and what do you need that you cannot get. The survey takes five minutes, is anonymous unless you leave a name, and its answers become the corrected access map and the gap list that MishMash takes to the institutions, Sigma2 and the ministries. Open the form before the session.</aside>
+  </section>
+</section>
+
+<!-- ===================== 10 HOW THIS WAS MADE ===================== -->
+<section>
+  <section class="center-slide">
+    <p class="kicker">How this deck was made</p>
+    <h2 style="font-size:1.4em">Drafted with an AI coding agent from a working note. Figures drawn by script. Every claim checked against a source. Responsibility for what is on the screen is mine.</h2>
+    <aside class="notes">Disclosure. The deck, the figures and the survey were built with an AI coding agent, Claude, working from my notes and from sources I could check: the National Library's annual report, Sigma2's documentation, the Research Council's calls, the panelists' staff pages. The agent drafted, drew and measured; I decided. The mistakes are mine, and one of them was letting it overwrite a form I had edited by hand. The repository is public.</aside>
   </section>
 </section>
 
