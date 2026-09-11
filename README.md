@@ -19,4 +19,4 @@ Pushing to `main` deploys to GitHub Pages through `.github/workflows/pages.yml`.
 
 ## Session
 
-Panel: Stefano Fasciani (University of Oslo, Department of Musicology), Anna-Maria Christodoulou (University of Oslo, RITMO), Enrique Encinas (Oslo School of Architecture and Design), Sashi Komandur (University of Inland Norway, The Game School). Moderator: Alexander Refsum Jensenius.
+Panel: Stefano Fasciani (University of Oslo, Department of Musicology), Anna-Maria Christodoulou (University of Oslo, RITMO), Enrique Encinas (Oslo School of Architecture and Design), Keith Mellingen (VRINN, immersive learning cluster, Hamar). Moderator: Alexander Refsum Jensenius.
