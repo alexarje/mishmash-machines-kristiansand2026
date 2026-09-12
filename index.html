@@ -203,14 +203,14 @@
     <p class="kicker">Map of the introduction</p>
     <div class="map">
       <div class="lbl">Strips</div>
-      <div class="h"><div>Rent or run<span class="sub">two roads · the middle road</span></div></div>
+      <div class="h"><div>Rent or run<span class="sub">two roads · the bill · per use</span></div></div>
       <div class="h"><div>Own hardware<span class="sub">the ladder · memory</span></div></div>
       <div class="h"><div>Shared compute<span class="sub">server · VDI · Fox · Sigma2 · LUMI</span></div></div>
       <div class="h"><div>Frontends<span class="sub">chat · code · creative · programmatic</span></div></div>
       <div class="h"><div>Models<span class="sub">what runs where · licences</span></div></div>
       <div class="h"><div>Who needs what<span class="sub">seven work packages</span></div></div>
       <div class="h"><div>Use or develop<span class="sub">off the shelf · new data · new methods</span></div></div>
-      <div class="h"><div>Holes in the map<span class="sub">who gets access</span></div></div>
+      <div class="h"><div>Holes in the map<span class="sub">who gets access · two ways out</span></div></div>
       <div class="h"><div>The panel<span class="sub">four angles</span></div></div>
     </div>
     <aside class="notes">Nine strips. The main path is one or two slides per strip. Each strip has depth slides below it that I will not show unless the discussion needs them: press g, the strip number, enter, or esc for the overview.</aside>
@@ -230,6 +230,23 @@
       <img class="fig fragment" src="images/fig-two-roads-2.svg" alt="The middle road: open models on rented GPUs">
     </div>
     <aside class="notes">Rent. The best models today, zero setup, any device. But no weights, no reproducibility, data leave the room, terms change, and it is the same model for everyone. Click: run it yourself. Full control, private, trainable on your own material. One step behind the frontier, you carry the setup and the energy bill. Click: the middle road. Open models on somebody else's GPUs: Hugging Face, Mistral's own platform, EU-hosted providers, or an institution-hosted chat service such as UiO GPT. Open weights, rented hardware. Bottom line: six questions to ask of any tool.</aside>
+  </section>
+  <section class="center-slide">
+    <p class="kicker">The bill</p>
+    <p class="big" style="font-size:3.4em; color:var(--accent-mid); margin:.15em 0 .3em">6 million kroner a year</p>
+    <p style="font-size:.8em; max-width:80%; margin:0 auto">200 researchers on one top-tier agent subscription at 2 500 kroner a month. Nobody has budgeted it.</p>
+    <!-- DECISION: 2 500 kroner a month is your figure for a Claude Max seat; check the current list price before saying it aloud. -->
+    <aside class="notes">The arithmetic behind the whole strip. A top-tier seat on a commercial coding agent, Claude Max as the example, costs about 2 500 kroner a month. MishMash has more than 200 researchers. If every one of them had a seat, the centre would spend 6 million kroner a year on one product from one vendor, before a single image, video or music service is counted. No institution and no centre has budgeted for that, and it is the wrong shape anyway: a seat costs the same for the person who uses it all day and the person who tried it twice. Oddmund Møgedal from UiO IT put it plainly to the university this week: tokens will be a limited resource for the foreseeable future, there will never be unlimited access to the best models, and the money for the commercial ones has to come from somewhere, so administrations will start counting. The institutions have to step up. So does the centre. The next slide is the short-term answer that already exists inside the big institutions.</aside>
+  </section>
+  <section>
+    <h3>Pay per use, not per seat</h3>
+    <div class="cols3" style="font-size:.62em">
+      <div class="card good"><h3>One door</h3><ul><li>an institution-hosted gateway in front of commercial and open models: UiO GPT, GPT NTNU</li><li>chat, shared assistants, files, and now API keys for agents and coding tools</li><li>about 50 public-sector institutions run it</li></ul></div>
+      <div class="card"><h3>Keys by data class</h3><ul><li>one personal key per data class: red, yellow, green</li><li>the key is independent of the model</li><li>a monthly quota per model</li><li>a unit authorises a quota and pays for actual use</li></ul></div>
+      <div class="card warn"><h3>Good enough, not best</h3><ul><li>the best open-weight models, served on Fox and IDUN, cover most jobs</li><li>smaller models win on price per result</li><li>the frontier models on a quota when they are needed, without a seat per person</li></ul></div>
+    </div>
+    <!-- DECISION: the 50 institutions and the October date in the notes are Oddmund's figures from his 9 September slides; confirm with him before saying them. -->
+    <aside class="notes">Depth. The short-term answer, from Oddmund Møgedal's presentation to the UiO idea meeting on 9 September. UiO built gpt.uio.no in 2023 as a privacy-safe chat front end where the providers do not know who the user is, and about 50 public-sector institutions now run it. Since 2025 it also serves open-weight models on Fox and on NTNU's IDUN, and the best of those are good enough for most of what people do. The new part is the API: personal keys, one per data class, so a red key only reaches models in the institution's own infrastructure, and the same key works from OpenCode, Claude Code, Claude Desktop, Codex or your own script. Quotas are limiting but necessary: they are what makes it possible to control the cost of the commercial models and to share the open ones. Claude and the more expensive OpenAI models through the API, with quotas and per-use billing, are in a pilot this month and planned for October, for the models available in Europe. The principle is what matters for the map: a unit pays for what its people actually use, across vendors, with as little lock-in as possible, and the person decides which model is good enough for the job. For MishMash the question is who does this for the partners with no gateway of their own: the art schools, the museums, the freelancers.</aside>
   </section>
   <section>
     <h3>Six questions to ask of any tool</h3>
@@ -541,8 +558,18 @@
     <aside class="notes">A survey of about 120 Norwegian sources this week. Counted in downloadable objects, Norway looks open: Wikidata, KulturNav, half of DigitaltMuseum, Nasjonalmuseet, the public registers, and Språkbanken, which makes speech the only well-served creative data type. Measured in hours and pages, Norway is closed: the National Library's largest holdings are licensed for reading on site or from a Norwegian address, not for mining, and the broadcasters and news archives are all rights reserved. The reason is not the licences but the law: Norway still has no text-and-data-mining exception. Sweden and Finland have had one since 2023. The bill is in the Storting's family and culture committee now, with written input due 28 September and a report due 3 November. The one exception is the newspaper agreement, which lets the library alone train on newspapers for 45 million kroner a year. And for the creative data types this centre cares most about, there is no open Norwegian dataset at all. Compute without data is a machine with nothing to learn from.</aside>
   </section>
   <section>
+    <h3>Two ways out, and the elephant</h3>
+    <div class="cols" style="gap:1.5em">
+      <div class="card good"><h3>National: quotas through one door</h3><ul><li>the gateways and clusters of the big institutions, opened to everyone else on the map</li><li>a quota per person, paid per use by the unit, across vendors</li><li>frontier models when they are needed, open models for the rest</li><li>quota categories for artists, schools and museums, not only researchers</li></ul></div>
+      <div class="card warn"><h3>Local: small and smart</h3><ul><li>small open models on the laptop, the board, the phone</li><li>several small agents, one job each, instead of one large model for everything</li><li>energy and cost in the room, where you can see them</li><li>for the stage, the classroom, the museum</li></ul></div>
+    </div>
+    <p class="fragment" style="font-size:.66em; margin-top:.8em">The elephant: the bill that matters is not 200 researchers. It is generated feeds and the rest of the consumption nobody asked for. I would argue a centre for AI and creativity has to confront that, and show what else is possible.</p>
+    <!-- DECISION: the feeds claim has no source and is your argument; decide whether it stays on the slide or is said from the floor. -->
+    <aside class="notes">Two extremes, and the answer is somewhere between them, but the extremes are what to argue about. The national road builds on what the big institutions already have, the gateways and the clusters, and opens them to everyone on the map through quotas: a quota per person, a unit that pays for actual use, the frontier models when they are needed and open models for the rest. The missing piece is the categories: nobody has defined an artist, a school or a museum as a user with a quota. The local road is the opposite bet. Small open models on hardware in the room, several small agents doing one job each rather than one large model doing everything, and energy and cost visible on the desk. This is Stefano's world, and it is the direction where a centre can contribute methods rather than money. Short term, only the national road scales to 200 researchers by next year. Long term, only the local road makes the centre independent of any vendor. Click: the elephant. I would argue the consumption that is not sustainable is not researchers running agents. It is generated feeds, synthetic images and video for social media, the mass of output nobody asked for. If tokens are a scarce resource, that is a question of who gets them. A centre for AI and creativity should say so, and demonstrate the alternative: small, local, deliberate, made by people who mean it.</aside>
+  </section>
+  <section>
     <h3>Observations to argue with</h3>
-    <ul style="font-size:.8em">
+    <ul style="font-size:.72em">
       <li class="fragment">The academic infrastructure is built for batch science, not for a rehearsal room.</li>
       <li class="fragment">The people who most need cheap, controllable, rights-clean models have the least access.</li>
       <li class="fragment">Access depends on which institution you sit in, not on what you need.</li>
@@ -554,8 +581,10 @@
       <li class="fragment">When big systems are bought, the users are rarely asked first.</li>
       <li class="fragment">Norway's data is open by count and closed by volume. The library is licensed for reading, not mining.</li>
       <li class="fragment">No text-and-data-mining exception in law. The bill is in committee; input is due 28 September.</li>
+      <li class="fragment">200 researchers on a top-tier subscription is 6 million kroner a year. Per seat is the wrong shape; per use through a gateway is the right one.</li>
+      <li class="fragment">There will never be unlimited access to the best models. Good enough, on a quota, is the plan.</li>
     </ul>
-    <aside class="notes">Depth. Eleven observations, each one an invitation to disagree. The last two are from the data survey: the previous slide in one line each, and the one thing the room can do this month, which is write to the committee. The last two came from the panel: portability, which is a skills and vendor problem more than a hardware problem, and procurement, where the people who will use a system are rarely in the room when it is specified. NAIC was in part an attempt to turn that around and put users first; it did not survive. Worth asking the room who was consulted before the last big purchase at their institution. The fifth is the long ambition: the National Library holds text, newspapers, radio, television, film, music and photographs in one place, and its AI lab has already trained speech and language models on it. A multimodal Norwegian model on the whole collection, released openly, is the kind of thing only a national effort can do. Rights come before compute. This is an ask for after the conference, not for today.</aside>
+    <aside class="notes">Depth. Thirteen observations, each one an invitation to disagree. The last two are on cost, from this week's UiO idea meeting: quotas are limiting but necessary, and the money has to come from somewhere. The two before them are from the data survey: the previous slide in one line each, and the one thing the room can do this month, which is write to the committee. The two on portability and procurement came from the panel: portability, which is a skills and vendor problem more than a hardware problem, and procurement, where the people who will use a system are rarely in the room when it is specified. NAIC was in part an attempt to turn that around and put users first; it did not survive. Worth asking the room who was consulted before the last big purchase at their institution. The fifth is the long ambition: the National Library holds text, newspapers, radio, television, film, music and photographs in one place, and its AI lab has already trained speech and language models on it. A multimodal Norwegian model on the whole collection, released openly, is the kind of thing only a national effort can do. Rights come before compute. This is an ask for after the conference, not for today.</aside>
   </section>
 </section>
 
@@ -563,7 +592,7 @@
 <section>
   <section class="center-slide opener">
     <h1>Over to the panel</h1>
-    <aside class="notes">Five minutes each, then the conversation, then the room.</aside>
+    <aside class="notes">Five minutes each, then the conversation, then the room. Prompts for the conversation if it stalls: who pays for 200 seats; good enough versus best; the national road versus the local one; and what the centre says about generated feeds.</aside>
   </section>
   <section>
     <div class="cols" style="grid-template-columns: 1fr 1.3fr; gap:1.5em">
