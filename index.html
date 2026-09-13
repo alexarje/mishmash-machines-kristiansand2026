@@ -203,7 +203,7 @@
     <p class="kicker">Map of the introduction</p>
     <div class="map">
       <div class="lbl">Strips</div>
-      <div class="h"><div>Rent or run<span class="sub">two roads · the bill · per use</span></div></div>
+      <div class="h"><div>Rent or run<span class="sub">two roads · the bill · tokens or people</span></div></div>
       <div class="h"><div>Own hardware<span class="sub">the ladder · memory</span></div></div>
       <div class="h"><div>Shared compute<span class="sub">server · VDI · Fox · Sigma2 · LUMI</span></div></div>
       <div class="h"><div>Frontends<span class="sub">chat · code · creative · programmatic</span></div></div>
@@ -235,8 +235,21 @@
     <p class="kicker">The bill</p>
     <p class="big" style="font-size:3.4em; color:var(--accent-mid); margin:.15em 0 .3em">6 million kroner a year</p>
     <p style="font-size:.8em; max-width:80%; margin:0 auto">200 researchers on one top-tier agent subscription at 2 500 kroner a month. Nobody has budgeted it.</p>
-    <!-- DECISION: 2 500 kroner a month is your figure for a Claude Max seat; check the current list price before saying it aloud. -->
+    <!-- Checked 13 Sept 2026: Claude Max 20x is 200 USD a month, about 2 600 kroner with VAT, so 2 500 holds. -->
     <aside class="notes">The arithmetic behind the whole strip. A top-tier seat on a commercial coding agent, Claude Max as the example, costs about 2 500 kroner a month. MishMash has more than 200 researchers. If every one of them had a seat, the centre would spend 6 million kroner a year on one product from one vendor, before a single image, video or music service is counted. No institution and no centre has budgeted for that, and it is the wrong shape anyway: a seat costs the same for the person who uses it all day and the person who tried it twice. Oddmund Møgedal from UiO IT put it plainly to the university this week: tokens will be a limited resource for the foreseeable future, there will never be unlimited access to the best models, and the money for the commercial ones has to come from somewhere, so administrations will start counting. The institutions have to step up. So does the centre. The next slide is the short-term answer that already exists inside the big institutions.</aside>
+  </section>
+  <section>
+    <h3>Tokens or people</h3>
+    <table class="tbl" style="font-size:.6em">
+      <tr><th>What</th><th>Kroner</th><th>The same money as</th></tr>
+      <tr><td>One seat, one year</td><td>30 000</td><td>1 seat-year</td></tr>
+      <tr><td>One PhD year</td><td>1 400 000</td><td class="m">47 seat-years</td></tr>
+      <tr><td>One PhD fellowship, three years</td><td>4 500 000</td><td class="m">150 seat-years</td></tr>
+      <tr><td>200 seats, one year</td><td>6 000 000</td><td class="y">1.3 fellowships, or 4 PhD years</td></tr>
+      <tr><td>200 seats, five years</td><td>30 000 000</td><td class="y">7 fellowships</td></tr>
+    </table>
+    <p style="font-size:.7em; margin-top:.8em">Agents are cheaper than people per hour. The centre is paid to produce people, open results and a community. Tokens multiply those; they do not replace them.</p>
+    <aside class="notes">The budget question in one table. A PhD year cost 1 372 000 kroner at the Research Council's last lump-sum rate, for 2025; from 2026 the Council budgets actual personnel and indirect costs, which lands in the same place. So one PhD year is about 47 seats and one three-year fellowship about 150. Two hundred seats for a year is 1.3 fellowships; over the life of the centre it is 7. Now the framing. Agents are much cheaper than people per hour of output, and that is true and beside the point. The Council pays MishMash for trained people, open results and a community, and tokens produce none of those on their own. They are a multiplier on the people we have. So the question is not people versus machines but where the next krone does more: on a 201st researcher, or on making the 200 faster. Nobody has an answer yet, and every institution in this room will have to find one this year. Depth below: a proposal for how the centre could decide. Sources in the notes of the next slide.</aside>
   </section>
   <section>
     <h3>Pay per use, not per seat</h3>
@@ -247,6 +260,16 @@
     </div>
     <!-- DECISION: the 50 institutions and the October date in the notes are Oddmund's figures from his 9 September slides; confirm with him before saying them. -->
     <aside class="notes">Depth. The short-term answer, from Oddmund Møgedal's presentation to the UiO idea meeting on 9 September. UiO built gpt.uio.no in 2023 as a privacy-safe chat front end where the providers do not know who the user is, and about 50 public-sector institutions now run it. Since 2025 it also serves open-weight models on Fox and on NTNU's IDUN, and the best of those are good enough for most of what people do. The new part is the API: personal keys, one per data class, so a red key only reaches models in the institution's own infrastructure, and the same key works from OpenCode, Claude Code, Claude Desktop, Codex or your own script. Quotas are limiting but necessary: they are what makes it possible to control the cost of the commercial models and to share the open ones. Claude and the more expensive OpenAI models through the API, with quotas and per-use billing, are in a pilot this month and planned for October, for the models available in Europe. The principle is what matters for the map: a unit pays for what its people actually use, across vendors, with as little lock-in as possible, and the person decides which model is good enough for the job. For MishMash the question is who does this for the partners with no gateway of their own: the art schools, the museums, the freelancers.</aside>
+  </section>
+  <section>
+    <p class="kicker">A proposal to argue with</p>
+    <h3>How a centre could decide</h3>
+    <div class="cols3" style="font-size:.62em">
+      <div class="card good"><h3>A share, not a line</h3><ul><li>budget tokens as a share of personnel cost, as equipment always was</li><li>3 to 5 per cent of a PhD year is 40 000 to 70 000 kroner</li><li>enough for heavy pay-per-use through a gateway</li></ul></div>
+      <div class="card"><h3>Quotas by role</h3><ul><li>a PhD in machine learning, a WP leader and a museum partner do not need the same budget</li><li>the gateway model, applied to the centre's own money</li><li>the unit sees what its people actually use</li></ul></div>
+      <div class="card warn"><h3>Not fungible</h3><ul><li>fellowships are in the contract; tokens come from operating money</li><li>so the real trade-off is tokens against a lab engineer, workshops, travel, hardware in the room</li><li>50 seats is one engineer who builds the local alternative</li></ul></div>
+    </div>
+    <aside class="notes">Depth. Three rules a centre, or a department, could adopt this autumn. First, budget tokens as a percentage of personnel cost, the way equipment and computing have always been a few per cent on top of a position; at 3 to 5 per cent of a 1.4 million PhD year that is 40 000 to 70 000 kroner a year per person, which covers heavy pay-per-use through a gateway and is a decision the centre can make now. Second, quotas by role rather than seats by headcount, which is the gateway model from the previous slide applied to the centre's own money. Third, remember that the money is not fungible: fellowships are earmarked in the contract with the Research Council, and token spend comes from operating money, so the real trade-off is tokens against the other things operating money buys. A lab engineer costs about 1.5 million a year, which is 50 seats, and I would argue the engineer who builds the small, local alternative is the better buy. Sources: the Research Council's rates page for fellowships (1 372 000 kroner in 2025, actual costs from 2026) and Anthropic's published Max pricing (200 dollars a month).</aside>
   </section>
   <section>
     <h3>Six questions to ask of any tool</h3>
@@ -569,7 +592,7 @@
   </section>
   <section>
     <h3>Observations to argue with</h3>
-    <ul style="font-size:.72em">
+    <ul style="font-size:.68em">
       <li class="fragment">The academic infrastructure is built for batch science, not for a rehearsal room.</li>
       <li class="fragment">The people who most need cheap, controllable, rights-clean models have the least access.</li>
       <li class="fragment">Access depends on which institution you sit in, not on what you need.</li>
@@ -583,8 +606,9 @@
       <li class="fragment">No text-and-data-mining exception in law. The bill is in committee; input is due 28 September.</li>
       <li class="fragment">200 researchers on a top-tier subscription is 6 million kroner a year. Per seat is the wrong shape; per use through a gateway is the right one.</li>
       <li class="fragment">There will never be unlimited access to the best models. Good enough, on a quota, is the plan.</li>
+      <li class="fragment">One PhD fellowship is 150 seat-years. Tokens multiply people; they do not replace them.</li>
     </ul>
-    <aside class="notes">Depth. Thirteen observations, each one an invitation to disagree. The last two are on cost, from this week's UiO idea meeting: quotas are limiting but necessary, and the money has to come from somewhere. The two before them are from the data survey: the previous slide in one line each, and the one thing the room can do this month, which is write to the committee. The two on portability and procurement came from the panel: portability, which is a skills and vendor problem more than a hardware problem, and procurement, where the people who will use a system are rarely in the room when it is specified. NAIC was in part an attempt to turn that around and put users first; it did not survive. Worth asking the room who was consulted before the last big purchase at their institution. The fifth is the long ambition: the National Library holds text, newspapers, radio, television, film, music and photographs in one place, and its AI lab has already trained speech and language models on it. A multimodal Norwegian model on the whole collection, released openly, is the kind of thing only a national effort can do. Rights come before compute. This is an ask for after the conference, not for today.</aside>
+    <aside class="notes">Depth. Fourteen observations, each one an invitation to disagree. The last three are on money, from this week's UiO idea meeting: quotas are limiting but necessary, and the money has to come from somewhere. The two before them are from the data survey: the previous slide in one line each, and the one thing the room can do this month, which is write to the committee. The two on portability and procurement came from the panel: portability, which is a skills and vendor problem more than a hardware problem, and procurement, where the people who will use a system are rarely in the room when it is specified. NAIC was in part an attempt to turn that around and put users first; it did not survive. Worth asking the room who was consulted before the last big purchase at their institution. The fifth is the long ambition: the National Library holds text, newspapers, radio, television, film, music and photographs in one place, and its AI lab has already trained speech and language models on it. A multimodal Norwegian model on the whole collection, released openly, is the kind of thing only a national effort can do. Rights come before compute. This is an ask for after the conference, not for today.</aside>
   </section>
 </section>
 
