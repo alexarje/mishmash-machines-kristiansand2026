@@ -185,7 +185,6 @@
 <button id="theme-toggle" type="button" title="Toggle light/dark mode (key d)" aria-label="Toggle light/dark mode">◐</button>
 <div class="reveal">
 <div class="slides">
-
 <!-- ===================== 0 TITLE ===================== -->
 <section>
   <section class="title-slide" data-background-color="#b3e297">
@@ -207,22 +206,7 @@
     <p class="fragment" style="font-size:.6em; margin:0 0 .6em 2.2em; color:var(--muted)">Which tools <em>should</em> we (not) use?</p>
     <div class="ask fragment"><b>3</b><span>"How do I send an avatar of myself from Bergen to Trondheim in 10 milliseconds?"</span></div>
     <p class="fragment" style="font-size:.6em; margin:0 0 .6em 2.2em; color:var(--muted)">Which tools do we need to <em>develop</em>?</p>
-    <aside class="notes">Three questions I get in my inbox, and they are the whole session in miniature. Each question on a click, and its general form on the next. One: how do I get on Sigma2 to train a model. Short answer: through your institution, in one of two application rounds a year, or by being added to a project by someone who already has one; if you are a freelance artist or a museum, there is no route at all. Click: that is the first general question, which tools can we use. Two: can I get funding for Claude Code. Short answer: a top-tier seat is about 2 500 kroner a month, 200 of them is 6 million a year, and nobody has budgeted it; the sustainable version is pay per use through a gateway, and the honest answer is that for most jobs a smaller model is good enough. Click: which tools should we use, and which should we not. Three: an avatar of yourself from Bergen to Trondheim in 10 milliseconds. Bergen to Trondheim is about 430 kilometres in a straight line, and light in a fibre needs about 2 milliseconds each way before a single router or a single rendered frame; the rest of the budget goes to the model, and nothing on the map today does that for you. Click: which tools do we need to develop. Those three general questions structure the whole session. And the map is not only for MishMash researchers: universities and university colleges, research institutes, students from bachelor to PhD, teachers and schools, freelance artists, the public sector with museums, libraries, broadcasters and municipalities, and the private sector with studios, film, games and startups.</aside>
-  </section>
-  <section>
-    <p class="kicker">Map of the introduction</p>
-    <div class="map">
-      <div class="h"><div>Rent or run<span class="sub">two roads · the bill · tokens or people</span></div></div>
-      <div class="h"><div>Own hardware<span class="sub">the ladder · memory</span></div></div>
-      <div class="h"><div>Shared compute<span class="sub">server · VDI · Fox · Sigma2 · LUMI</span></div></div>
-      <div class="h"><div>Frontends<span class="sub">chat · code · creative · programmatic</span></div></div>
-      <div class="h"><div>Models<span class="sub">what runs where · licences</span></div></div>
-      <div class="h"><div>Who needs what<span class="sub">seven work packages</span></div></div>
-      <div class="h"><div>Use or develop<span class="sub">off the shelf · new data · new methods</span></div></div>
-      <div class="h"><div>Holes in the map<span class="sub">who gets access · two ways out</span></div></div>
-      <div class="h"><div>The panel<span class="sub">four angles</span></div></div>
-    </div>
-    <aside class="notes">Nine strips. The main path is one or two slides per strip. Each strip has depth slides below it that I will not show unless the discussion needs them: press g, the strip number, enter, or esc for the overview.</aside>
+    <aside class="notes">Three questions I get in my inbox, and they are the whole session in miniature. About a minute and a half. Each question on a click, and its general form on the next. One: how do I get on Sigma2 to train a model. Short answer: through your institution, in one of two application rounds a year, or by being added to a project by someone who already has one; if you are a freelance artist or a museum, there is no route at all. Click: that is the first general question, which tools can we use. Two: can I get funding for Claude Code. Short answer: a top-tier seat is about 2 500 kroner a month, 200 of them is 6 million a year, and nobody has budgeted it; the sustainable version is pay per use through a gateway, and the honest answer is that for most jobs a smaller model is good enough. Click: which tools should we use, and which should we not. Three: an avatar of yourself from Bergen to Trondheim in 10 milliseconds. Bergen to Trondheim is about 430 kilometres in a straight line, and light in a fibre needs about 2 milliseconds each way before a single router or a single rendered frame; the rest of the budget goes to the model, and nothing on the map today does that for you. Click: which tools do we need to develop. Those three general questions structure the whole session. And the map is not only for MishMash researchers: universities and university colleges, research institutes, students from bachelor to PhD, teachers and schools, freelance artists, the public sector with museums, libraries, broadcasters and municipalities, and the private sector with studios, film, games and startups.</aside>
   </section>
 </section>
 
@@ -230,7 +214,7 @@
 <section>
   <section class="center-slide opener">
     <h1>Rent or run</h1>
-    <aside class="notes">The first fork in the road. Rent a commercial service, or run open models on hardware you control. And a middle road most people forget.</aside>
+    <aside class="notes">The first fork in the road, and the one everyone in the room has already taken this week: rent a commercial service, or run open models on hardware you control. And a middle road most people forget.</aside>
   </section>
   <section>
     <div class="layers" style="max-width:92%">
@@ -238,45 +222,7 @@
       <img class="fig fragment" src="images/fig-two-roads-1.svg" alt="Run it yourself, with pros and cons">
       <img class="fig fragment" src="images/fig-two-roads-2.svg" alt="The middle road: open models on rented GPUs">
     </div>
-    <aside class="notes">Rent. The best models today, zero setup, any device. But no weights, no reproducibility, data leave the room, terms change, and it is the same model for everyone. Click: run it yourself. Full control, private, trainable on your own material. One step behind the frontier, you carry the setup and the energy bill. Click: the middle road. Open models on somebody else's GPUs: Hugging Face, Mistral's own platform, EU-hosted providers, or an institution-hosted chat service such as UiO GPT. Open weights, rented hardware. Bottom line: six questions to ask of any tool.</aside>
-  </section>
-  <section class="center-slide">
-    <p class="kicker">The bill</p>
-    <p class="big" style="font-size:3.4em; color:var(--accent-mid); margin:.15em 0 .3em">6 million kroner a year</p>
-    <p style="font-size:.8em; max-width:80%; margin:0 auto">200 researchers on one top-tier agent subscription at 2 500 kroner a month.</p>
-    <!-- Checked 13 Sept 2026: Claude Max 20x is 200 USD a month, about 2 600 kroner with VAT, so 2 500 holds. -->
-    <aside class="notes">The arithmetic behind the whole strip. A top-tier seat on a commercial coding agent, Claude Max as the example, costs about 2 500 kroner a month. MishMash has more than 200 researchers. If every one of them had a seat, the centre would spend 6 million kroner a year on one product from one vendor, before a single image, video or music service is counted. No institution and no centre has budgeted for that, and it is the wrong shape anyway: a seat costs the same for the person who uses it all day and the person who tried it twice. Oddmund Møgedal from UiO IT put it plainly to the university this week: tokens will be a limited resource for the foreseeable future, there will never be unlimited access to the best models, and the money for the commercial ones has to come from somewhere, so administrations will start counting. The institutions have to step up. So does the centre. The next slide is the short-term answer that already exists inside the big institutions.</aside>
-  </section>
-  <section>
-    <h3>Tokens or people</h3>
-    <table class="tbl" style="font-size:.6em">
-      <tr><th>What</th><th>Kroner</th><th>The same money as</th></tr>
-      <tr><td>One seat, one year</td><td>30 000</td><td>1 seat-year</td></tr>
-      <tr><td>One PhD year</td><td>1 400 000</td><td class="m">47 seat-years</td></tr>
-      <tr><td>200 seats, one year</td><td>6 000 000</td><td class="y">1.3 fellowships, or 4 PhD years</td></tr>
-      <tr><td>200 seats, five years</td><td>30 000 000</td><td class="y">7 fellowships</td></tr>
-    </table>
-    <aside class="notes">The budget question in one table. Removed from the slide: agents are cheaper than people per hour; the centre is paid to produce people, open results and a community; tokens multiply those, they do not replace them. A PhD year cost 1 372 000 kroner at the Research Council's last lump-sum rate, for 2025; from 2026 the Council budgets actual personnel and indirect costs, which lands in the same place. So one PhD year is about 47 seats, and a three-year fellowship, about 4.5 million, is about 150. Two hundred seats for a year is 1.3 fellowships; over the life of the centre it is 7. Now the framing. Agents are much cheaper than people per hour of output, and that is true and beside the point. The Council pays MishMash for trained people, open results and a community, and tokens produce none of those on their own. They are a multiplier on the people we have. So the question is not people versus machines but where the next krone does more: on a 201st researcher, or on making the 200 faster. Nobody has an answer yet, and every institution in this room will have to find one this year. Depth below: a proposal for how the centre could decide. Sources in the notes of the next slide.</aside>
-  </section>
-  <section>
-    <h3>Pay per use, not per seat</h3>
-    <div class="cols3" style="font-size:.62em">
-      <div class="card good"><h3>One door</h3><ul><li>an institution-hosted gateway in front of commercial and open models: UiO GPT, GPT NTNU</li><li>chat, shared assistants, files, and now API keys for agents and coding tools</li><li>about 50 public-sector institutions run it</li></ul></div>
-      <div class="card"><h3>Keys by data class</h3><ul><li>one personal key per data class: red, yellow, green</li><li>the key is independent of the model</li><li>a monthly quota per model</li><li>a unit authorises a quota and pays for actual use</li></ul></div>
-      <div class="card warn"><h3>Good enough, not best</h3><ul><li>the best open-weight models, served on Fox and IDUN, cover most jobs</li><li>smaller models win on price per result</li><li>the frontier models on a quota when they are needed, without a seat per person</li></ul></div>
-    </div>
-    <!-- DECISION: the 50 institutions and the October date in the notes are Oddmund's figures from his 9 September slides; confirm with him before saying them. -->
-    <aside class="notes">Depth. The short-term answer, from Oddmund Møgedal's presentation to the UiO idea meeting on 9 September. UiO built gpt.uio.no in 2023 as a privacy-safe chat front end where the providers do not know who the user is, and about 50 public-sector institutions now run it. Since 2025 it also serves open-weight models on Fox and on NTNU's IDUN, and the best of those are good enough for most of what people do. The new part is the API: personal keys, one per data class, so a red key only reaches models in the institution's own infrastructure, and the same key works from OpenCode, Claude Code, Claude Desktop, Codex or your own script. Quotas are limiting but necessary: they are what makes it possible to control the cost of the commercial models and to share the open ones. Claude and the more expensive OpenAI models through the API, with quotas and per-use billing, are in a pilot this month and planned for October, for the models available in Europe. The principle is what matters for the map: a unit pays for what its people actually use, across vendors, with as little lock-in as possible, and the person decides which model is good enough for the job. For MishMash the question is who does this for the partners with no gateway of their own: the art schools, the museums, the freelancers.</aside>
-  </section>
-  <section>
-    <p class="kicker">A proposal to argue with</p>
-    <h3>How a centre could decide</h3>
-    <div class="cols3" style="font-size:.62em">
-      <div class="card good"><h3>A share, not a line</h3><ul><li>budget tokens as a share of personnel cost, as equipment always was</li><li>3 to 5 per cent of a PhD year is 40 000 to 70 000 kroner</li><li>enough for heavy pay-per-use through a gateway</li></ul></div>
-      <div class="card"><h3>Quotas by role</h3><ul><li>a PhD in machine learning, a WP leader and a museum partner do not need the same budget</li><li>the gateway model, applied to the centre's own money</li><li>the unit sees what its people actually use</li></ul></div>
-      <div class="card warn"><h3>Not fungible</h3><ul><li>fellowships are in the contract; tokens come from operating money</li><li>so the real trade-off is tokens against a lab engineer, workshops, travel, hardware in the room</li><li>50 seats is one engineer who builds the local alternative</li></ul></div>
-    </div>
-    <aside class="notes">Depth. Three rules a centre, or a department, could adopt this autumn. First, budget tokens as a percentage of personnel cost, the way equipment and computing have always been a few per cent on top of a position; at 3 to 5 per cent of a 1.4 million PhD year that is 40 000 to 70 000 kroner a year per person, which covers heavy pay-per-use through a gateway and is a decision the centre can make now. Second, quotas by role rather than seats by headcount, which is the gateway model from the previous slide applied to the centre's own money. Third, remember that the money is not fungible: fellowships are earmarked in the contract with the Research Council, and token spend comes from operating money, so the real trade-off is tokens against the other things operating money buys. A lab engineer costs about 1.5 million a year, which is 50 seats, and I would argue the engineer who builds the small, local alternative is the better buy. Sources: the Research Council's rates page for fellowships (1 372 000 kroner in 2025, actual costs from 2026) and Anthropic's published Max pricing (200 dollars a month).</aside>
+    <aside class="notes">Rent. The best models today, zero setup, any device. But no weights, no reproducibility, data leave the room, terms change, and it is the same model for everyone. Click: run it yourself. Full control, private, trainable on your own material. One step behind the frontier, you carry the setup and the energy bill. Click: the middle road. Open models on somebody else's GPUs: Hugging Face, Mistral's own platform, EU-hosted providers, or an institution-hosted chat service such as UiO GPT. Open weights, rented hardware. A minute and a half. Depth below: the six questions to ask of any tool, then the frontends, the models and the licences, for anyone who asks what exactly they can rent or run.</aside>
   </section>
   <section>
     <h3>Six questions to ask of any tool</h3>
@@ -290,93 +236,6 @@
     </div>
     <aside class="notes">Depth slide. The six questions apply to every option in the rest of the map. For a researcher the fifth is reproducibility. For a musician it is whether the piece can be performed again in five years.</aside>
   </section>
-</section>
-
-<!-- ===================== 2 OWN HARDWARE ===================== -->
-<section>
-  <section class="center-slide opener">
-    <h1>Your own hardware</h1>
-    <aside class="notes">The layer artists, teachers and students can most realistically own. Seven rungs from a microcontroller to a workstation.</aside>
-  </section>
-  <section>
-    <div class="layers" style="max-width:96%">
-      <img class="fig" src="images/fig-ladder-0.svg" alt="Seven rungs: microcontroller, single-board computer, phone, tablet, laptop, laptop with GPU, desktop or workstation, with typical uses and price bands">
-      <img class="fig fragment" src="images/fig-ladder-1.svg" alt="Memory per rung, from 256 KB to 512 GB">
-      <img class="fig fragment" src="images/fig-ladder-2.svg" alt="Model families placed on the rungs: TinyML and RAVE on the left, 1 to 8B language models in the middle, 70B on the right">
-    </div>
-    <aside class="notes">Left to right: Arduino and ESP32 for keyword spotting and gesture classes, milliseconds, no language model. Raspberry Pi and Jetson for small vision and audio models, an embodied agent in a box. Phone and tablet: on-device models of one to three billion parameters, camera and microphone, always with you, closed platforms. Laptop: seven to fourteen billion chat, Whisper, RAVE on stage. Laptop with a discrete GPU: diffusion, fine-tuning small models. Workstation: seventy billion locally, training small models, serving a studio. Click: memory. Click: which models fit where. The one number that matters is memory: it decides which model fits at all. Compute only decides how fast.</aside>
-  </section>
-  <section>
-    <img class="fig" src="images/fig-memory.svg" alt="Rule of thumb: parameters times bytes per parameter. 7B at 4-bit is about 5 GB, 30B about 20 GB, 70B about 40 GB, 70B at 16-bit about 140 GB">
-    <aside class="notes">Depth. Rule of thumb for language models: parameters times bytes per parameter. A quantised 7 or 8B model is about five gigabytes and runs on any recent laptop. Thirty billion needs about twenty. Seventy needs forty: a machine with a lot of unified memory or two big GPUs. Full precision seventy billion is a server job. Real-time audio models are tiny by comparison.</aside>
-  </section>
-  <section>
-    <h3>What each rung is good for</h3>
-    <div class="cols4">
-      <div class="card"><h3>Microcontroller</h3><ul><li>keyword spotting, gesture classes</li><li>sensor fusion, milliseconds</li><li>no LLM, ever</li><li>wearables, instruments</li></ul></div>
-      <div class="card"><h3>Pi / Jetson</h3><ul><li>small vision and audio models</li><li>Whisper tiny, YOLO</li><li>an embodied agent in a box</li><li>installations that run for a year</li></ul></div>
-      <div class="card"><h3>Phone / tablet</h3><ul><li>1–3B on-device LLMs</li><li>camera, mic, sensors</li><li>closed platforms, app stores</li><li>the device every pupil has</li></ul></div>
-      <div class="card"><h3>Laptop</h3><ul><li>7–14B chat, offline</li><li>Whisper transcription</li><li>RAVE and nn~ on stage</li><li>the studio in a bag</li></ul></div>
-    </div>
-    <div class="cols4" style="margin-top:.7em">
-      <div class="card"><h3>Laptop with GPU</h3><ul><li>Stable Diffusion, FLUX</li><li>fine-tune small models (LoRA)</li><li>real-time everything</li><li>hot, loud, one hour of battery</li></ul></div>
-      <div class="card"><h3>Workstation</h3><ul><li>70B local, video generation</li><li>train RAVE overnight</li><li>serve a whole studio or class</li><li>needs a room and a power bill</li></ul></div>
-      <div class="card warn"><h3>School tablet or laptop</h3><ul><li>managed device, no GPU</li><li>Feide login, pupils' data</li><li>everything must be hosted</li><li>the most constrained rung</li></ul></div>
-      <div class="card good"><h3>Rule of thumb</h3><ul><li>memory decides what fits</li><li>compute decides how fast</li><li>prototype on the smallest rung that works</li></ul></div>
-    </div>
-    <aside class="notes">Depth. Rung by rung. Note the school tablet or laptop: managed, locked down, no GPU, so everything has to be hosted somewhere else. That is the WP4 problem in one card.</aside>
-  </section>
-</section>
-
-<!-- ===================== 3 SHARED COMPUTE ===================== -->
-<section>
-  <section class="center-slide opener">
-    <h1>Shared compute</h1>
-    <aside class="notes">When your own hardware is not enough. Five steps up a stair, each with more compute and more paperwork. Removed from the slide: institutional · national · European.</aside>
-  </section>
-  <section>
-    <div class="layers" style="max-width:96%">
-      <img class="fig" src="images/fig-stair-0.svg" alt="Five steps: shared server, VDI, institutional HPC such as UiO Fox, national Sigma2 with Olivia and KI-fabrikken, European LUMI">
-      <img class="fig fragment" src="images/fig-stair-1.svg" alt="Arrows: to the right more compute and sharing, to the left more waiting, paperwork and less interactivity">
-    </div>
-    <aside class="notes">Shared server: a GPU box in the lab, ssh, first come first served. VDI: a virtual desktop for licensed software and sensitive data, rarely a real GPU. Institutional HPC: UiO's Fox, NTNU's IDUN, UiA's DGX servers at CAIR, local clusters at UiB and UiT. Slurm, batch jobs, free for the institution's own people, students through a supervisor, collaborators added by a project leader. Most other institutions have their own small servers or nothing. National: Sigma2 and NRIS. Olivia, 448 Grace Hopper chips after the February expansion, plus Saga; application rounds twice a year. KI-fabrikken, opened last year, is the first national channel that explicitly includes business and public sector. European: LUMI in Finland, where Norway is a member, and the EuroHPC AI Factories. Click: what changes as you go up. More compute, more people can share it, data can live next to it. But more waiting, more paperwork, less interactivity. Batch scheduling is the wrong shape for a rehearsal.</aside>
-  </section>
-  <section>
-    <h3>How you actually get on</h3>
-    <div class="cols3" style="font-size:.62em">
-      <div class="card good"><h3>Institutional clusters</h3><ul><li>UiO Fox: Educloud project, PI adds collaborators</li><li>NTNU IDUN: supervisor requests access</li><li>UiA: DGX servers at CAIR</li><li>UiB and UiT: local HPC via the IT division</li></ul></div>
-      <div class="card"><h3>NRIS / Olivia</h3><ul><li>project application, CPU and GPU hours</li><li>two rounds a year</li><li>any Norwegian research institution</li><li>data storage next to compute</li></ul></div>
-      <div class="card"><h3>KI-fabrikken</h3><ul><li>Sigma2, part of the LUMI AI Factory network</li><li>research, business, public sector</li><li>expertise and support, not only GPUs</li><li>artists and cultural institutions: unclear</li></ul></div>
-      <div class="card"><h3>LUMI / EuroHPC</h3><ul><li>through NRIS or EuroHPC calls</li><li>AMD GPUs: check your software</li><li>large allocations, long lead times</li></ul></div>
-      <div class="card warn"><h3>NAIC (paused)</h3><ul><li>the low-threshold national GPU service</li><li>funding ended 31 March 2026</li><li>"no-cost hibernation" since April</li><li>successor being procured by Sigma2</li></ul></div>
-      <div class="card"><h3>Sensitive data</h3><ul><li>TSD at UiO, SAFE at UiB, HUNT Cloud at NTNU</li><li>GPU capacity inside is limited</li><li>health and pupils' data live here or offline</li></ul></div>
-    </div>
-    <aside class="notes">Depth. The practical routes. Note NAIC: it was the one national service designed for low-threshold GPU access, and it has been paused since April while Sigma2 procures a permanent successor. That is a live hole. Sensitive data: WP3 and WP4 material cannot go to Olivia; it lives in TSD-type environments or fully offline.</aside>
-  </section>
-  <section>
-    <h3>Institutions side by side · to be filled in</h3>
-    <table class="tbl wide">
-      <tr><th>Institution</th><th>Own GPU cluster</th><th>Hosted chat / LLM service</th><th>Sensitive-data environment</th><th>Students get GPUs?</th><th>Freelancers / partners get in?</th></tr>
-      <tr><td>UiO</td><td class="y">Fox</td><td class="y">UiO GPT</td><td class="y">TSD</td><td class="m">via project</td><td class="m">via a PI</td></tr>
-      <tr><td>UiB</td><td class="y">local HPC (UiB IT)</td><td class="m">Copilot</td><td class="y">SAFE</td><td class="q">?</td><td class="q">?</td></tr>
-      <tr><td>NTNU</td><td class="y">IDUN</td><td class="y">GPT NTNU</td><td class="y">HUNT Cloud</td><td class="m">via supervisor</td><td class="n">support agreement needed</td></tr>
-      <tr><td>UiT</td><td class="y">local HPC group; hosts NRIS systems</td><td class="q">?</td><td class="q">?</td><td class="q">?</td><td class="q">?</td></tr>
-      <tr><td>UiA</td><td class="y">DGX-2 and DGX H100 (CAIR)</td><td class="q">?</td><td class="q">?</td><td class="q">?</td><td class="q">?</td></tr>
-      <tr><td>INN · HiØ · HVL · OsloMet · Nord · Kristiania …</td><td class="q">?</td><td class="q">?</td><td class="q">?</td><td class="q">?</td><td class="q">?</td></tr>
-      <tr><td>NMH · KHiO · AHO</td><td class="n">none known</td><td class="q">?</td><td class="n">none</td><td class="n">no</td><td class="q">?</td></tr>
-      <tr><td>National Library</td><td class="y">DH-lab</td><td class="q">?</td><td class="q">?</td><td class="n">n/a</td><td class="q">?</td></tr>
-      <tr><td>Simula · SINTEF · IFE</td><td class="y">eX3 and own</td><td class="q">?</td><td class="q">?</td><td class="n">n/a</td><td class="q">?</td></tr>
-    </table>
-    <aside class="notes">Depth. The honest version: I know UiO, a little about NTNU, UiB, UiT and UiA, and for most of the twenty-plus MishMash institutions and the rest of Norwegian higher education the cell is a question mark. That is itself a finding. Removed from the slide: Green: known. Grey: nobody in the room knows yet. This table is the first thing the panel is asked to correct.</aside>
-  </section>
-</section>
-
-<!-- ===================== 4 FRONTENDS ===================== -->
-<section>
-  <section class="center-slide opener">
-    <h1>Frontends</h1>
-    <aside class="notes">Hardware and models are only half. The tool you sit in decides who can use it at all. Removed from the slide: how you talk to the model.</aside>
-  </section>
   <section>
     <div class="layers" style="max-width:92%">
       <img class="fig" src="images/fig-frontends-0.svg" alt="The model in the centre">
@@ -385,7 +244,7 @@
       <img class="fig fragment" src="images/fig-frontends-3.svg" alt="Creative tools: Max with nn~ and FluCoMa, Pure Data, Ableton, TouchDesigner, ComfyUI, Unity, p5.js">
       <img class="fig fragment" src="images/fig-frontends-4.svg" alt="Programmatic: Python with PyTorch, llama.cpp, MLX, Ollama, vLLM, any OpenAI-compatible endpoint">
     </div>
-    <aside class="notes">Four families, one per click. Chat: the web apps, an institution-hosted service like UiO GPT, GPT NTNU or Copilot under UiB's Microsoft agreement, or Open WebUI and LM Studio on top of a local model; this is where teachers and most artists start. Code and agents: VS Code with Copilot or Continue, Claude Code, Cursor, Jupyter, Educloud On Demand on Fox. Creative tools: Max with nn~ and FluCoMa, Pure Data, Ableton with Neutone, TouchDesigner, ComfyUI for image and video, Unity and Unreal, p5.js with ml5. Programmatic: Python with PyTorch, transformers and diffusers, llama.cpp, MLX, Ollama or vLLM as a local server. The same model can sit behind all four.</aside>
+    <aside class="notes">Depth. Four families, one per click. Chat: the web apps, an institution-hosted service like UiO GPT, GPT NTNU or Copilot under UiB's Microsoft agreement, or Open WebUI and LM Studio on top of a local model; this is where teachers and most artists start. Code and agents: VS Code with Copilot or Continue, Claude Code, Cursor, Jupyter, Educloud On Demand on Fox. Creative tools: Max with nn~ and FluCoMa, Pure Data, Ableton with Neutone, TouchDesigner, ComfyUI for image and video, Unity and Unreal, p5.js with ml5. Programmatic: Python with PyTorch, transformers and diffusers, llama.cpp, MLX, Ollama or vLLM as a local server. The same model can sit behind all four.</aside>
   </section>
   <section>
     <div class="layers" style="max-width:92%">
@@ -396,7 +255,7 @@
       <img class="fig fragment" src="images/fig-api-4.svg" alt="Backend: an EU provider such as Mistral, Scaleway or Hugging Face">
       <img class="fig fragment" src="images/fig-api-5.svg" alt="Backend: a commercial API from OpenAI, Anthropic or Google">
     </div>
-    <aside class="notes">The trick that makes switching cheap: almost everything speaks the same OpenAI-compatible API. One backend per click, from the laptop up to the commercial APIs. Ollama and LM Studio on the laptop, vLLM on a lab server or behind a tunnel to Fox, Mistral and the EU providers, and the commercial APIs. Change one line, keep the workflow. Prototype against the laptop, point at a server for the show.</aside>
+    <aside class="notes">Depth. The trick that makes switching cheap: almost everything speaks the same OpenAI-compatible API. One backend per click, from the laptop up to the commercial APIs. Ollama and LM Studio on the laptop, vLLM on a lab server or behind a tunnel to Fox, Mistral and the EU providers, and the commercial APIs. Change one line, keep the workflow. Prototype against the laptop, point at a server for the show.</aside>
   </section>
   <section>
     <h3>Tool is not model</h3>
@@ -405,14 +264,6 @@
       <img class="fig fragment" src="images/fig-tool-model-1.svg" alt="Models underneath: GPT, Claude, Gemini, Llama, Mistral, RAVE, FLUX and Stable Diffusion, with links from each tool. The same model sits behind several tools; the same tool can switch model.">
     </div>
     <aside class="notes">Depth. The distinction people most often miss. Top row: tools, the thing you sit in. Click: the models underneath. ChatGPT and UiO GPT are both GPT. VS Code can talk to GPT, Claude or a local Llama. Max with nn~ runs RAVE, and can call a language model too. ComfyUI drives FLUX or Stable Diffusion. Ollama serves Llama or Mistral. Same model in many tools, same tool with many models. When someone says "we use AI", ask which model, where it runs, and where the data go.</aside>
-  </section>
-</section>
-
-<!-- ===================== 5 MODELS ===================== -->
-<section>
-  <section class="center-slide opener">
-    <h1>Models</h1>
-    <aside class="notes">Open models exist for every modality now. Norwegian ones exist for language and speech only. Removed from the slide: what runs where.</aside>
   </section>
   <section>
     <div class="cols3 six">
@@ -423,7 +274,7 @@
       <div class="card"><h3>Video</h3><p>Wan · HunyuanVideo · LTX</p><p class="bad">Norwegian: none</p></div>
       <div class="card"><h3>Vision, motion, multimodal</h3><p>CLIP · SAM · LLaVA · Qwen-VL · MDM · MotionGPT</p><p class="bad">Norwegian: none</p></div>
     </div>
-    <aside class="notes">Six modalities, open options in each. The Norwegian line is the hole: NorMistral from the language technology group at UiO, NorLLM from NorwAI at NTNU, NB-Whisper from the National Library, and that is it. Nothing open and Norwegian for music, image, video or motion. Nothing trained on joik, folk music, Norwegian film or the museum collections. The data survey this week confirmed it: speech is the only creative data type with open Norwegian data, and for music, film, video, dance, theatre, games and design there is no open Norwegian dataset at all. That is a job for this centre, and for WP6 in particular. Removed from the slide: All of these have open weights you can download. Sizes range from tens of MB (RAVE) to hundreds of GB. Licences vary: see the next slide.</aside>
+    <aside class="notes">Depth. Six modalities, open options in each. The Norwegian line is the hole: NorMistral from the language technology group at UiO, NorLLM from NorwAI at NTNU, NB-Whisper from the National Library, and that is it. Nothing open and Norwegian for music, image, video or motion. Nothing trained on joik, folk music, Norwegian film or the museum collections. The data survey this week confirmed it: speech is the only creative data type with open Norwegian data, and for music, film, video, dance, theatre, games and design there is no open Norwegian dataset at all. That is a job for this centre, and for WP6 in particular. Removed from the slide: All of these have open weights you can download. Sizes range from tens of MB (RAVE) to hundreds of GB. Licences vary: see the next slide.</aside>
   </section>
   <section>
     <h3>Licences in three colours</h3>
@@ -457,18 +308,107 @@
   </section>
 </section>
 
-<!-- ===================== 6 WHO NEEDS WHAT ===================== -->
+<!-- ===================== 2 WHERE THE COMPUTE IS ===================== -->
+<section>
+  <section class="center-slide opener">
+    <h1>Where the compute is</h1>
+    <aside class="notes">Where the machines are, from the laptop in the room to a hall in Kajaani. Each step up gives more compute and costs more waiting and paperwork.</aside>
+  </section>
+  <section>
+    <div class="layers" style="max-width:96%">
+      <img class="fig" src="images/fig-stair-0.svg" alt="Five steps: shared server, VDI, institutional HPC such as UiO Fox, national Sigma2 with Olivia and KI-fabrikken, European LUMI">
+      <img class="fig fragment" src="images/fig-stair-1.svg" alt="Arrows: to the right more compute and sharing, to the left more waiting, paperwork and less interactivity">
+    </div>
+    <aside class="notes">A minute and a half, one figure: where the compute is, from the room up to Kajaani. Shared server: a GPU box in the lab, ssh, first come first served. VDI: a virtual desktop for licensed software and sensitive data, rarely a real GPU. Institutional HPC: UiO's Fox, NTNU's IDUN, UiA's DGX servers at CAIR, local clusters at UiB and UiT. Slurm, batch jobs, free for the institution's own people, students through a supervisor, collaborators added by a project leader. Most other institutions have their own small servers or nothing. National: Sigma2 and NRIS. Olivia, 448 Grace Hopper chips after the February expansion, plus Saga; application rounds twice a year. KI-fabrikken, opened last year, is the first national channel that explicitly includes business and public sector. European: LUMI in Finland, where Norway is a member, and the EuroHPC AI Factories. Click: what changes as you go up. More compute, more people can share it, data can live next to it. But more waiting, more paperwork, less interactivity. Batch scheduling is the wrong shape for a rehearsal. Depth below: your own hardware rung by rung, how you actually get on, the institutions side by side, and why serving a model and training one need different setups.</aside>
+  </section>
+  <section>
+    <div class="layers" style="max-width:96%">
+      <img class="fig" src="images/fig-ladder-0.svg" alt="Seven rungs: microcontroller, single-board computer, phone, tablet, laptop, laptop with GPU, desktop or workstation, with typical uses and price bands">
+      <img class="fig fragment" src="images/fig-ladder-1.svg" alt="Memory per rung, from 256 KB to 512 GB">
+      <img class="fig fragment" src="images/fig-ladder-2.svg" alt="Model families placed on the rungs: TinyML and RAVE on the left, 1 to 8B language models in the middle, 70B on the right">
+    </div>
+    <aside class="notes">Depth. Left to right: Arduino and ESP32 for keyword spotting and gesture classes, milliseconds, no language model. Raspberry Pi and Jetson for small vision and audio models, an embodied agent in a box. Phone and tablet: on-device models of one to three billion parameters, camera and microphone, always with you, closed platforms. Laptop: seven to fourteen billion chat, Whisper, RAVE on stage. Laptop with a discrete GPU: diffusion, fine-tuning small models. Workstation: seventy billion locally, training small models, serving a studio. Click: memory. Click: which models fit where. The one number that matters is memory: it decides which model fits at all. Compute only decides how fast.</aside>
+  </section>
+  <section>
+    <img class="fig" src="images/fig-memory.svg" alt="Rule of thumb: parameters times bytes per parameter. 7B at 4-bit is about 5 GB, 30B about 20 GB, 70B about 40 GB, 70B at 16-bit about 140 GB">
+    <aside class="notes">Depth. Rule of thumb for language models: parameters times bytes per parameter. A quantised 7 or 8B model is about five gigabytes and runs on any recent laptop. Thirty billion needs about twenty. Seventy needs forty: a machine with a lot of unified memory or two big GPUs. Full precision seventy billion is a server job. Real-time audio models are tiny by comparison.</aside>
+  </section>
+  <section>
+    <h3>What each rung is good for</h3>
+    <div class="cols4">
+      <div class="card"><h3>Microcontroller</h3><ul><li>keyword spotting, gesture classes</li><li>sensor fusion, milliseconds</li><li>no LLM, ever</li><li>wearables, instruments</li></ul></div>
+      <div class="card"><h3>Pi / Jetson</h3><ul><li>small vision and audio models</li><li>Whisper tiny, YOLO</li><li>an embodied agent in a box</li><li>installations that run for a year</li></ul></div>
+      <div class="card"><h3>Phone / tablet</h3><ul><li>1–3B on-device LLMs</li><li>camera, mic, sensors</li><li>closed platforms, app stores</li><li>the device every pupil has</li></ul></div>
+      <div class="card"><h3>Laptop</h3><ul><li>7–14B chat, offline</li><li>Whisper transcription</li><li>RAVE and nn~ on stage</li><li>the studio in a bag</li></ul></div>
+    </div>
+    <div class="cols4" style="margin-top:.7em">
+      <div class="card"><h3>Laptop with GPU</h3><ul><li>Stable Diffusion, FLUX</li><li>fine-tune small models (LoRA)</li><li>real-time everything</li><li>hot, loud, one hour of battery</li></ul></div>
+      <div class="card"><h3>Workstation</h3><ul><li>70B local, video generation</li><li>train RAVE overnight</li><li>serve a whole studio or class</li><li>needs a room and a power bill</li></ul></div>
+      <div class="card warn"><h3>School tablet or laptop</h3><ul><li>managed device, no GPU</li><li>Feide login, pupils' data</li><li>everything must be hosted</li><li>the most constrained rung</li></ul></div>
+      <div class="card good"><h3>Rule of thumb</h3><ul><li>memory decides what fits</li><li>compute decides how fast</li><li>prototype on the smallest rung that works</li></ul></div>
+    </div>
+    <aside class="notes">Depth. Rung by rung. Note the school tablet or laptop: managed, locked down, no GPU, so everything has to be hosted somewhere else. That is the WP4 problem in one card.</aside>
+  </section>
+  <section>
+    <h3>How you actually get on</h3>
+    <div class="cols3" style="font-size:.62em">
+      <div class="card good"><h3>Institutional clusters</h3><ul><li>UiO Fox: Educloud project, PI adds collaborators</li><li>NTNU IDUN: supervisor requests access</li><li>UiA: DGX servers at CAIR</li><li>UiB and UiT: local HPC via the IT division</li></ul></div>
+      <div class="card"><h3>NRIS / Olivia</h3><ul><li>project application, CPU and GPU hours</li><li>two rounds a year</li><li>any Norwegian research institution</li><li>data storage next to compute</li></ul></div>
+      <div class="card"><h3>KI-fabrikken</h3><ul><li>Sigma2, part of the LUMI AI Factory network</li><li>research, business, public sector</li><li>expertise and support, not only GPUs</li><li>artists and cultural institutions: unclear</li></ul></div>
+      <div class="card"><h3>LUMI / EuroHPC</h3><ul><li>through NRIS or EuroHPC calls</li><li>AMD GPUs: check your software</li><li>large allocations, long lead times</li></ul></div>
+      <div class="card warn"><h3>NAIC (paused)</h3><ul><li>the low-threshold national GPU service</li><li>funding ended 31 March 2026</li><li>"no-cost hibernation" since April</li><li>successor being procured by Sigma2</li></ul></div>
+      <div class="card"><h3>Sensitive data</h3><ul><li>TSD at UiO, SAFE at UiB, HUNT Cloud at NTNU</li><li>GPU capacity inside is limited</li><li>health and pupils' data live here or offline</li></ul></div>
+    </div>
+    <aside class="notes">Depth. The practical routes. Note NAIC: it was the one national service designed for low-threshold GPU access, and it has been paused since April while Sigma2 procures a permanent successor. That is a live hole. Sensitive data: WP3 and WP4 material cannot go to Olivia; it lives in TSD-type environments or fully offline.</aside>
+  </section>
+  <section>
+    <h3>Institutions side by side · to be filled in</h3>
+    <table class="tbl wide">
+      <tr><th>Institution</th><th>Own GPU cluster</th><th>Hosted chat / LLM service</th><th>Sensitive-data environment</th><th>Students get GPUs?</th><th>Freelancers / partners get in?</th></tr>
+      <tr><td>UiO</td><td class="y">Fox</td><td class="y">UiO GPT</td><td class="y">TSD</td><td class="m">via project</td><td class="m">via a PI</td></tr>
+      <tr><td>UiB</td><td class="y">local HPC (UiB IT)</td><td class="m">Copilot</td><td class="y">SAFE</td><td class="q">?</td><td class="q">?</td></tr>
+      <tr><td>NTNU</td><td class="y">IDUN</td><td class="y">GPT NTNU</td><td class="y">HUNT Cloud</td><td class="m">via supervisor</td><td class="n">support agreement needed</td></tr>
+      <tr><td>UiT</td><td class="y">local HPC group; hosts NRIS systems</td><td class="q">?</td><td class="q">?</td><td class="q">?</td><td class="q">?</td></tr>
+      <tr><td>UiA</td><td class="y">DGX-2 and DGX H100 (CAIR)</td><td class="q">?</td><td class="q">?</td><td class="q">?</td><td class="q">?</td></tr>
+      <tr><td>INN · HiØ · HVL · OsloMet · Nord · Kristiania …</td><td class="q">?</td><td class="q">?</td><td class="q">?</td><td class="q">?</td><td class="q">?</td></tr>
+      <tr><td>NMH · KHiO · AHO</td><td class="n">none known</td><td class="q">?</td><td class="n">none</td><td class="n">no</td><td class="q">?</td></tr>
+      <tr><td>National Library</td><td class="y">DH-lab</td><td class="q">?</td><td class="q">?</td><td class="n">n/a</td><td class="q">?</td></tr>
+      <tr><td>Simula · SINTEF · IFE</td><td class="y">eX3 and own</td><td class="q">?</td><td class="q">?</td><td class="n">n/a</td><td class="q">?</td></tr>
+    </table>
+    <aside class="notes">Depth. The honest version: I know UiO, a little about NTNU, UiB, UiT and UiA, and for most of the twenty-plus MishMash institutions and the rest of Norwegian higher education the cell is a question mark. That is itself a finding. Removed from the slide: Green: known. Grey: nobody in the room knows yet. This table is the first thing the panel is asked to correct.</aside>
+  </section>
+  <section>
+    <h3>Inference is not training</h3>
+    <div class="cols" style="gap:1.5em">
+      <div class="card good"><h3>Serving a model</h3><ul><li>always on, answers in milliseconds</li><li>a web endpoint that a class, a stage or a museum connects to</li><li>a modest GPU, or many of them, or a laptop</li><li>needs networking, logins and a security review</li></ul></div>
+      <div class="card warn"><h3>Training and fine-tuning</h3><ul><li>bursts: hours to weeks, then nothing</li><li>no endpoint, no users, a queue</li><li>the biggest GPUs and the fastest storage</li><li>needs scheduling, checkpoints, data next to compute</li></ul></div>
+    </div>
+    <aside class="notes">Depth. Two loads, two setups, not just two sizes. National HPC is built for the right column: batch jobs in a queue, no open ports, nothing that runs for months. Serving a model, the left column, is what a class, a stage, a museum or a startup actually needs, and it is the thing a cluster will not let you do. Most of the users on the map need the left column, and the only places that offer it are commercial clouds and your own machine.</aside>
+  </section>
+  <section>
+    <h3>Workflows do not travel</h3>
+    <div class="cols4">
+      <div class="card"><h3>Laptop to Fox</h3><p>Different modules, versions, paths. Days of setup.</p></div>
+      <div class="card"><h3>Fox to Olivia</h3><p>Same scheduler, different drivers, containers and rules.</p></div>
+      <div class="card"><h3>Olivia to LUMI</h3><p>NVIDIA to AMD, CUDA to ROCm. Often a rewrite.</p></div>
+      <div class="card good"><h3>What helps</h3><p>Containers and pinned environments. Teach it at student level. AI assistants make porting cheap.</p></div>
+    </div>
+    <aside class="notes">Depth. A workflow built on one system is locked to it, and often to one vendor. Something that runs on Fox may not run on Olivia, and Olivia to LUMI is a different GPU vendor altogether. This is a skills problem as much as a hardware problem: it has to be taught at student level, with containers and reproducible environments, and coding assistants now make the porting itself much cheaper than it was. A national ecosystem that ignores this buys hardware that half its users cannot move to.</aside>
+  </section>
+</section>
+
+<!-- ===================== 3 WHO NEEDS WHAT ===================== -->
 <section>
   <section class="center-slide opener">
     <h1>Who needs what</h1>
-    <aside class="notes">Now the people. MishMash has seven work packages, and they do not need the same machine. Removed from the slide: seven work packages, seven different answers.</aside>
+    <aside class="notes">Now the people. Seven work packages, from a musician on stage to the National Library, and they do not need the same machine. That is why there is no common solution.</aside>
   </section>
   <section>
     <div class="layers" style="max-width:88%">
       <img class="fig" src="images/fig-spectrum-0.svg" alt="Axes: compute needed from laptop to LUMI, and data sensitivity from own material to personal and health data">
       <img class="fig fragment" src="images/fig-spectrum-1.svg" alt="Use cases placed on the axes: musician on stage, filmmaker, music therapist, teacher in a school, cultural institution, National Library, designer or rescue operator, and a computer science researcher who trains models across the work packages">
     </div>
-    <aside class="notes">Two axes: how much compute, and how sensitive the data. Click. WP1, a musician on stage: milliseconds, a laptop in the room, own recordings; bottom left. WP2, a filmmaker: video generation, hours on a GPU, and the rights of the training data are the issue. WP3, a music therapist: small models but health data, so TSD or fully offline; top left. WP4, a teacher: no GPU at all, a managed tablet or laptop, pupils' data, and a need for free Norwegian tools; far left, high up. WP5, cultural institutions and rights organisations: production-grade, contracts, audit trails. WP6, the National Library: a multimodal model on the whole collection, petabytes, Olivia or LUMI for months; far right. WP7, designers and rescue operators: physics and law built in, often on an embedded device. And the computer science researcher who builds the models for all of them: a lot of compute, mostly open or synthetic data, bottom right. No single machine serves this picture. That is why there is no common solution.</aside>
+    <aside class="notes">Two axes: how much compute, and how sensitive the data. Click. WP1, a musician on stage: milliseconds, a laptop in the room, own recordings; bottom left. WP2, a filmmaker: video generation, hours on a GPU, and the rights of the training data are the issue. WP3, a music therapist: small models but health data, so TSD or fully offline; top left. WP4, a teacher: no GPU at all, a managed tablet or laptop, pupils' data, and a need for free Norwegian tools; far left, high up. WP5, cultural institutions and rights organisations: production-grade, contracts, audit trails. WP6, the National Library: a multimodal model on the whole collection, petabytes, Olivia or LUMI for months; far right. WP7, designers and rescue operators: physics and law built in, often on an embedded device. And the computer science researcher who builds the models for all of them: a lot of compute, mostly open or synthetic data, bottom right. No single machine serves this picture. That is why there is no common solution. A minute and a half. Depth below: four workflows, the table by work package, the loop from national compute back to the laptop, and use versus develop.</aside>
   </section>
   <section>
     <img class="fig" src="images/fig-workflow-musician.svg" alt="Musician: record own material, train RAVE overnight on a studio GPU or Fox, play with nn~ in Max on the laptop">
@@ -504,21 +444,13 @@
     <img class="fig" src="images/fig-loop.svg" alt="Researcher trains on Olivia or LUMI, releases open weights, musician, teacher and filmmaker download to a laptop">
     <aside class="notes">Depth. The one pattern that recurs: prototype small and local, scale up only for training, bring the result back down to the room. When the loop works, national compute upstream produces open models that run on a laptop downstream. Today it works for Norwegian language. It does not yet work for anything creative.</aside>
   </section>
-</section>
-
-<!-- ===================== 7 USE OR DEVELOP ===================== -->
-<section>
-  <section class="center-slide opener">
-    <h1>Use or develop</h1>
-    <aside class="notes">Using a model off the shelf and developing one are different jobs, with different hardware, different time scales and different people. And development itself forks in two.</aside>
-  </section>
   <section>
     <div class="layers" style="max-width:92%">
       <img class="fig" src="images/fig-use-develop-0.svg" alt="Use off the shelf: a finished model on any device; minutes; everyone">
       <img class="fig fragment" src="images/fig-use-develop-1.svg" alt="Develop it yourself, first job: train an existing architecture on your own data; hours to days on one GPU">
       <img class="fig fragment" src="images/fig-use-develop-2.svg" alt="Develop it yourself, second job: new methods; many failed runs; time unknown">
     </div>
-    <aside class="notes">Use off the shelf: a finished model on whatever device runs it, minutes to set up, everyone on the map. Click: developing it yourself is a different job, and it forks. Click again: the second fork. Using a model off the shelf is what almost everyone on the map does, and the hardware question is only what runs inference. Developing is different in kind, not just in degree, and it forks. Training an existing architecture on new data, a RAVE model on your own recordings or a LoRA on your own footage, is bounded: you can estimate the hours, and most of the effort goes into the data and its rights. Developing new methods, new architectures or new ways of controlling a model, is open-ended: many training runs, most of which fail, and you rarely know how much compute you need until you are done. That last point matters for the ecosystem, because allocation rounds assume you can write down the number in advance. Depth slides below: creative versus traditional AI, inference versus training setups, why workflows do not travel between systems, then a rough tasks-against-platforms table and the same map by person. The last two are hard to generalise; use them only if the discussion needs them.</aside>
+    <aside class="notes">Depth. Use off the shelf: a finished model on whatever device runs it, minutes to set up, everyone on the map. Click: developing it yourself is a different job, and it forks. Click again: the second fork. Using a model off the shelf is what almost everyone on the map does, and the hardware question is only what runs inference. Developing is different in kind, not just in degree, and it forks. Training an existing architecture on new data, a RAVE model on your own recordings or a LoRA on your own footage, is bounded: you can estimate the hours, and most of the effort goes into the data and its rights. Developing new methods, new architectures or new ways of controlling a model, is open-ended: many training runs, most of which fail, and you rarely know how much compute you need until you are done. That last point matters for the ecosystem, because allocation rounds assume you can write down the number in advance. Depth slides below: creative versus traditional AI, inference versus training setups, why workflows do not travel between systems, then a rough tasks-against-platforms table and the same map by person. The last two are hard to generalise; use them only if the discussion needs them.</aside>
   </section>
   <section>
     <p class="kicker">Creative AI is not "traditional" AI</p>
@@ -527,24 +459,6 @@
       <div class="card warn fragment"><h3>AI for creative work</h3><ul><li>open-ended: many good answers, or none</li><li>real-time and interactive: latency is the constraint</li><li>small, personal, messy data, often your own</li><li>measured by taste, context and who is asking</li><li>on stage, in the room, on the body: control matters</li></ul></div>
     </div>
     <aside class="notes">Depth. One distinction that runs through the whole map, and belongs with use-or-develop. Click: the left column. Click: the right. Most of the national AI infrastructure is built for the left column: one well-defined task, big data, batch jobs, accuracy as the measure. Creative work sits in the right column: it is interactive, it needs low latency, the data are small and personal, and whether the result is good is a question of taste and context rather than a benchmark. One caveat: every generative model has some degree of creativity in it, whether or not it is used for a task anyone would call creative. The point is not that the models are different. The point is that the needs are: latency, control, small data and evaluation. The panel comes back to this.</aside>
-  </section>
-  <section>
-    <h3>Inference is not training</h3>
-    <div class="cols" style="gap:1.5em">
-      <div class="card good"><h3>Serving a model</h3><ul><li>always on, answers in milliseconds</li><li>a web endpoint that a class, a stage or a museum connects to</li><li>a modest GPU, or many of them, or a laptop</li><li>needs networking, logins and a security review</li></ul></div>
-      <div class="card warn"><h3>Training and fine-tuning</h3><ul><li>bursts: hours to weeks, then nothing</li><li>no endpoint, no users, a queue</li><li>the biggest GPUs and the fastest storage</li><li>needs scheduling, checkpoints, data next to compute</li></ul></div>
-    </div>
-    <aside class="notes">Depth. Two loads, two setups, not just two sizes. National HPC is built for the right column: batch jobs in a queue, no open ports, nothing that runs for months. Serving a model, the left column, is what a class, a stage, a museum or a startup actually needs, and it is the thing a cluster will not let you do. Most of the users on the map need the left column, and the only places that offer it are commercial clouds and your own machine.</aside>
-  </section>
-  <section>
-    <h3>Workflows do not travel</h3>
-    <div class="cols4">
-      <div class="card"><h3>Laptop to Fox</h3><p>Different modules, versions, paths. Days of setup.</p></div>
-      <div class="card"><h3>Fox to Olivia</h3><p>Same scheduler, different drivers, containers and rules.</p></div>
-      <div class="card"><h3>Olivia to LUMI</h3><p>NVIDIA to AMD, CUDA to ROCm. Often a rewrite.</p></div>
-      <div class="card good"><h3>What helps</h3><p>Containers and pinned environments. Teach it at student level. AI assistants make porting cheap.</p></div>
-    </div>
-    <aside class="notes">Depth. A workflow built on one system is locked to it, and often to one vendor. Something that runs on Fox may not run on Olivia, and Olivia to LUMI is a different GPU vendor altogether. This is a skills problem as much as a hardware problem: it has to be taught at student level, with containers and reproducible environments, and coding assistants now make the porting itself much cheaper than it was. A national ecosystem that ignores this buys hardware that half its users cannot move to.</aside>
   </section>
   <section>
     <h3>Tasks against platforms: a rough guide</h3>
@@ -580,11 +494,11 @@
   </section>
 </section>
 
-<!-- ===================== 8 HOLES IN THE MAP ===================== -->
+<!-- ===================== 4 HOLES IN THE MAP ===================== -->
 <section>
   <section class="center-slide opener">
     <h1>Holes in the map</h1>
-    <aside class="notes">The slide the whole session is about. Who can use what. The grey cells are what we do not know; the red ones are the holes. Removed from the slide: who gets access to what, in Norway, today.</aside>
+    <aside class="notes">The slide the whole session is about: who can use what in Norway today. The grey cells are what we do not know; the black ones are the holes.</aside>
   </section>
   <section>
     <table class="tbl">
@@ -598,7 +512,7 @@
       <tr><td>Public sector<small>museums · libraries · NRK · municipalities</small></td><td class="y">yes</td><td class="n">own IT, no GPUs</td><td class="n">no</td><td class="m">"public sector"</td><td class="m">budget, procurement</td><td class="m">budget, procurement</td></tr>
       <tr><td>Private sector<small>studios · film · games · startups</small></td><td class="y">yes</td><td class="m">own</td><td class="n">only with a research partner</td><td class="m">"business"</td><td class="m">budget</td><td class="y">yes</td></tr>
     </table>
-    <aside class="notes">Read the rows. The top three rows are fine, with the caveat that "by application" means twice a year and someone who can write it. Students depend entirely on a supervisor. Teachers have a managed tablet or laptop and a Feide login, and nothing beyond that. Freelance artists have nothing institutional at all, and it is unclear whether KI-fabrikken is for them. Public and private sector can get into KI-fabrikken on paper; whether a museum or a theatre counts is untested. Nobody has defined artists or cultural institutions as a user category for national compute. And NAIC, the one low-threshold service, is paused. These are the holes. Over to the panel. Removed from the slide: Green: works. Amber: conditional. Red: a hole. Grey: nobody knows. The panel and the room correct this.</aside>
+    <aside class="notes">Read the rows. The top three rows are fine, with the caveat that "by application" means twice a year and someone who can write it. Students depend entirely on a supervisor. Teachers have a managed tablet or laptop and a Feide login, and nothing beyond that. Freelance artists have nothing institutional at all, and it is unclear whether KI-fabrikken is for them. Public and private sector can get into KI-fabrikken on paper; whether a museum or a theatre counts is untested. Nobody has defined artists or cultural institutions as a user category for national compute. And NAIC, the one low-threshold service, is paused. These are the holes. Two minutes; this is the slide the session is about. Then the money, and the two ways out. Removed from the slide: Green: works. Amber: conditional. Red: a hole. Grey: nobody knows. The panel and the room correct this.</aside>
   </section>
   <section>
     <h3>Data: open by count, closed by volume</h3>
@@ -606,17 +520,7 @@
       <div class="card good"><h3>Open, with an API</h3><ul><li>Wikidata, KulturNav, the authority files</li><li>half of DigitaltMuseum, Nasjonalmuseet</li><li>Kartverket, SSB, Stortinget, Brønnøysund</li><li>Språkbanken: thousands of hours of speech</li></ul></div>
       <div class="card warn"><h3>Closed, by the hour and the page</h3><ul><li>the library's books, newspapers, radio, TV, web</li><li>NRK, TV 2, NTB, Retriever</li><li>Bokhylla, Filmarkivet</li><li>nothing open for music, film, video, dance, theatre, games, design</li></ul></div>
     </div>
-    <aside class="notes">A survey of about 120 Norwegian sources this week. Counted in downloadable objects, Norway looks open: Wikidata, KulturNav, half of DigitaltMuseum, Nasjonalmuseet, the public registers, and Språkbanken, which makes speech the only well-served creative data type. Measured in hours and pages, Norway is closed: the National Library's largest holdings are licensed for reading on site or from a Norwegian address, not for mining, and the broadcasters and news archives are all rights reserved. The reason is not the licences but the law: Norway still has no text-and-data-mining exception. Sweden and Finland have had one since 2023. The bill is in the Storting's family and culture committee now, with written input due 28 September and a report due 3 November. The one exception is the newspaper agreement, which lets the library alone train on newspapers for 45 million kroner a year. And for the creative data types this centre cares most about, there is no open Norwegian dataset at all. Compute without data is a machine with nothing to learn from.</aside>
-  </section>
-  <section>
-    <h3>Two ways out, and the elephant</h3>
-    <div class="cols" style="gap:1.5em">
-      <div class="card good"><h3>National: quotas through one door</h3><ul><li>the gateways and clusters of the big institutions, opened to everyone else on the map</li><li>a quota per person, paid per use by the unit, across vendors</li><li>frontier models when they are needed, open models for the rest</li><li>quota categories for artists, schools and museums, not only researchers</li></ul></div>
-      <div class="card warn"><h3>Local: small and smart</h3><ul><li>small open models on the laptop, the board, the phone</li><li>several small agents, one job each, instead of one large model for everything</li><li>energy and cost in the room, where you can see them</li><li>for the stage, the classroom, the museum</li></ul></div>
-    </div>
-    <p class="fragment" style="font-size:.66em; margin-top:.8em">The elephant: the bill that matters is not 200 researchers. It is generated feeds and the rest of the consumption nobody asked for. I would argue a centre for AI and creativity has to confront that, and show what else is possible.</p>
-    <!-- DECISION: the feeds claim has no source and is your argument; decide whether it stays on the slide or is said from the floor. -->
-    <aside class="notes">Two extremes, and the answer is somewhere between them, but the extremes are what to argue about. The national road builds on what the big institutions already have, the gateways and the clusters, and opens them to everyone on the map through quotas: a quota per person, a unit that pays for actual use, the frontier models when they are needed and open models for the rest. The missing piece is the categories: nobody has defined an artist, a school or a museum as a user with a quota. The local road is the opposite bet. Small open models on hardware in the room, several small agents doing one job each rather than one large model doing everything, and energy and cost visible on the desk. This is Stefano's world, and it is the direction where a centre can contribute methods rather than money. Short term, only the national road scales to 200 researchers by next year. Long term, only the local road makes the centre independent of any vendor. Click: the elephant. I would argue the consumption that is not sustainable is not researchers running agents. It is generated feeds, synthetic images and video for social media, the mass of output nobody asked for. If tokens are a scarce resource, that is a question of who gets them. A centre for AI and creativity should say so, and demonstrate the alternative: small, local, deliberate, made by people who mean it.</aside>
+    <aside class="notes">Depth. A survey of about 120 Norwegian sources this week. Counted in downloadable objects, Norway looks open: Wikidata, KulturNav, half of DigitaltMuseum, Nasjonalmuseet, the public registers, and Språkbanken, which makes speech the only well-served creative data type. Measured in hours and pages, Norway is closed: the National Library's largest holdings are licensed for reading on site or from a Norwegian address, not for mining, and the broadcasters and news archives are all rights reserved. The reason is not the licences but the law: Norway still has no text-and-data-mining exception. Sweden and Finland have had one since 2023. The bill is in the Storting's family and culture committee now, with written input due 28 September and a report due 3 November. The one exception is the newspaper agreement, which lets the library alone train on newspapers for 45 million kroner a year. And for the creative data types this centre cares most about, there is no open Norwegian dataset at all. Compute without data is a machine with nothing to learn from.</aside>
   </section>
   <section>
     <h3>Observations to argue with</h3>
@@ -640,7 +544,63 @@
   </section>
 </section>
 
-<!-- ===================== 9 THE PANEL ===================== -->
+<!-- ===================== 5 THE BILL ===================== -->
+<section>
+  <section class="center-slide opener">
+    <h1>The bill</h1>
+    <aside class="notes">And the money, because that is where every conversation about this ends up this autumn.</aside>
+  </section>
+  <section class="center-slide">
+    <p class="kicker">One subscription · 200 researchers</p>
+    <p class="big" style="font-size:3.4em; color:var(--accent-mid); margin:.15em 0 .3em">6 million kroner a year</p>
+    <p style="font-size:.8em; max-width:80%; margin:0 auto">200 researchers on one top-tier agent subscription at 2 500 kroner a month.</p>
+    <!-- Checked 13 Sept 2026: Claude Max 20x is 200 USD a month, about 2 600 kroner with VAT, so 2 500 holds. -->
+    <aside class="notes">The arithmetic behind the whole strip. A top-tier seat on a commercial coding agent, Claude Max as the example, costs about 2 500 kroner a month. MishMash has more than 200 researchers. If every one of them had a seat, the centre would spend 6 million kroner a year on one product from one vendor, before a single image, video or music service is counted. No institution and no centre has budgeted for that, and it is the wrong shape anyway: a seat costs the same for the person who uses it all day and the person who tried it twice. Oddmund Møgedal from UiO IT put it plainly to the university this week: tokens will be a limited resource for the foreseeable future, there will never be unlimited access to the best models, and the money for the commercial ones has to come from somewhere, so administrations will start counting. The institutions have to step up. So does the centre. Half a minute. Depth below: tokens or people, pay per use through a gateway, and a proposal for how a centre could decide.</aside>
+  </section>
+  <section>
+    <h3>Two ways out, and the elephant</h3>
+    <div class="cols" style="gap:1.5em">
+      <div class="card good"><h3>National: quotas through one door</h3><ul><li>the gateways and clusters of the big institutions, opened to everyone else on the map</li><li>a quota per person, paid per use by the unit, across vendors</li><li>frontier models when they are needed, open models for the rest</li><li>quota categories for artists, schools and museums, not only researchers</li></ul></div>
+      <div class="card warn"><h3>Local: small and smart</h3><ul><li>small open models on the laptop, the board, the phone</li><li>several small agents, one job each, instead of one large model for everything</li><li>energy and cost in the room, where you can see them</li><li>for the stage, the classroom, the museum</li></ul></div>
+    </div>
+    <p class="fragment" style="font-size:.66em; margin-top:.8em">The elephant: the bill that matters is not 200 researchers. It is generated feeds and the rest of the consumption nobody asked for. I would argue a centre for AI and creativity has to confront that, and show what else is possible.</p>
+    <!-- DECISION: the feeds claim has no source and is your argument; decide whether it stays on the slide or is said from the floor. -->
+    <aside class="notes">One minute, and the frame for the panel. Two extremes, and the answer is somewhere between them, but the extremes are what to argue about. The national road builds on what the big institutions already have, the gateways and the clusters, and opens them to everyone on the map through quotas: a quota per person, a unit that pays for actual use, the frontier models when they are needed and open models for the rest. The missing piece is the categories: nobody has defined an artist, a school or a museum as a user with a quota. The local road is the opposite bet. Small open models on hardware in the room, several small agents doing one job each rather than one large model doing everything, and energy and cost visible on the desk. This is Stefano's world, and it is the direction where a centre can contribute methods rather than money. Short term, only the national road scales to 200 researchers by next year. Long term, only the local road makes the centre independent of any vendor. Click: the elephant. I would argue the consumption that is not sustainable is not researchers running agents. It is generated feeds, synthetic images and video for social media, the mass of output nobody asked for. If tokens are a scarce resource, that is a question of who gets them. A centre for AI and creativity should say so, and demonstrate the alternative: small, local, deliberate, made by people who mean it.</aside>
+  </section>
+  <section>
+    <h3>Tokens or people</h3>
+    <table class="tbl" style="font-size:.6em">
+      <tr><th>What</th><th>Kroner</th><th>The same money as</th></tr>
+      <tr><td>One seat, one year</td><td>30 000</td><td>1 seat-year</td></tr>
+      <tr><td>One PhD year</td><td>1 400 000</td><td class="m">47 seat-years</td></tr>
+      <tr><td>200 seats, one year</td><td>6 000 000</td><td class="y">1.3 fellowships, or 4 PhD years</td></tr>
+      <tr><td>200 seats, five years</td><td>30 000 000</td><td class="y">7 fellowships</td></tr>
+    </table>
+    <aside class="notes">Depth. The budget question in one table. Removed from the slide: agents are cheaper than people per hour; the centre is paid to produce people, open results and a community; tokens multiply those, they do not replace them. A PhD year cost 1 372 000 kroner at the Research Council's last lump-sum rate, for 2025; from 2026 the Council budgets actual personnel and indirect costs, which lands in the same place. So one PhD year is about 47 seats, and a three-year fellowship, about 4.5 million, is about 150. Two hundred seats for a year is 1.3 fellowships; over the life of the centre it is 7. Now the framing. Agents are much cheaper than people per hour of output, and that is true and beside the point. The Council pays MishMash for trained people, open results and a community, and tokens produce none of those on their own. They are a multiplier on the people we have. So the question is not people versus machines but where the next krone does more: on a 201st researcher, or on making the 200 faster. Nobody has an answer yet, and every institution in this room will have to find one this year. Depth below: a proposal for how the centre could decide. Sources in the notes of the next slide.</aside>
+  </section>
+  <section>
+    <h3>Pay per use, not per seat</h3>
+    <div class="cols3" style="font-size:.62em">
+      <div class="card good"><h3>One door</h3><ul><li>an institution-hosted gateway in front of commercial and open models: UiO GPT, GPT NTNU</li><li>chat, shared assistants, files, and now API keys for agents and coding tools</li><li>about 50 public-sector institutions run it</li></ul></div>
+      <div class="card"><h3>Keys by data class</h3><ul><li>one personal key per data class: red, yellow, green</li><li>the key is independent of the model</li><li>a monthly quota per model</li><li>a unit authorises a quota and pays for actual use</li></ul></div>
+      <div class="card warn"><h3>Good enough, not best</h3><ul><li>the best open-weight models, served on Fox and IDUN, cover most jobs</li><li>smaller models win on price per result</li><li>the frontier models on a quota when they are needed, without a seat per person</li></ul></div>
+    </div>
+    <!-- DECISION: the 50 institutions and the October date in the notes are Oddmund's figures from his 9 September slides; confirm with him before saying them. -->
+    <aside class="notes">Depth. The short-term answer, from Oddmund Møgedal's presentation to the UiO idea meeting on 9 September. UiO built gpt.uio.no in 2023 as a privacy-safe chat front end where the providers do not know who the user is, and about 50 public-sector institutions now run it. Since 2025 it also serves open-weight models on Fox and on NTNU's IDUN, and the best of those are good enough for most of what people do. The new part is the API: personal keys, one per data class, so a red key only reaches models in the institution's own infrastructure, and the same key works from OpenCode, Claude Code, Claude Desktop, Codex or your own script. Quotas are limiting but necessary: they are what makes it possible to control the cost of the commercial models and to share the open ones. Claude and the more expensive OpenAI models through the API, with quotas and per-use billing, are in a pilot this month and planned for October, for the models available in Europe. The principle is what matters for the map: a unit pays for what its people actually use, across vendors, with as little lock-in as possible, and the person decides which model is good enough for the job. For MishMash the question is who does this for the partners with no gateway of their own: the art schools, the museums, the freelancers.</aside>
+  </section>
+  <section>
+    <p class="kicker">A proposal to argue with</p>
+    <h3>How a centre could decide</h3>
+    <div class="cols3" style="font-size:.62em">
+      <div class="card good"><h3>A share, not a line</h3><ul><li>budget tokens as a share of personnel cost, as equipment always was</li><li>3 to 5 per cent of a PhD year is 40 000 to 70 000 kroner</li><li>enough for heavy pay-per-use through a gateway</li></ul></div>
+      <div class="card"><h3>Quotas by role</h3><ul><li>a PhD in machine learning, a WP leader and a museum partner do not need the same budget</li><li>the gateway model, applied to the centre's own money</li><li>the unit sees what its people actually use</li></ul></div>
+      <div class="card warn"><h3>Not fungible</h3><ul><li>fellowships are in the contract; tokens come from operating money</li><li>so the real trade-off is tokens against a lab engineer, workshops, travel, hardware in the room</li><li>50 seats is one engineer who builds the local alternative</li></ul></div>
+    </div>
+    <aside class="notes">Depth. Three rules a centre, or a department, could adopt this autumn. First, budget tokens as a percentage of personnel cost, the way equipment and computing have always been a few per cent on top of a position; at 3 to 5 per cent of a 1.4 million PhD year that is 40 000 to 70 000 kroner a year per person, which covers heavy pay-per-use through a gateway and is a decision the centre can make now. Second, quotas by role rather than seats by headcount, which is the gateway model from the previous slide applied to the centre's own money. Third, remember that the money is not fungible: fellowships are earmarked in the contract with the Research Council, and token spend comes from operating money, so the real trade-off is tokens against the other things operating money buys. A lab engineer costs about 1.5 million a year, which is 50 seats, and I would argue the engineer who builds the small, local alternative is the better buy. Sources: the Research Council's rates page for fellowships (1 372 000 kroner in 2025, actual costs from 2026) and Anthropic's published Max pricing (200 dollars a month).</aside>
+  </section>
+</section>
+
+<!-- ===================== 6 THE PANEL ===================== -->
 <section>
   <section class="center-slide opener">
     <h1>Over to the panel</h1>
