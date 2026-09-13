@@ -183,43 +183,48 @@ def stair():
 
 # ---------------------------------------------------------------- 4 frontends and api
 def frontends():
+    """Layered: fig-frontends-0.svg is the model, 1 to 4 add one family each with its arrow."""
     W, H = 1600, 760
     defs = marker("a", BLUE)
-    b = []
-    b.append(f"<circle cx='800' cy='380' r='110' fill='{BLUE_PALE}' stroke='{BLUE}' stroke-width='4'/>")
-    b.append(lines(800, 372, ["the model", "(local or remote)"], 24, BLUE, weight="bold"))
-    fams = [("Chat", ["ChatGPT · Claude · Gemini", "institution-hosted: UiO GPT, GPT NTNU, Copilot", "Open WebUI · LM Studio · Jan"], 60, 60),
-            ("Code and agents", ["VS Code + Copilot / Continue / Cline", "Claude Code · Cursor · Aider", "Jupyter · Educloud On Demand"], 1040, 60),
-            ("Creative tools", ["Max/MSP + nn~ · FluCoMa · Pure Data", "Ableton + Neutone · TouchDesigner", "ComfyUI · Unity/Unreal · p5.js + ml5"], 60, 500),
-            ("Programmatic", ["Python: PyTorch, transformers, diffusers", "llama.cpp · MLX · Ollama · vLLM", "any OpenAI-compatible endpoint"], 1040, 500)]
-    for name, items, x, y in fams:
+    base = []
+    base.append(f"<circle cx='800' cy='380' r='110' fill='{BLUE_PALE}' stroke='{BLUE}' stroke-width='4'/>")
+    base.append(lines(800, 372, ["the model", "(local or remote)"], 24, BLUE, weight="bold"))
+    write("fig-frontends-0.svg", svg(W, H, "".join(base), defs))
+    fams = [("Chat", ["ChatGPT · Claude · Gemini", "institution-hosted: UiO GPT, GPT NTNU, Copilot", "Open WebUI · LM Studio · Jan"], 60, 60, 560, 160),
+            ("Code and agents", ["VS Code + Copilot / Continue / Cline", "Claude Code · Cursor · Aider", "Jupyter · Educloud On Demand"], 1040, 60, 1040, 160),
+            ("Creative tools", ["Max/MSP + nn~ · FluCoMa · Pure Data", "Ableton + Neutone · TouchDesigner", "ComfyUI · Unity/Unreal · p5.js + ml5"], 60, 500, 560, 600),
+            ("Programmatic", ["Python: PyTorch, transformers, diffusers", "llama.cpp · MLX · Ollama · vLLM", "any OpenAI-compatible endpoint"], 1040, 500, 1040, 600)]
+    for i, (name, items, x, y, x1, y1) in enumerate(fams, 1):
+        b = []
         b.append(box(x, y, 500, 200, "white", LINE))
         b.append(text(x + 250, y + 45, name, 28, INK, weight="bold"))
         b.append(lines(x + 250, y + 90, items, 19, INK))
-    for x1, y1 in [(560, 160), (1040, 160), (560, 600), (1040, 600)]:
         b.append(arrow(x1, y1, 800 + (110 if x1 > 800 else -110) * 0.75, 380 + (70 if y1 > 380 else -70), BLUE, 3, "a"))
-    write("fig-frontends.svg", svg(W, H, "".join(b), defs))
+        write(f"fig-frontends-{i}.svg", svg(W, H, "".join(b), defs))
 
 
 def api():
+    """Layered: fig-api-0.svg is the script and the bottom line, 1 to 5 add one backend each with its arrow."""
     W, H = 1600, 660
     defs = marker("a", BLUE)
-    b = []
-    b.append(box(60, 200, 420, 220, BLUE_PALE, BLUE))
-    b.append(lines(270, 270, ["one script,", "one Max patch,", "one notebook"], 30, BLUE, weight="bold"))
-    b.append(text(270, 395, "base_url = ...", 22, MUTED, extra="font-family='Menlo, Consolas, monospace'"))
+    base = []
+    base.append(box(60, 200, 420, 220, BLUE_PALE, BLUE))
+    base.append(lines(270, 270, ["one script,", "one Max patch,", "one notebook"], 30, BLUE, weight="bold"))
+    base.append(text(270, 395, "base_url = ...", 22, MUTED, extra="font-family='Menlo, Consolas, monospace'"))
+    base.append(text(800, 635, "the same OpenAI-compatible API on all of them: change one line, keep the workflow", 24, INK, weight="bold"))
+    write("fig-api-0.svg", svg(W, H, "".join(base), defs))
     targets = [("laptop", "Ollama · LM Studio · llama.cpp", GREEN), ("lab server", "vLLM · Open WebUI", GREEN),
                ("Fox / Olivia", "vLLM behind a tunnel", BLUE), ("EU provider", "Mistral · Scaleway · HF", BLUE),
                ("commercial", "OpenAI · Anthropic · Google", INK)]
     y = 60
-    for name, sub, col in targets:
+    for i, (name, sub, col) in enumerate(targets, 1):
+        b = []
         b.append(box(1000, y, 540, 84, "white", col))
         b.append(text(1030, y + 38, name, 26, col, "start", "bold"))
         b.append(text(1030, y + 68, sub, 18, MUTED, "start"))
         b.append(arrow(490, 310, 995, y + 42, BLUE, 3, "a"))
+        write(f"fig-api-{i}.svg", svg(W, H, "".join(b), defs))
         y += 108
-    b.append(text(800, 635, "the same OpenAI-compatible API on all of them: change one line, keep the workflow", 24, INK, weight="bold"))
-    write("fig-api.svg", svg(W, H, "".join(b), defs))
 
 
 # ---------------------------------------------------------------- 4b tool vs model

@@ -363,12 +363,25 @@
     <aside class="notes">Hardware and models are only half. The tool you sit in decides who can use it at all. Removed from the slide: how you talk to the model.</aside>
   </section>
   <section>
-    <img class="fig" src="images/fig-frontends.svg" alt="The model in the centre, four families around it: chat, code and agents, creative tools, programmatic">
-    <aside class="notes">Four families. Chat: the web apps, an institution-hosted service like UiO GPT, GPT NTNU or Copilot under UiB's Microsoft agreement, or Open WebUI and LM Studio on top of a local model; this is where teachers and most artists start. Code and agents: VS Code with Copilot or Continue, Claude Code, Cursor, Jupyter, Educloud On Demand on Fox. Creative tools: Max with nn~ and FluCoMa, Pure Data, Ableton with Neutone, TouchDesigner, ComfyUI for image and video, Unity and Unreal, p5.js with ml5. Programmatic: Python with PyTorch, transformers and diffusers, llama.cpp, MLX, Ollama or vLLM as a local server. The same model can sit behind all four.</aside>
+    <div class="layers" style="max-width:92%">
+      <img class="fig" src="images/fig-frontends-0.svg" alt="The model in the centre">
+      <img class="fig fragment" src="images/fig-frontends-1.svg" alt="Chat: the web apps, institution-hosted services, Open WebUI and LM Studio">
+      <img class="fig fragment" src="images/fig-frontends-2.svg" alt="Code and agents: VS Code with assistants, Claude Code, Cursor, Jupyter">
+      <img class="fig fragment" src="images/fig-frontends-3.svg" alt="Creative tools: Max with nn~ and FluCoMa, Pure Data, Ableton, TouchDesigner, ComfyUI, Unity, p5.js">
+      <img class="fig fragment" src="images/fig-frontends-4.svg" alt="Programmatic: Python with PyTorch, llama.cpp, MLX, Ollama, vLLM, any OpenAI-compatible endpoint">
+    </div>
+    <aside class="notes">Four families, one per click. Chat: the web apps, an institution-hosted service like UiO GPT, GPT NTNU or Copilot under UiB's Microsoft agreement, or Open WebUI and LM Studio on top of a local model; this is where teachers and most artists start. Code and agents: VS Code with Copilot or Continue, Claude Code, Cursor, Jupyter, Educloud On Demand on Fox. Creative tools: Max with nn~ and FluCoMa, Pure Data, Ableton with Neutone, TouchDesigner, ComfyUI for image and video, Unity and Unreal, p5.js with ml5. Programmatic: Python with PyTorch, transformers and diffusers, llama.cpp, MLX, Ollama or vLLM as a local server. The same model can sit behind all four.</aside>
   </section>
   <section>
-    <img class="fig" src="images/fig-api.svg" alt="One script or patch pointing at five backends: laptop, lab server, Fox or Olivia, EU provider, commercial, all through the same OpenAI-compatible API">
-    <aside class="notes">The trick that makes switching cheap: almost everything speaks the same OpenAI-compatible API. Ollama and LM Studio on the laptop, vLLM on a lab server or behind a tunnel to Fox, Mistral and the EU providers, and the commercial APIs. Change one line, keep the workflow. Prototype against the laptop, point at a server for the show.</aside>
+    <div class="layers" style="max-width:92%">
+      <img class="fig" src="images/fig-api-0.svg" alt="One script, one Max patch, one notebook, with a base URL to change">
+      <img class="fig fragment" src="images/fig-api-1.svg" alt="Backend: the laptop with Ollama, LM Studio or llama.cpp">
+      <img class="fig fragment" src="images/fig-api-2.svg" alt="Backend: a lab server with vLLM or Open WebUI">
+      <img class="fig fragment" src="images/fig-api-3.svg" alt="Backend: Fox or Olivia with vLLM behind a tunnel">
+      <img class="fig fragment" src="images/fig-api-4.svg" alt="Backend: an EU provider such as Mistral, Scaleway or Hugging Face">
+      <img class="fig fragment" src="images/fig-api-5.svg" alt="Backend: a commercial API from OpenAI, Anthropic or Google">
+    </div>
+    <aside class="notes">The trick that makes switching cheap: almost everything speaks the same OpenAI-compatible API. One backend per click, from the laptop up to the commercial APIs. Ollama and LM Studio on the laptop, vLLM on a lab server or behind a tunnel to Fox, Mistral and the EU providers, and the commercial APIs. Change one line, keep the workflow. Prototype against the laptop, point at a server for the show.</aside>
   </section>
   <section>
     <h3>Tool is not model</h3>
