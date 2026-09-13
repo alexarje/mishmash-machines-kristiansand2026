@@ -17,37 +17,52 @@
   @font-face { font-family: 'Raleway'; font-style: normal; font-weight: 400; font-display: swap; src: local('Raleway'), url(lib/fonts/raleway-400-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
   @font-face { font-family: 'Raleway'; font-style: normal; font-weight: 700; font-display: swap; src: local('Raleway Bold'), url(lib/fonts/raleway-700-latin-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
   @font-face { font-family: 'Raleway'; font-style: normal; font-weight: 700; font-display: swap; src: local('Raleway Bold'), url(lib/fonts/raleway-700-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+  /* Display face of the 2026 identity: Roboto Condensed 700, the open stand-in for Acumin Condensed Bold. */
+  @font-face { font-family: 'Roboto Condensed'; font-style: normal; font-weight: 700; font-display: swap; src: url(lib/fonts/roboto-condensed-700-latin-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+  @font-face { font-family: 'Roboto Condensed'; font-style: normal; font-weight: 700; font-display: swap; src: url(lib/fonts/roboto-condensed-700-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+  /* MishMash visual identity 2026: tokens from mishmash-web/site/assets/css/brand.css.
+     Four pastel surfaces, ink text, condensed bold display type, flat shapes, no rounding. */
   :root {
-    --r-main-font: "Inter", "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    --r-heading-font: "Inter", "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --mm-green: #b3e297; --mm-purple: #9a90cf; --mm-blue: #a5cbed; --mm-pink: #efadb2;
+    --mm-ink: #231f20; --mm-yellow: #d1e422; --mm-red: #ee5648; --mm-white: #ffffff;
+    --mm-green-tint: #f0f8e9; --mm-purple-tint: #f0eef9; --mm-blue-tint: #edf4fb; --mm-pink-tint: #fdf1f1; --mm-yellow-tint: #fbfce6;
+    --mm-ink-70: #5c5859; --mm-ink-40: #a7a4a5; --mm-ink-15: #dedcdc; --mm-ink-5: #f4f3f3;
+    --mm-font-display: 'Roboto Condensed', 'Acumin Pro Condensed', 'Arial Narrow', Arial, sans-serif;
+    --mm-font-body: 'Inter', 'Raleway', Arial, sans-serif;
+    --r-main-font: var(--mm-font-body);
+    --r-heading-font: var(--mm-font-display);
     --r-heading-text-transform: none;
     --r-heading-font-weight: 700;
-    --r-heading1-size: 2.4em;
-    --r-heading2-size: 1.7em;
-    --r-heading3-size: 1.2em;
+    --r-heading1-size: 2.6em;
+    --r-heading2-size: 1.8em;
+    --r-heading3-size: 1.3em;
     --r-main-font-size: 50px;
-    --r-main-color: #363644; --r-heading-color: #363644;
-    --r-link-color: #363644;
-    --accent: #A7A1F4; --accent-mid: #7f78e0; --good: #C1F7AE; --bad: #363644; --muted: #7a7a8c;
-    --purple-pale: #eeedfc; --green-pale: #e6fbdd;
+    --r-main-color: var(--mm-ink); --r-heading-color: var(--mm-ink); --r-link-color: var(--mm-ink);
+    --r-background-color: var(--mm-white);
+    --accent: var(--mm-purple); --accent-mid: var(--mm-ink); --good: var(--mm-green); --bad: var(--mm-ink); --muted: var(--mm-ink-70);
+    --purple-pale: var(--mm-purple-tint); --green-pale: var(--mm-green-tint);
+    --rule: var(--mm-ink); --rule-light: var(--mm-ink-15); --field: var(--mm-ink-5);
   }
-  .reveal h1, .reveal h2, .reveal h3 { letter-spacing: -0.02em; margin-bottom: 0.4em; }
+  .reveal h1, .reveal h2, .reveal h3 { letter-spacing: -0.01em; line-height: 0.95; margin-bottom: 0.4em; }
   .reveal .slides section { text-align: left; }
   .reveal .slides section.center-slide { text-align: center; }
   .reveal p, .reveal li { line-height: 1.35; }
   .reveal ul { margin-left: 0.6em; }
   .reveal li { margin: 0.25em 0; }
   .reveal img, .reveal svg { max-height: 62vh; box-shadow: none; border: none; background: none; }
-  .reveal img.shot { border: 1px solid #d6d6e0; border-radius: 6px; box-shadow: 0 6px 18px rgba(0,0,0,.12); }
+  .reveal img.shot { border: 2px solid var(--rule); }
   .reveal .fig { display: block; width: 100%; max-height: 66vh; }
-  .kicker { color: var(--muted); font-size: 0.6em; text-transform: uppercase; letter-spacing: .12em; margin-bottom: .2em; }
-  .big { font-size: 1.5em; font-weight: 700; line-height: 1.2; }
-  .good { color: #3e7a2e; } .bad { color: var(--bad); font-weight: 600; } .accent { color: var(--accent-mid); } .muted { color: var(--muted); }
+  .kicker { font-family: var(--mm-font-display); font-weight: 700; color: var(--muted); font-size: 0.55em; text-transform: uppercase; letter-spacing: .06em; margin-bottom: .25em; }
+  .big { font-family: var(--mm-font-display); font-size: 1.5em; font-weight: 700; line-height: 0.95; letter-spacing: -0.01em; }
+  .good { background: var(--mm-green); color: var(--mm-ink); padding: 0 .15em; }
+  .bad { color: var(--mm-red); font-weight: 700; }
+  .accent { background: var(--mm-purple); color: var(--mm-ink); padding: 0 .15em; }
+  .muted { color: var(--muted); }
   .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2em; align-items: start; }
   .cols3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1em; align-items: start; }
-  .card { border: 2px solid #d6d6e0; border-radius: 12px; padding: .5em .7em; font-size: .7em; height: 100%; box-sizing: border-box; }
-  .card h3 { font-size: 1.15em; margin: 0 0 .3em 0; }
-  .card.bad { border-color: var(--bad); } .card.good { border-color: var(--good); background: var(--green-pale); } .card.warn { border-color: var(--accent); background: var(--purple-pale); }
+  .card { border: 2px solid var(--rule); border-radius: 0; padding: .5em .7em; font-size: .7em; height: 100%; box-sizing: border-box; background: var(--mm-white); }
+  .card h3 { font-size: 1.25em; margin: 0 0 .3em 0; }
+  .card.bad { background: var(--mm-pink-tint); } .card.good { background: var(--mm-green-tint); } .card.warn { background: var(--mm-purple-tint); }
   .card ul { margin: 0 0 0 .8em; font-size: .95em; }
   .reveal .card-ill { display: block; width: 100%; height: auto; max-height: none; aspect-ratio: 2 / 1; margin: 0 0 .3em; }
   .card .card-ill + h3 { font-size: 1.1em; }
@@ -56,94 +71,105 @@
   .reveal .cols3.six .card-ill { aspect-ratio: 3 / 1; margin-bottom: .15em; }
   .cols3.six .card p { margin: .1em 0 0; }
   .caption { font-size: .55em; color: var(--muted); margin-top: .3em; }
-  .reveal a { text-decoration: underline; text-decoration-color: rgba(167,161,244,.8); text-underline-offset: 3px; }
+  .reveal a { text-decoration: underline; text-decoration-color: var(--mm-purple); text-decoration-thickness: 3px; text-underline-offset: 3px; }
   .reveal a img { cursor: pointer; }
-  .quote { font-size: 1.05em; font-style: italic; border-left: 6px solid var(--accent); padding-left: .6em; margin: .4em 0; }
+  .quote { font-size: 1.05em; font-style: italic; border-left: 6px solid var(--mm-purple); padding-left: .6em; margin: .4em 0; }
   .hint { position: absolute; bottom: 1em; right: 1.2em; font-size: .45em; color: var(--muted); }
-  /* Åpningslysbildet for hver stripe: bare tittel */
-  .reveal .opener h1 { font-size: 2.6em; }
+  /* Title slide and strip openers sit on a surface colour; the wordmark takes the paired colour. */
+  .reveal .title-grid { display: grid; grid-template-columns: 0.42fr 1fr; gap: 1.2em; align-items: end; }
+  .reveal .mm-wordmark { display: block; line-height: 0; }
+  .reveal .mm-wordmark svg { display: block; width: 100%; height: auto; max-height: none; }
+  .reveal .mm-wordmark-title { width: 100%; }
+  .reveal .title-grid h1 { font-size: 2.3em; margin-bottom: .3em; }
+  .reveal .title-grid .kicker { color: var(--mm-ink); }
+  .reveal .slides section.opener { text-align: left; }
+  .reveal .opener .mm-wordmark { width: 5.2em; margin-bottom: 1.6em; }
+  .reveal .opener h1 { font-size: 3.4em; margin: 0; }
+  /* Anything on a surface colour is set in ink, in light and dark mode alike. */
+  .reveal .slides section[data-background-color], .reveal .slides section[data-background-color] h1, .reveal .slides section[data-background-color] h2, .reveal .slides section[data-background-color] p { color: var(--mm-ink); }
   .reveal .opener .kicker { font-size: .7em; }
-  /* Lag som legges oppå hverandre, klikk for klikk */
+  /* Layers stacked on top of each other, one per click */
   .layers { position: relative; margin: 0 auto; }
   .reveal .layers img { display: block; width: 100%; height: auto; max-height: none; margin: 0; }
   .reveal .layers img + img { position: absolute; left: 0; top: 0; }
-  /* Kart over innlegget: to rader, innlegget og eksemplene */
+  /* Map of the talk: one row of strips */
   .map { display: grid; grid-template-columns: 5.5em repeat(9, 1fr); gap: .3em; font-size: .42em; width: 100%; }
-  .map > div { border: 2px solid #d6d6e0; border-radius: 6px; padding: .35em .3em; text-align: center; min-height: 3.2em; display: flex; align-items: center; justify-content: center; }
-  .map .h { background: var(--purple-pale); border-color: var(--accent); font-weight: 700; }
+  .map > div { border: 2px solid var(--rule); border-radius: 0; padding: .35em .3em; text-align: center; min-height: 3.2em; display: flex; align-items: center; justify-content: center; }
+  .map .h { background: var(--mm-green); font-family: var(--mm-font-display); font-weight: 700; font-size: 1.15em; letter-spacing: -0.01em; }
   .map .e { font-weight: 700; }
-  .map .lbl { border: none; color: var(--muted); font-weight: 700; text-transform: uppercase; letter-spacing: .08em; font-size: .8em; justify-content: flex-start; text-align: left; padding-left: 0; }
+  .map .lbl { border: none; color: var(--muted); font-family: var(--mm-font-display); font-weight: 700; text-transform: uppercase; letter-spacing: .06em; font-size: .8em; justify-content: flex-start; text-align: left; padding-left: 0; }
   .map .empty { border: none; }
   .map .n { display: block; color: var(--muted); font-weight: 400; font-size: .8em; }
-  .map .sub { display: block; color: var(--muted); font-weight: 400; font-size: .8em; margin-top: .15em; }
-  .reveal .footer { position: fixed; bottom: 14px; left: 22px; font-size: 14px; color: #a0a0b0; z-index: 10; }
-  .reveal .progress { color: var(--accent); }
+  .map .sub { display: block; color: var(--mm-ink-70); font-family: var(--mm-font-body); font-weight: 400; font-size: .7em; letter-spacing: 0; margin-top: .15em; }
+  .reveal .footer { position: fixed; bottom: 18px; left: 96px; font-size: 14px; color: var(--mm-ink-40); z-index: 10; font-family: var(--mm-font-body); }
+  #mm-mark { position: fixed; left: 22px; bottom: 14px; width: 60px; z-index: 10; color: var(--mm-ink); line-height: 0; }
+  #mm-mark svg { display: block; width: 100%; height: auto; }
+  body.on-surface #mm-mark, body.on-surface .footer { display: none; }
+  .reveal .progress { color: var(--mm-ink); height: 4px; }
   .wish { font-size: 1.1em; margin: .5em 0; display: flex; gap: .5em; align-items: baseline; }
-  .wish b { color: var(--accent-mid); font-size: 1.4em; min-width: 1.2em; }
+  .wish b { font-family: var(--mm-font-display); color: var(--mm-red); font-size: 1.4em; min-width: 1.2em; }
   .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1em 1.5em; margin-top: .6em; }
-  .stat { border: 2px solid #d6d6e0; border-radius: 12px; padding: .5em .7em .6em; text-align: left; }
-  .stat .val { font-size: 2.2em; font-weight: 700; line-height: 1.1; color: var(--accent-mid); }
-  .stat .val.bad { color: var(--bad); }
+  .stat { border: 2px solid var(--rule); border-radius: 0; padding: .5em .7em .6em; text-align: left; }
+  .stat .val { font-family: var(--mm-font-display); font-size: 2.2em; font-weight: 700; line-height: 1.1; color: var(--mm-ink); }
+  .stat .val.bad { color: var(--mm-red); }
   .stat .lbl { font-size: .8em; font-weight: 600; margin-top: .1em; }
   .stat .sub { font-size: .55em; color: var(--muted); margin-top: .2em; }
-  html.dark .reveal .stat { border-color: #5a5a72; }
-
 
   /* Tables for the matrices */
   .reveal table.tbl { font-size: .46em; border-collapse: collapse; width: 100%; margin: 0; }
-  .reveal table.tbl th, .reveal table.tbl td { border: 1px solid #d6d6e0; padding: .35em .45em; text-align: center; vertical-align: middle; line-height: 1.2; }
-  .reveal table.tbl th { background: var(--purple-pale); font-weight: 700; }
+  .reveal table.tbl th, .reveal table.tbl td { border: 1px solid var(--rule-light); padding: .35em .45em; text-align: center; vertical-align: middle; line-height: 1.2; }
+  .reveal table.tbl th { background: var(--mm-green-tint); font-family: var(--mm-font-display); font-weight: 700; font-size: 1.1em; letter-spacing: 0; border-bottom: 2px solid var(--rule); }
   .reveal table.tbl td:first-child, .reveal table.tbl th:first-child { text-align: left; font-weight: 700; }
-  .reveal table.tbl td.y { background: var(--good); color: #363644; font-weight: 700; }
-  .reveal table.tbl td.m { background: var(--accent); color: #363644; font-weight: 700; }
-  .reveal table.tbl td.n { background: #363644; color: #ffffff; font-weight: 700; }
-  .reveal table.tbl td.q { background: #f1f1f4; color: #7a7a8c; font-weight: 700; }
+  .reveal table.tbl td.y { background: var(--mm-green); color: var(--mm-ink); font-weight: 700; }
+  .reveal table.tbl td.m { background: var(--mm-purple); color: var(--mm-ink); font-weight: 700; }
+  .reveal table.tbl td.n { background: var(--mm-ink); color: var(--mm-white); font-weight: 700; }
+  .reveal table.tbl td.q { background: var(--field); color: var(--mm-ink-70); font-weight: 700; }
   .reveal table.tbl.wide { font-size: .38em; }
   .reveal table.tbl.wide td, .reveal table.tbl.wide th { padding: .3em .4em; }
   .reveal table.tbl td small { display: block; font-weight: 400; color: inherit; opacity: .75; font-size: .85em; }
-  html.dark .reveal table.tbl th { background: #46466a; } html.dark .reveal table.tbl th, html.dark .reveal table.tbl td { border-color: #5a5a72; }
-  html.dark .reveal table.tbl td.y { background: #C1F7AE; color: #363644; } html.dark .reveal table.tbl td.m { background: #A7A1F4; color: #363644; } html.dark .reveal table.tbl td.n { background: #1f1f2a; color: #f2f2f6; } html.dark .reveal table.tbl td.q { background: #46466a; color: #b8b8c8; }
   .cols4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: .7em; align-items: stretch; }
   .cols4 .card { font-size: .58em; }
   .ask { font-size: 1.05em; margin: .35em 0; display: flex; gap: .5em; align-items: baseline; }
-  .ask b { color: var(--accent-mid); font-size: 1.3em; min-width: 1.1em; }
+  .ask b { font-family: var(--mm-font-display); color: var(--mm-red); font-size: 1.4em; min-width: 1.1em; }
   .panelist { display: grid; grid-template-columns: 1fr 1fr; gap: .8em 1.2em; font-size: .7em; margin-top: .4em; }
-  .panelist div { border-left: 6px solid var(--accent); padding-left: .5em; }
-  .panelist b { display: block; font-size: 1.1em; }
+  .panelist div { border-left: 6px solid var(--mm-purple); padding-left: .5em; }
+  .panelist b { display: block; font-family: var(--mm-font-display); font-size: 1.25em; }
 
-  /* ---- Dark mode ---- */
+  /* ---- Dark mode: ink ground, white text, the pastels unchanged ---- */
   html.dark {
-    --r-background-color: #363644;
-    --r-main-color: #f2f2f6;
+    --r-background-color: #231f20;
+    --r-main-color: #ffffff;
     --r-heading-color: #ffffff;
-    --r-link-color: #C1F7AE;
-    --muted: #b8b8c8;
-    --accent: #A7A1F4; --accent-mid: #A7A1F4; --good: #C1F7AE; --bad: #f2f2f6;
-    --purple-pale: #46466a; --green-pale: #3d5a3a;
+    --r-link-color: #ffffff;
+    --muted: #b8b5b6;
+    --rule: #ffffff; --rule-light: #5c5859; --field: #3a3637;
+    --purple-pale: #3a3650; --green-pale: #37452f;
     color-scheme: dark;
   }
-  html.dark body, html.dark .reveal-viewport { background: #363644; }
-  html.dark .reveal .card { border-color: #5a5a72; }
-  html.dark .reveal .card.bad { border-color: var(--bad); } html.dark .reveal .card.good { border-color: var(--good); } html.dark .reveal .card.warn { border-color: var(--accent); }
-  html.dark .good { color: #C1F7AE; }
-  html.dark .map > div { border-color: #5a5a72; }
-  html.dark .map .h { background: #46466a; border-color: var(--accent); }
+  html.dark body, html.dark .reveal-viewport { background: #231f20; }
+  html.dark .reveal .card { background: transparent; border-color: var(--mm-ink-70); }
+  html.dark .reveal .card.good { border-color: var(--mm-green); } html.dark .reveal .card.warn { border-color: var(--mm-purple); } html.dark .reveal .card.bad { border-color: var(--mm-pink); }
+  html.dark .reveal .slides section[data-background-color], html.dark .reveal .slides section[data-background-color] h1, html.dark .reveal .slides section[data-background-color] p, html.dark .reveal .title-grid .kicker { color: var(--mm-ink); }
+  html.dark .map > div { border-color: var(--mm-ink-70); }
+  html.dark .map .h { background: var(--mm-green); color: var(--mm-ink); }
+  html.dark .map .h .sub { color: var(--mm-ink-70); }
   html.dark .map .lbl, html.dark .map .empty { border: none; }
-  html.dark .reveal img.shot { border-color: #5a5a72; box-shadow: 0 6px 18px rgba(0,0,0,.5); }
-  html.dark .reveal .layers, html.dark .reveal img.fig { background: #ffffff; border-radius: 12px; }
-  html.dark .reveal .footer { color: #8a8a9c; }
-  html.dark .reveal .progress { color: var(--accent); }
-  html.dark .reveal .controls { color: var(--accent); }
-  html.dark .reveal .slide-number { background: transparent; color: #b8b8c8; }
+  html.dark .reveal .layers, html.dark .reveal img.fig { background: #ffffff; }
+  html.dark .reveal table.tbl th { background: #3a3637; color: #ffffff; }
+  html.dark .reveal .footer { color: #8a8687; }
+  html.dark #mm-mark { color: #ffffff; }
+  html.dark .reveal .progress { color: var(--mm-green); }
+  html.dark .reveal .controls { color: var(--mm-green); }
+  html.dark .reveal .slide-number { background: transparent; color: #b8b5b6; }
   #theme-toggle {
     position: fixed; top: 14px; right: 18px; z-index: 50;
-    width: 40px; height: 40px; border-radius: 50%; border: 1px solid #d6d6e0;
-    background: rgba(255,255,255,.85); color: #363644; font-size: 20px; line-height: 1;
+    width: 40px; height: 40px; border-radius: 0; border: 2px solid #231f20;
+    background: rgba(255,255,255,.85); color: #231f20; font-size: 20px; line-height: 1;
     cursor: pointer; opacity: .35; transition: opacity .2s;
   }
   #theme-toggle:hover, #theme-toggle:focus { opacity: 1; }
-  html.dark #theme-toggle { background: rgba(54,54,68,.85); border-color: #5a5a72; color: #f2f2f6; }
-  @media print { #theme-toggle { display: none; } }
+  html.dark #theme-toggle { background: rgba(35,31,32,.85); border-color: #ffffff; color: #ffffff; }
+  @media print { #theme-toggle, #mm-mark { display: none; } }
 </style>
 </head>
 <body>
@@ -162,10 +188,15 @@
 
 <!-- ===================== 0 TITLE ===================== -->
 <section>
-  <section class="center-slide">
-    <p class="kicker">MishMash Opening Conference · Machines session</p>
-    <h1>Building a Norwegian Ecosystem for AI and Creativity</h1>
-    <p style="margin-top:1.2em; font-size:.8em">Kilden, Kristiansand · 14 September 2026</p>
+  <section class="title-slide" data-background-color="#b3e297">
+    <div class="title-grid">
+      <div class="mm-wordmark mm-wordmark-title" data-colour="#231f20"></div>
+      <div>
+        <p class="kicker">MishMash Opening Conference · Machines session</p>
+        <h1>Building a Norwegian Ecosystem for AI and Creativity</h1>
+        <p style="font-size:.8em">Kilden, Kristiansand · 14 September 2026</p>
+      </div>
+    </div>
     <aside class="notes">Ten minutes of map, then the panel. This is not a recommendation and there is no common solution: the point is to lay out the options, find the holes, and see what could improve. Everyone here has used an AI system this week; most of us used one we do not own and cannot inspect.</aside>
   </section>
   <section>
@@ -654,9 +685,30 @@
 </div>
 </div>
 <div class="footer">Alexander Refsum Jensenius · MishMash · Kristiansand, 14 September 2026</div>
+<div id="mm-mark" aria-hidden="true"><svg class="mm-wordmark-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 347.28785 243.91451" fill="currentColor" aria-hidden="true" focusable="false"><defs><clipPath id="mm-clip"><rect width="347.28785" height="243.91451"/></clipPath></defs><g clip-path="url(#mm-clip)"><path class="mm-col mm-col-m" d="M61.05734,0c-6.09019,64.554-13.35833,137.86991-15.71614,170.99163h-.19664c-2.31752-35.59704-7.66142-103.60861-13.75162-170.99163H0v243.9145h19.17418v-86.71381c0-42.31577-.51127-93.62895-1.21823-122.23219h.66763c3.73335,47.30548,10.45184,135.1193,16.10942,208.946h18.93725c7.66238-79.24855,14.14491-161.79759,18.19193-208.2388h.47099c-.353,27.7783-.70696,75.51592-.70696,117.3209v90.9179h20.07779V0h-30.64666Z"/><g class="mm-col mm-col-ia"><path transform="translate(0 -259.320)" d="M130.13007,0v114.45278h20.98043V0h-20.98043Z"/><path transform="translate(0 -259.320)" d="M154.29324,127.10439h-27.18861l-27.07158,116.8101h20.98139l5.77556-29.27135h27.07062l5.77652,29.27135h22.00201l-27.34592-116.8101ZM130.52239,196.4517c4.28299-21.57036,8.01538-39.13326,9.43026-49.89878h.47099c1.84653,11.15856,5.34391,27.54257,9.7046,49.89878h-19.60584Z"/><path transform="translate(0 0.000)" d="M130.13007,0v114.45278h20.98043V0h-20.98043Z"/><path transform="translate(0 0.000)" d="M154.29324,127.10439h-27.18861l-27.07158,116.8101h20.98139l5.77556-29.27135h27.07062l5.77652,29.27135h22.00201l-27.34592-116.8101ZM130.52239,196.4517c4.28299-21.57036,8.01538-39.13326,9.43026-49.89878h.47099c1.84653,11.15856,5.34391,27.54257,9.7046,49.89878h-19.60584Z"/><path transform="translate(0 259.320)" d="M130.13007,0v114.45278h20.98043V0h-20.98043Z"/><path transform="translate(0 259.320)" d="M154.29324,127.10439h-27.18861l-27.07158,116.8101h20.98139l5.77556-29.27135h27.07062l5.77652,29.27135h22.00201l-27.34592-116.8101ZM130.52239,196.4517c4.28299-21.57036,8.01538-39.13326,9.43026-49.89878h.47099c1.84653,11.15856,5.34391,27.54257,9.7046,49.89878h-19.60584Z"/><path transform="translate(0 518.640)" d="M130.13007,0v114.45278h20.98043V0h-20.98043Z"/></g><g class="mm-col mm-col-s"><path transform="translate(0 -388.980)" d="M232.16696,129.73678c-13.71229-6.36502-17.44468-10.29405-17.44468-18.74157,0-7.93673,3.69306-13.31948,11.98279-13.31948,10.60916,0,12.3377,9.86191,13.00533,16.54132h20.50944c-.353-15.24467-6.83648-33.04307-33.16082-33.04307-21.1387,0-33.20015,12.80845-33.20015,31.58935,0,17.36626,7.85807,25.77445,27.85624,35.32198,14.81253,7.03288,19.52814,12.61229,19.52814,22.23847,0,8.72234-3.81201,15.16601-14.10558,15.16601-10.72619,0-14.61589-8.52618-15.63748-18.23078h-20.82407c.70696,17.52358,8.91898,34.73277,35.83325,34.73277,24.71378,0,36.06826-15.16625,36.06826-33.5541,0-19.56651-9.43026-28.99629-30.41068-38.70089Z"/><path transform="translate(0 -259.320)" d="M232.16696,129.73678c-13.71229-6.36502-17.44468-10.29405-17.44468-18.74157,0-7.93673,3.69306-13.31948,11.98279-13.31948,10.60916,0,12.3377,9.86191,13.00533,16.54132h20.50944c-.353-15.24467-6.83648-33.04307-33.16082-33.04307-21.1387,0-33.20015,12.80845-33.20015,31.58935,0,17.36626,7.85807,25.77445,27.85624,35.32198,14.81253,7.03288,19.52814,12.61229,19.52814,22.23847,0,8.72234-3.81201,15.16601-14.10558,15.16601-10.72619,0-14.61589-8.52618-15.63748-18.23078h-20.82407c.70696,17.52358,8.91898,34.73277,35.83325,34.73277,24.71378,0,36.06826-15.16625,36.06826-33.5541,0-19.56651-9.43026-28.99629-30.41068-38.70089Z"/><path transform="translate(0 -129.660)" d="M232.16696,129.73678c-13.71229-6.36502-17.44468-10.29405-17.44468-18.74157,0-7.93673,3.69306-13.31948,11.98279-13.31948,10.60916,0,12.3377,9.86191,13.00533,16.54132h20.50944c-.353-15.24467-6.83648-33.04307-33.16082-33.04307-21.1387,0-33.20015,12.80845-33.20015,31.58935,0,17.36626,7.85807,25.77445,27.85624,35.32198,14.81253,7.03288,19.52814,12.61229,19.52814,22.23847,0,8.72234-3.81201,15.16601-14.10558,15.16601-10.72619,0-14.61589-8.52618-15.63748-18.23078h-20.82407c.70696,17.52358,8.91898,34.73277,35.83325,34.73277,24.71378,0,36.06826-15.16625,36.06826-33.5541,0-19.56651-9.43026-28.99629-30.41068-38.70089Z"/><path transform="translate(0 0.000)" d="M232.16696,129.73678c-13.71229-6.36502-17.44468-10.29405-17.44468-18.74157,0-7.93673,3.69306-13.31948,11.98279-13.31948,10.60916,0,12.3377,9.86191,13.00533,16.54132h20.50944c-.353-15.24467-6.83648-33.04307-33.16082-33.04307-21.1387,0-33.20015,12.80845-33.20015,31.58935,0,17.36626,7.85807,25.77445,27.85624,35.32198,14.81253,7.03288,19.52814,12.61229,19.52814,22.23847,0,8.72234-3.81201,15.16601-14.10558,15.16601-10.72619,0-14.61589-8.52618-15.63748-18.23078h-20.82407c.70696,17.52358,8.91898,34.73277,35.83325,34.73277,24.71378,0,36.06826-15.16625,36.06826-33.5541,0-19.56651-9.43026-28.99629-30.41068-38.70089Z"/><path transform="translate(0 129.660)" d="M232.16696,129.73678c-13.71229-6.36502-17.44468-10.29405-17.44468-18.74157,0-7.93673,3.69306-13.31948,11.98279-13.31948,10.60916,0,12.3377,9.86191,13.00533,16.54132h20.50944c-.353-15.24467-6.83648-33.04307-33.16082-33.04307-21.1387,0-33.20015,12.80845-33.20015,31.58935,0,17.36626,7.85807,25.77445,27.85624,35.32198,14.81253,7.03288,19.52814,12.61229,19.52814,22.23847,0,8.72234-3.81201,15.16601-14.10558,15.16601-10.72619,0-14.61589-8.52618-15.63748-18.23078h-20.82407c.70696,17.52358,8.91898,34.73277,35.83325,34.73277,24.71378,0,36.06826-15.16625,36.06826-33.5541,0-19.56651-9.43026-28.99629-30.41068-38.70089Z"/><path transform="translate(0 259.320)" d="M232.16696,129.73678c-13.71229-6.36502-17.44468-10.29405-17.44468-18.74157,0-7.93673,3.69306-13.31948,11.98279-13.31948,10.60916,0,12.3377,9.86191,13.00533,16.54132h20.50944c-.353-15.24467-6.83648-33.04307-33.16082-33.04307-21.1387,0-33.20015,12.80845-33.20015,31.58935,0,17.36626,7.85807,25.77445,27.85624,35.32198,14.81253,7.03288,19.52814,12.61229,19.52814,22.23847,0,8.72234-3.81201,15.16601-14.10558,15.16601-10.72619,0-14.61589-8.52618-15.63748-18.23078h-20.82407c.70696,17.52358,8.91898,34.73277,35.83325,34.73277,24.71378,0,36.06826-15.16625,36.06826-33.5541,0-19.56651-9.43026-28.99629-30.41068-38.70089Z"/><path transform="translate(0 388.980)" d="M232.16696,129.73678c-13.71229-6.36502-17.44468-10.29405-17.44468-18.74157,0-7.93673,3.69306-13.31948,11.98279-13.31948,10.60916,0,12.3377,9.86191,13.00533,16.54132h20.50944c-.353-15.24467-6.83648-33.04307-33.16082-33.04307-21.1387,0-33.20015,12.80845-33.20015,31.58935,0,17.36626,7.85807,25.77445,27.85624,35.32198,14.81253,7.03288,19.52814,12.61229,19.52814,22.23847,0,8.72234-3.81201,15.16601-14.10558,15.16601-10.72619,0-14.61589-8.52618-15.63748-18.23078h-20.82407c.70696,17.52358,8.91898,34.73277,35.83325,34.73277,24.71378,0,36.06826-15.16625,36.06826-33.5541,0-19.56651-9.43026-28.99629-30.41068-38.70089Z"/><path transform="translate(0 518.640)" d="M232.16696,129.73678c-13.71229-6.36502-17.44468-10.29405-17.44468-18.74157,0-7.93673,3.69306-13.31948,11.98279-13.31948,10.60916,0,12.3377,9.86191,13.00533,16.54132h20.50944c-.353-15.24467-6.83648-33.04307-33.16082-33.04307-21.1387,0-33.20015,12.80845-33.20015,31.58935,0,17.36626,7.85807,25.77445,27.85624,35.32198,14.81253,7.03288,19.52814,12.61229,19.52814,22.23847,0,8.72234-3.81201,15.16601-14.10558,15.16601-10.72619,0-14.61589-8.52618-15.63748-18.23078h-20.82407c.70696,17.52358,8.91898,34.73277,35.83325,34.73277,24.71378,0,36.06826-15.16625,36.06826-33.5541,0-19.56651-9.43026-28.99629-30.41068-38.70089Z"/></g><g class="mm-col mm-col-h"><path transform="translate(0 -388.980)" d="M326.30646,83.02051v46.24481h-28.2102v-46.24481h-20.98139v116.96742h20.98139v-52.53116h28.2102v52.53116h20.98139v-116.96742h-20.98139Z"/><path transform="translate(0 -259.320)" d="M326.30646,83.02051v46.24481h-28.2102v-46.24481h-20.98139v116.96742h20.98139v-52.53116h28.2102v52.53116h20.98139v-116.96742h-20.98139Z"/><path transform="translate(0 -129.660)" d="M326.30646,83.02051v46.24481h-28.2102v-46.24481h-20.98139v116.96742h20.98139v-52.53116h28.2102v52.53116h20.98139v-116.96742h-20.98139Z"/><path transform="translate(0 0.000)" d="M326.30646,83.02051v46.24481h-28.2102v-46.24481h-20.98139v116.96742h20.98139v-52.53116h28.2102v52.53116h20.98139v-116.96742h-20.98139Z"/><path transform="translate(0 129.660)" d="M326.30646,83.02051v46.24481h-28.2102v-46.24481h-20.98139v116.96742h20.98139v-52.53116h28.2102v52.53116h20.98139v-116.96742h-20.98139Z"/><path transform="translate(0 259.320)" d="M326.30646,83.02051v46.24481h-28.2102v-46.24481h-20.98139v116.96742h20.98139v-52.53116h28.2102v52.53116h20.98139v-116.96742h-20.98139Z"/><path transform="translate(0 388.980)" d="M326.30646,83.02051v46.24481h-28.2102v-46.24481h-20.98139v116.96742h20.98139v-52.53116h28.2102v52.53116h20.98139v-116.96742h-20.98139Z"/><path transform="translate(0 518.640)" d="M326.30646,83.02051v46.24481h-28.2102v-46.24481h-20.98139v116.96742h20.98139v-52.53116h28.2102v52.53116h20.98139v-116.96742h-20.98139Z"/></g></g></svg></div>
+<template id="mm-wordmark-template"><svg class="mm-wordmark-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 347.28785 243.91451" fill="currentColor" aria-hidden="true" focusable="false"><defs><clipPath id="mm-clip"><rect width="347.28785" height="243.91451"/></clipPath></defs><g clip-path="url(#mm-clip)"><path class="mm-col mm-col-m" d="M61.05734,0c-6.09019,64.554-13.35833,137.86991-15.71614,170.99163h-.19664c-2.31752-35.59704-7.66142-103.60861-13.75162-170.99163H0v243.9145h19.17418v-86.71381c0-42.31577-.51127-93.62895-1.21823-122.23219h.66763c3.73335,47.30548,10.45184,135.1193,16.10942,208.946h18.93725c7.66238-79.24855,14.14491-161.79759,18.19193-208.2388h.47099c-.353,27.7783-.70696,75.51592-.70696,117.3209v90.9179h20.07779V0h-30.64666Z"/><g class="mm-col mm-col-ia"><path transform="translate(0 -259.320)" d="M130.13007,0v114.45278h20.98043V0h-20.98043Z"/><path transform="translate(0 -259.320)" d="M154.29324,127.10439h-27.18861l-27.07158,116.8101h20.98139l5.77556-29.27135h27.07062l5.77652,29.27135h22.00201l-27.34592-116.8101ZM130.52239,196.4517c4.28299-21.57036,8.01538-39.13326,9.43026-49.89878h.47099c1.84653,11.15856,5.34391,27.54257,9.7046,49.89878h-19.60584Z"/><path transform="translate(0 0.000)" d="M130.13007,0v114.45278h20.98043V0h-20.98043Z"/><path transform="translate(0 0.000)" d="M154.29324,127.10439h-27.18861l-27.07158,116.8101h20.98139l5.77556-29.27135h27.07062l5.77652,29.27135h22.00201l-27.34592-116.8101ZM130.52239,196.4517c4.28299-21.57036,8.01538-39.13326,9.43026-49.89878h.47099c1.84653,11.15856,5.34391,27.54257,9.7046,49.89878h-19.60584Z"/><path transform="translate(0 259.320)" d="M130.13007,0v114.45278h20.98043V0h-20.98043Z"/><path transform="translate(0 259.320)" d="M154.29324,127.10439h-27.18861l-27.07158,116.8101h20.98139l5.77556-29.27135h27.07062l5.77652,29.27135h22.00201l-27.34592-116.8101ZM130.52239,196.4517c4.28299-21.57036,8.01538-39.13326,9.43026-49.89878h.47099c1.84653,11.15856,5.34391,27.54257,9.7046,49.89878h-19.60584Z"/><path transform="translate(0 518.640)" d="M130.13007,0v114.45278h20.98043V0h-20.98043Z"/></g><g class="mm-col mm-col-s"><path transform="translate(0 -388.980)" d="M232.16696,129.73678c-13.71229-6.36502-17.44468-10.29405-17.44468-18.74157,0-7.93673,3.69306-13.31948,11.98279-13.31948,10.60916,0,12.3377,9.86191,13.00533,16.54132h20.50944c-.353-15.24467-6.83648-33.04307-33.16082-33.04307-21.1387,0-33.20015,12.80845-33.20015,31.58935,0,17.36626,7.85807,25.77445,27.85624,35.32198,14.81253,7.03288,19.52814,12.61229,19.52814,22.23847,0,8.72234-3.81201,15.16601-14.10558,15.16601-10.72619,0-14.61589-8.52618-15.63748-18.23078h-20.82407c.70696,17.52358,8.91898,34.73277,35.83325,34.73277,24.71378,0,36.06826-15.16625,36.06826-33.5541,0-19.56651-9.43026-28.99629-30.41068-38.70089Z"/><path transform="translate(0 -259.320)" d="M232.16696,129.73678c-13.71229-6.36502-17.44468-10.29405-17.44468-18.74157,0-7.93673,3.69306-13.31948,11.98279-13.31948,10.60916,0,12.3377,9.86191,13.00533,16.54132h20.50944c-.353-15.24467-6.83648-33.04307-33.16082-33.04307-21.1387,0-33.20015,12.80845-33.20015,31.58935,0,17.36626,7.85807,25.77445,27.85624,35.32198,14.81253,7.03288,19.52814,12.61229,19.52814,22.23847,0,8.72234-3.81201,15.16601-14.10558,15.16601-10.72619,0-14.61589-8.52618-15.63748-18.23078h-20.82407c.70696,17.52358,8.91898,34.73277,35.83325,34.73277,24.71378,0,36.06826-15.16625,36.06826-33.5541,0-19.56651-9.43026-28.99629-30.41068-38.70089Z"/><path transform="translate(0 -129.660)" d="M232.16696,129.73678c-13.71229-6.36502-17.44468-10.29405-17.44468-18.74157,0-7.93673,3.69306-13.31948,11.98279-13.31948,10.60916,0,12.3377,9.86191,13.00533,16.54132h20.50944c-.353-15.24467-6.83648-33.04307-33.16082-33.04307-21.1387,0-33.20015,12.80845-33.20015,31.58935,0,17.36626,7.85807,25.77445,27.85624,35.32198,14.81253,7.03288,19.52814,12.61229,19.52814,22.23847,0,8.72234-3.81201,15.16601-14.10558,15.16601-10.72619,0-14.61589-8.52618-15.63748-18.23078h-20.82407c.70696,17.52358,8.91898,34.73277,35.83325,34.73277,24.71378,0,36.06826-15.16625,36.06826-33.5541,0-19.56651-9.43026-28.99629-30.41068-38.70089Z"/><path transform="translate(0 0.000)" d="M232.16696,129.73678c-13.71229-6.36502-17.44468-10.29405-17.44468-18.74157,0-7.93673,3.69306-13.31948,11.98279-13.31948,10.60916,0,12.3377,9.86191,13.00533,16.54132h20.50944c-.353-15.24467-6.83648-33.04307-33.16082-33.04307-21.1387,0-33.20015,12.80845-33.20015,31.58935,0,17.36626,7.85807,25.77445,27.85624,35.32198,14.81253,7.03288,19.52814,12.61229,19.52814,22.23847,0,8.72234-3.81201,15.16601-14.10558,15.16601-10.72619,0-14.61589-8.52618-15.63748-18.23078h-20.82407c.70696,17.52358,8.91898,34.73277,35.83325,34.73277,24.71378,0,36.06826-15.16625,36.06826-33.5541,0-19.56651-9.43026-28.99629-30.41068-38.70089Z"/><path transform="translate(0 129.660)" d="M232.16696,129.73678c-13.71229-6.36502-17.44468-10.29405-17.44468-18.74157,0-7.93673,3.69306-13.31948,11.98279-13.31948,10.60916,0,12.3377,9.86191,13.00533,16.54132h20.50944c-.353-15.24467-6.83648-33.04307-33.16082-33.04307-21.1387,0-33.20015,12.80845-33.20015,31.58935,0,17.36626,7.85807,25.77445,27.85624,35.32198,14.81253,7.03288,19.52814,12.61229,19.52814,22.23847,0,8.72234-3.81201,15.16601-14.10558,15.16601-10.72619,0-14.61589-8.52618-15.63748-18.23078h-20.82407c.70696,17.52358,8.91898,34.73277,35.83325,34.73277,24.71378,0,36.06826-15.16625,36.06826-33.5541,0-19.56651-9.43026-28.99629-30.41068-38.70089Z"/><path transform="translate(0 259.320)" d="M232.16696,129.73678c-13.71229-6.36502-17.44468-10.29405-17.44468-18.74157,0-7.93673,3.69306-13.31948,11.98279-13.31948,10.60916,0,12.3377,9.86191,13.00533,16.54132h20.50944c-.353-15.24467-6.83648-33.04307-33.16082-33.04307-21.1387,0-33.20015,12.80845-33.20015,31.58935,0,17.36626,7.85807,25.77445,27.85624,35.32198,14.81253,7.03288,19.52814,12.61229,19.52814,22.23847,0,8.72234-3.81201,15.16601-14.10558,15.16601-10.72619,0-14.61589-8.52618-15.63748-18.23078h-20.82407c.70696,17.52358,8.91898,34.73277,35.83325,34.73277,24.71378,0,36.06826-15.16625,36.06826-33.5541,0-19.56651-9.43026-28.99629-30.41068-38.70089Z"/><path transform="translate(0 388.980)" d="M232.16696,129.73678c-13.71229-6.36502-17.44468-10.29405-17.44468-18.74157,0-7.93673,3.69306-13.31948,11.98279-13.31948,10.60916,0,12.3377,9.86191,13.00533,16.54132h20.50944c-.353-15.24467-6.83648-33.04307-33.16082-33.04307-21.1387,0-33.20015,12.80845-33.20015,31.58935,0,17.36626,7.85807,25.77445,27.85624,35.32198,14.81253,7.03288,19.52814,12.61229,19.52814,22.23847,0,8.72234-3.81201,15.16601-14.10558,15.16601-10.72619,0-14.61589-8.52618-15.63748-18.23078h-20.82407c.70696,17.52358,8.91898,34.73277,35.83325,34.73277,24.71378,0,36.06826-15.16625,36.06826-33.5541,0-19.56651-9.43026-28.99629-30.41068-38.70089Z"/><path transform="translate(0 518.640)" d="M232.16696,129.73678c-13.71229-6.36502-17.44468-10.29405-17.44468-18.74157,0-7.93673,3.69306-13.31948,11.98279-13.31948,10.60916,0,12.3377,9.86191,13.00533,16.54132h20.50944c-.353-15.24467-6.83648-33.04307-33.16082-33.04307-21.1387,0-33.20015,12.80845-33.20015,31.58935,0,17.36626,7.85807,25.77445,27.85624,35.32198,14.81253,7.03288,19.52814,12.61229,19.52814,22.23847,0,8.72234-3.81201,15.16601-14.10558,15.16601-10.72619,0-14.61589-8.52618-15.63748-18.23078h-20.82407c.70696,17.52358,8.91898,34.73277,35.83325,34.73277,24.71378,0,36.06826-15.16625,36.06826-33.5541,0-19.56651-9.43026-28.99629-30.41068-38.70089Z"/></g><g class="mm-col mm-col-h"><path transform="translate(0 -388.980)" d="M326.30646,83.02051v46.24481h-28.2102v-46.24481h-20.98139v116.96742h20.98139v-52.53116h28.2102v52.53116h20.98139v-116.96742h-20.98139Z"/><path transform="translate(0 -259.320)" d="M326.30646,83.02051v46.24481h-28.2102v-46.24481h-20.98139v116.96742h20.98139v-52.53116h28.2102v52.53116h20.98139v-116.96742h-20.98139Z"/><path transform="translate(0 -129.660)" d="M326.30646,83.02051v46.24481h-28.2102v-46.24481h-20.98139v116.96742h20.98139v-52.53116h28.2102v52.53116h20.98139v-116.96742h-20.98139Z"/><path transform="translate(0 0.000)" d="M326.30646,83.02051v46.24481h-28.2102v-46.24481h-20.98139v116.96742h20.98139v-52.53116h28.2102v52.53116h20.98139v-116.96742h-20.98139Z"/><path transform="translate(0 129.660)" d="M326.30646,83.02051v46.24481h-28.2102v-46.24481h-20.98139v116.96742h20.98139v-52.53116h28.2102v52.53116h20.98139v-116.96742h-20.98139Z"/><path transform="translate(0 259.320)" d="M326.30646,83.02051v46.24481h-28.2102v-46.24481h-20.98139v116.96742h20.98139v-52.53116h28.2102v52.53116h20.98139v-116.96742h-20.98139Z"/><path transform="translate(0 388.980)" d="M326.30646,83.02051v46.24481h-28.2102v-46.24481h-20.98139v116.96742h20.98139v-52.53116h28.2102v52.53116h20.98139v-116.96742h-20.98139Z"/><path transform="translate(0 518.640)" d="M326.30646,83.02051v46.24481h-28.2102v-46.24481h-20.98139v116.96742h20.98139v-52.53116h28.2102v52.53116h20.98139v-116.96742h-20.98139Z"/></g></g></svg></template>
 <script src="lib/reveal/reveal.js"></script>
 <script src="lib/reveal-plugin/notes/notes.js"></script>
 <script>
+  // The 2026 identity: strip openers sit on the four surfaces in turn, and the wordmark takes the paired colour.
+  (function () {
+    var surfaces = [['#b3e297', '#231f20'], ['#9a90cf', '#b3e297'], ['#a5cbed', '#d1e422'], ['#efadb2', '#ee5648']];
+    var tpl = document.getElementById('mm-wordmark-template');
+    var openers = document.querySelectorAll('section.opener');
+    openers.forEach(function (sec, i) {
+      var pair = surfaces[i % surfaces.length];
+      sec.setAttribute('data-background-color', pair[0]);
+      var mark = document.createElement('div');
+      mark.className = 'mm-wordmark';
+      mark.style.color = pair[1];
+      mark.appendChild(tpl.content.cloneNode(true));
+      sec.insertBefore(mark, sec.firstChild);
+    });
+    document.querySelectorAll('.mm-wordmark[data-colour]').forEach(function (el) {
+      el.style.color = el.getAttribute('data-colour');
+      el.appendChild(tpl.content.cloneNode(true));
+    });
+  })();
   Reveal.initialize({
     hash: true,
     // 16:9. Reveal scales this to the screen and keeps the aspect ratio.
@@ -677,6 +729,13 @@
   function toggleTheme() { setTheme(!document.documentElement.classList.contains('dark')); }
   document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
   Reveal.addKeyBinding({ keyCode: 68, key: 'D', description: 'Toggle light/dark mode' }, toggleTheme);
+
+  // Hide the small mark and the footer on slides that sit on a surface colour.
+  function onSurface(ev) {
+    var sl = ev.currentSlide || Reveal.getCurrentSlide();
+    document.body.classList.toggle('on-surface', !!(sl && sl.hasAttribute('data-background-color')));
+  }
+  Reveal.on('ready', onSurface); Reveal.on('slidechanged', onSurface);
 </script>
 </body>
 </html>

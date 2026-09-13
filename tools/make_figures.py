@@ -2,7 +2,7 @@
 """Draws the SVG figures for the Machines session deck into images/.
 
 Run from the repository root:  python tools/make_figures.py
-No dependencies. Colours follow the deck's blue palette. The slides invert
+No dependencies. Colours follow the 2026 MishMash identity. The slides invert
 figures in dark mode with a CSS filter, so everything is drawn for a white
 background. Layered figures (fig-x-0.svg, fig-x-1.svg, ...) share one viewBox;
 each later layer only contains what it adds, and the slide stacks them.
@@ -12,15 +12,16 @@ import os
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(os.path.dirname(HERE), "images")
 
-# MishMash palette: purple #A7A1F4, green #C1F7AE, dark #363644. Pastels are fills and
-# borders; text is always dark or muted so it stays readable on white and on the pastels.
-INK, MUTED, LINE = "#363644", "#7a7a8c", "#d6d6e0"
-PURPLE, PURPLE_MID, PURPLE_PALE = "#A7A1F4", "#7f78e0", "#eeedfc"
-GREEN, GREEN_PALE = "#C1F7AE", "#e6fbdd"
-BLUE, BLUE_LIGHT, BLUE_PALE = PURPLE, "#d3d0f9", PURPLE_PALE
-RED, RED_PALE, AMBER, AMBER_PALE = INK, "#f1f1f4", PURPLE, PURPLE_PALE
-PASTEL = {PURPLE, GREEN, PURPLE_MID, GREEN}
-FONT = "font-family='Inter, Helvetica Neue, Helvetica, Arial, sans-serif'"
+# MishMash visual identity 2026 (mishmash-web BRAND.md): four pastel surfaces, ink, two accents.
+# Text on a pastel is always ink; boxes are flat with ink rules and no rounding.
+INK, MUTED, LINE = "#231f20", "#5c5859", "#231f20"
+PURPLE, PURPLE_MID, PURPLE_PALE = "#9a90cf", "#9a90cf", "#f0eef9"
+GREEN, GREEN_PALE = "#b3e297", "#f0f8e9"
+BLUE, BLUE_LIGHT, BLUE_PALE = "#a5cbed", "#cfe3f5", "#edf4fb"
+RED, RED_PALE, AMBER, AMBER_PALE = "#ee5648", "#fdf1f1", PURPLE, PURPLE_PALE
+PINK, YELLOW = "#efadb2", "#d1e422"
+PASTEL = {PURPLE, GREEN, BLUE, PINK, PURPLE_MID}
+FONT = "font-family='Inter, Raleway, Arial, sans-serif'"
 
 
 def write(name, doc):
@@ -54,11 +55,11 @@ def lines(x, y, rows, size=18, fill=INK, anchor="middle", lh=1.3, weight="normal
     return "".join(out)
 
 
-def box(x, y, w, h, fill="white", stroke=LINE, sw=3, r=14):
+def box(x, y, w, h, fill="white", stroke=LINE, sw=2, r=0):
     return f"<rect x='{x}' y='{y}' width='{w}' height='{h}' rx='{r}' fill='{fill}' stroke='{stroke}' stroke-width='{sw}'/>"
 
 
-def arrow(x1, y1, x2, y2, color=BLUE, sw=4, mid="a", dash=""):
+def arrow(x1, y1, x2, y2, color=INK, sw=4, mid="a", dash=""):
     d = f" stroke-dasharray='{dash}'" if dash else ""
     return f"<line x1='{x1}' y1='{y1}' x2='{x2}' y2='{y2}' stroke='{color}' stroke-width='{sw}' marker-end='url(#{mid})'{d}/>"
 
@@ -66,7 +67,7 @@ def arrow(x1, y1, x2, y2, color=BLUE, sw=4, mid="a", dash=""):
 # ---------------------------------------------------------------- 1 two roads
 def two_roads():
     W, H = 1600, 700
-    defs = marker("a", BLUE)
+    defs = marker("a", INK)
     rent = []
     rent.append(box(60, 80, 640, 560, PURPLE_PALE, PURPLE))
     rent.append(text(380, 150, "Rent a service", 40, RED, weight="bold"))
@@ -84,7 +85,7 @@ def two_roads():
     run.append(text(1220, 600, "control: yours", 22, MUTED))
     write("fig-two-roads-1.svg", svg(W, H, "".join(run), defs))
     mid = []
-    mid.append(f"<rect x='700' y='250' width='200' height='220' rx='14' fill='white' stroke='{INK}' stroke-width='3'/>")
+    mid.append(f"<rect x='700' y='250' width='200' height='220' rx='0' fill='white' stroke='{INK}' stroke-width='3'/>")
     mid.append(lines(800, 300, ["The middle", "road"], 26, BLUE, weight="bold"))
     mid.append(lines(800, 370, ["open models,", "rented GPUs", "(HF, Mistral,", "EU providers)"], 18, INK))
     write("fig-two-roads-2.svg", svg(W, H, "".join(mid), defs))
@@ -115,7 +116,7 @@ def ladder():
         base.append(text(x + bw / 2, top + 44 + 26 * 1.3 * len(name.split("\n")), ex, 16, MUTED))
         base.append(lines(x + bw / 2, 700, use.split("\n"), 17, INK))
         base.append(text(x + bw / 2, 750, price, 16, MUTED))
-        mem.append(f"<rect x='{x+20}' y='{top-52}' width='{bw-40}' height='40' rx='8' fill='{BLUE_PALE}' stroke='{BLUE}' stroke-width='2'/>")
+        mem.append(f"<rect x='{x+20}' y='{top-52}' width='{bw-40}' height='40' rx='0' fill='{BLUE_PALE}' stroke='{BLUE}' stroke-width='2'/>")
         mem.append(text(x + bw / 2, top - 25, memv, 19, BLUE, weight="bold"))
     write("fig-ladder-0.svg", svg(W, H, "".join(base)))
     mem.append(text(1500, 250, "memory (RAM, VRAM or unified)", 20, BLUE, weight="bold"))
@@ -123,8 +124,8 @@ def ladder():
     # model sizes as pills spanning rungs
     def pill(i0, i1, y, label, col):
         xa = x0 + i0 * step + 10; xb = x0 + i1 * step + bw - 10
-        return (f"<rect x='{xa}' y='{y}' width='{xb-xa}' height='36' rx='18' fill='{col}' opacity='.92'/>"
-                + text((xa + xb) / 2, y + 25, label, 18, "white" if col in (INK, PURPLE_MID) else INK, weight="bold"))
+        return (f"<rect x='{xa}' y='{y}' width='{xb-xa}' height='36' rx='0' fill='{col}' opacity='.92'/>"
+                + text((xa + xb) / 2, y + 25, label, 18, "white" if col == INK else INK, weight="bold"))
     models.append(pill(0, 1, 40, "TinyML · RAVE (real-time audio)", GREEN))
     models.append(pill(2, 4, 85, "1–8B LLM at 4-bit (≈1–5 GB) · Whisper · small diffusion", BLUE))
     models.append(pill(4, 6, 130, "14–30B (≈10–20 GB) · SDXL, FLUX · fine-tuning", PURPLE_MID))
@@ -163,7 +164,7 @@ STAIRS = [
 
 def stair():
     W, H = 1700, 800
-    defs = marker("a", BLUE) + marker("r", GREEN)
+    defs = marker("a", INK) + marker("r", RED)
     base, more = [], []
     x0, step, bw = 60, 320, 290
     for i, (name, desc, who) in enumerate(STAIRS):
@@ -174,9 +175,9 @@ def stair():
         base.append(lines(x + bw / 2, top + 85, desc.split("\n"), 17, INK))
         base.append(text(x + bw / 2, 668, who, 17, MUTED))
     write("fig-stair-0.svg", svg(W, H, "".join(base), defs))
-    more.append(arrow(120, 100, 1580, 100, BLUE, 5, "a"))
+    more.append(arrow(120, 100, 1580, 100, INK, 5, "a"))
     more.append(text(850, 80, "more compute · more people can share it · more data next to it", 24, BLUE, weight="bold"))
-    more.append(arrow(120, 730, 1580, 730, GREEN, 5, "r"))
+    more.append(arrow(120, 730, 1580, 730, RED, 5, "r"))
     more.append(text(850, 775, "more waiting · more paperwork · less interactive · batch, not a rehearsal", 24, RED, weight="bold"))
     write("fig-stair-1.svg", svg(W, H, "".join(more), defs))
 
@@ -185,7 +186,7 @@ def stair():
 def frontends():
     """Layered: fig-frontends-0.svg is the model, 1 to 4 add one family each with its arrow."""
     W, H = 1600, 760
-    defs = marker("a", BLUE)
+    defs = marker("a", INK)
     base = []
     base.append(f"<circle cx='800' cy='380' r='110' fill='{BLUE_PALE}' stroke='{BLUE}' stroke-width='4'/>")
     base.append(lines(800, 372, ["the model", "(local or remote)"], 24, BLUE, weight="bold"))
@@ -199,14 +200,14 @@ def frontends():
         b.append(box(x, y, 500, 200, "white", LINE))
         b.append(text(x + 250, y + 45, name, 28, INK, weight="bold"))
         b.append(lines(x + 250, y + 90, items, 19, INK))
-        b.append(arrow(x1, y1, 800 + (110 if x1 > 800 else -110) * 0.75, 380 + (70 if y1 > 380 else -70), BLUE, 3, "a"))
+        b.append(arrow(x1, y1, 800 + (110 if x1 > 800 else -110) * 0.75, 380 + (70 if y1 > 380 else -70), INK, 3, "a"))
         write(f"fig-frontends-{i}.svg", svg(W, H, "".join(b), defs))
 
 
 def api():
     """Layered: fig-api-0.svg is the script and the bottom line, 1 to 5 add one backend each with its arrow."""
     W, H = 1600, 660
-    defs = marker("a", BLUE)
+    defs = marker("a", INK)
     base = []
     base.append(box(60, 200, 420, 220, BLUE_PALE, BLUE))
     base.append(lines(270, 270, ["one script,", "one Max patch,", "one notebook"], 30, BLUE, weight="bold"))
@@ -222,7 +223,7 @@ def api():
         b.append(box(1000, y, 540, 84, "white", col))
         b.append(text(1030, y + 38, name, 26, col, "start", "bold"))
         b.append(text(1030, y + 68, sub, 18, MUTED, "start"))
-        b.append(arrow(490, 310, 995, y + 42, BLUE, 3, "a"))
+        b.append(arrow(490, 310, 995, y + 42, INK, 3, "a"))
         write(f"fig-api-{i}.svg", svg(W, H, "".join(b), defs))
         y += 108
 
@@ -297,7 +298,7 @@ def spectrum():
 
 def workflow(name, title, stages, note):
     W, H = 1600, 440
-    defs = marker("a", BLUE)
+    defs = marker("a", INK)
     b = [text(800, 60, title, 34, INK, weight="bold")]
     labels = ["prototype small and local", "scale up only for training", "bring it back to the room"]
     for i, (head, body) in enumerate(stages):
@@ -307,7 +308,7 @@ def workflow(name, title, stages, note):
         b.append(text(x + 230, 200, head, 28, INK, weight="bold"))
         b.append(lines(x + 230, 245, body, 20, INK))
         if i < 2:
-            b.append(arrow(x + 470, 250, x + 515, 250, BLUE, 4, "a"))
+            b.append(arrow(x + 470, 250, x + 515, 250, INK, 4, "a"))
     write(f"fig-workflow-{name}.svg", svg(W, H, "".join(b), defs))
 
 
@@ -336,7 +337,7 @@ def workflows():
 
 def loop():
     W, H = 1600, 520
-    defs = marker("a", BLUE)
+    defs = marker("a", INK)
     b = []
     b.append(box(60, 160, 440, 200, BLUE_PALE, BLUE))
     b.append(lines(280, 230, ["Researcher", "trains on Olivia / LUMI"], 28, BLUE, weight="bold"))
@@ -344,8 +345,8 @@ def loop():
     b.append(lines(800, 230, ["Open release", "weights, data card, licence"], 28, INK, weight="bold"))
     b.append(box(1100, 160, 440, 200, GREEN_PALE, GREEN))
     b.append(lines(1320, 230, ["Musician, teacher,", "filmmaker: laptop"], 28, GREEN, weight="bold"))
-    b.append(arrow(505, 260, 575, 260, BLUE, 4, "a"))
-    b.append(arrow(1025, 260, 1095, 260, BLUE, 4, "a"))
+    b.append(arrow(505, 260, 575, 260, INK, 4, "a"))
+    b.append(arrow(1025, 260, 1095, 260, INK, 4, "a"))
     b.append(text(800, 440, "when the loop works: compute upstream, open models downstream", 28, INK, weight="bold"))
     write("fig-loop.svg", svg(W, H, "".join(b), defs))
 
@@ -353,7 +354,7 @@ def loop():
 # ---------------------------------------------------------------- 7 use or develop
 def use_develop():
     W, H = 1600, 700
-    defs = marker("a", BLUE) + marker("g", INK)
+    defs = marker("a", INK) + marker("g", INK)
 
     def panel(x, w, fill, stroke, title, glyph, rows, bar, catch):
         cx = x + w / 2
@@ -370,7 +371,7 @@ def use_develop():
     ga = [box(130, 250, 130, 56, "white", GREEN), text(195, 285, "finished model", 16, INK),
           arrow(270, 278, 340, 278, INK, 3, "g"),
           box(350, 250, 120, 56, "white", GREEN), text(410, 285, "any device", 16, INK)]
-    bar_a = [f"<rect x='200' y='530' width='90' height='16' rx='8' fill='{GREEN}'/>", text(300, 545, "minutes", 16, MUTED, "start")]
+    bar_a = [f"<rect x='200' y='530' width='90' height='16' rx='0' fill='{GREEN}'/>", text(300, 545, "minutes", 16, MUTED, "start")]
     A = panel(60, 460, GREEN_PALE, GREEN, ["Use off the shelf"], ga,
               ["hardware: anything that runs inference", "who: everyone on the map"], bar_a,
               "the catch: their data, their terms")
@@ -386,7 +387,7 @@ def use_develop():
           box(750, 250, 130, 56, PURPLE_PALE, PURPLE), text(815, 285, "fixed architecture", 15, INK),
           arrow(885, 278, 915, 278, INK, 3, "g"),
           box(920, 250, 110, 56, "white", PURPLE), text(975, 285, "your model", 16, INK)]
-    bar_b = [f"<rect x='660' y='530' width='200' height='16' rx='8' fill='{PURPLE}'/>", text(875, 545, "hours to days, known", 16, MUTED, "start")]
+    bar_b = [f"<rect x='660' y='530' width='200' height='16' rx='0' fill='{PURPLE}'/>", text(875, 545, "hours to days, known", 16, MUTED, "start")]
     B = panel(560, 500, PURPLE_PALE, PURPLE, ["Train an existing architecture", "on new data"], gb,
               ["RAVE on your recordings, a LoRA on your film", "hardware: one GPU, sometimes a cluster", "who: PhDs, labs, a studio with a GPU"], bar_b,
               "the catch: rights to the data")
@@ -398,7 +399,7 @@ def use_develop():
         x = 1120 + i * 82
         gc.append(box(x, 250, 62, 56, "white", INK, 2))
         gc.append(text(x + 31, 290, mark, 30, INK, weight="bold"))
-    bar_c = [f"<rect x='1190' y='530' width='260' height='16' rx='8' fill='none' stroke='{INK}' stroke-width='3' stroke-dasharray='10 8'/>",
+    bar_c = [f"<rect x='1190' y='530' width='260' height='16' rx='0' fill='none' stroke='{INK}' stroke-width='3' stroke-dasharray='10 8'/>",
              text(1465, 546, "?", 26, INK, "start", weight="bold")]
     C = panel(1090, 450, "white", INK, ["Develop new methods"], gc,
               ["new architectures, objectives, control", "hardware: many runs, most fail", "who: ML groups on national compute"], bar_c,
