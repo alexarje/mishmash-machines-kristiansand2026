@@ -76,7 +76,7 @@
   .quote { font-size: 1.05em; font-style: italic; border-left: 6px solid var(--mm-purple); padding-left: .6em; margin: .4em 0; }
   .hint { position: absolute; bottom: 1em; right: 1.2em; font-size: .45em; color: var(--muted); }
   /* Title slide and strip openers sit on a surface colour; the wordmark takes the paired colour. */
-  .reveal .title-grid { display: grid; grid-template-columns: 0.42fr 1fr; gap: 1.2em; align-items: end; }
+  .reveal .title-grid { display: grid; grid-template-columns: 0.42fr 1fr; gap: 1.2em; align-items: center; }
   .reveal .mm-wordmark { display: block; line-height: 0; }
   .reveal .mm-wordmark svg { display: block; width: 100%; height: auto; max-height: none; }
   .reveal .mm-wordmark-title { width: 100%; }
@@ -737,5 +737,6 @@
   }
   Reveal.on('ready', onSurface); Reveal.on('slidechanged', onSurface);
 </script>
+<script src="lib/wordmark.js"></script>
 </body>
 </html>
