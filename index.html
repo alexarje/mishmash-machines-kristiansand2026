@@ -93,7 +93,7 @@
   .reveal .layers img { display: block; width: 100%; height: auto; max-height: none; margin: 0; }
   .reveal .layers img + img { position: absolute; left: 0; top: 0; }
   /* Map of the talk: one row of strips */
-  .map { display: grid; grid-template-columns: 5.5em repeat(9, 1fr); gap: .3em; font-size: .42em; width: 100%; }
+  .map { display: grid; grid-template-columns: repeat(9, 1fr); gap: .3em; font-size: .42em; width: 100%; }
   .map > div { border: 2px solid var(--rule); border-radius: 0; padding: .4em .3em; text-align: center; min-height: 3.2em; display: flex; align-items: flex-start; justify-content: center; }
   .map .h { background: var(--mm-green); font-family: var(--mm-font-display); font-weight: 700; font-size: 1.15em; letter-spacing: -0.01em; }
   .map .e { font-weight: 700; }
@@ -220,7 +220,6 @@
   <section>
     <p class="kicker">Map of the introduction</p>
     <div class="map">
-      <div class="lbl">Strips</div>
       <div class="h"><div>Rent or run<span class="sub">two roads · the bill · tokens or people</span></div></div>
       <div class="h"><div>Own hardware<span class="sub">the ladder · memory</span></div></div>
       <div class="h"><div>Shared compute<span class="sub">server · VDI · Fox · Sigma2 · LUMI</span></div></div>
